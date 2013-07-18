@@ -3,7 +3,7 @@ laboite-webapp
 
 This is a PHP+MySQL web application that allows the remote configuration of [laboîte devices](https://github.com/bgaultier/laboite) connected to Internet.
 
-![laboite system overview](https://raw.github.com/bgaultier/laboite-web-app/templates/images/overview_en_US.svg)
+![laboite webapp](https://raw.github.com/bgaultier/laboite-webapp/master/templates/images/laboite-webapp.png")
 
 Installation
 ------------
