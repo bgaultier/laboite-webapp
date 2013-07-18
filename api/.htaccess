@@ -1,0 +1,9 @@
+Options +FollowSymLinks
+RewriteEngine On
+RewriteBase /
+
+RewriteEngine on
+RewriteRule ^([a-zA-Z0-9_-]+)$ device.php?apikey=$1
+RewriteRule ^([a-zA-Z0-9_-]+)/$ device.php?apikey=$1
+RewriteRule ^([a-zA-Z0-9_-]+)\.(xml|json|csv)$ device.php?apikey=$1&format=$2
+

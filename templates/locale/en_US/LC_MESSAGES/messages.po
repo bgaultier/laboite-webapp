@@ -1,0 +1,420 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: laboîte\n"
+"POT-Creation-Date: 2013-07-18 12:08+0100\n"
+"PO-Revision-Date: 2013-07-18 12:20+0100\n"
+"Last-Translator: Baptiste Gaultier <b.gaultier@gmail.com>\n"
+"Language-Team: Baptiste Gaultier <b.gaultier@gmail.com>\n"
+"Language: en_GB\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: ../../..\n"
+
+#: ../../../devices.php:10
+msgid "Mes boîtes - laboîte.cc"
+msgstr "My devices - laboite.cc"
+
+#: ../../../devices.php:41 ../../../help.php:76 ../../../help.php:89
+#: ../../../help.php:97
+msgid "Boîtes"
+msgstr "Devices"
+
+#: ../../../devices.php:48
+msgid "Emplacement"
+msgstr "Location"
+
+#: ../../../devices.php:49
+msgid "Statut"
+msgstr "Status"
+
+#: ../../../devices.php:49
+msgid ""
+"Indique si cette boîte s'est connectée à ce serveur dans les 10 dernières "
+"minutes"
+msgstr ""
+"Indicates whether a device tried to connect to this server during the last "
+"10 minutes"
+
+#: ../../../devices.php:50 ../../../devices.php:109 ../../../apps.php:73
+msgid "Clé d'API"
+msgstr "API key"
+
+#: ../../../devices.php:50
+msgid "Identifie de manière unique votre boîte"
+msgstr "Uniquely identifies a device"
+
+#: ../../../devices.php:51 ../../../help.php:79 ../../../help.php:158
+msgid "API"
+msgstr "API"
+
+#: ../../../devices.php:51
+msgid "Voir le fichier envoyé à la boîte au format xml, json ou csv"
+msgstr "Have a look at the xml, json or csv files sent to the devices "
+
+#: ../../../devices.php:58 ../../../apps.php:98
+msgid "Configurer"
+msgstr "Configure"
+
+#: ../../../devices.php:59
+msgid "Supprimer"
+msgstr "Delete"
+
+#: ../../../devices.php:66 ../../../devices.php:74
+msgid "Ajouter une boîte"
+msgstr "Add a device"
+
+#: ../../../devices.php:68
+msgid "Ajouter"
+msgstr "Add"
+
+#: ../../../devices.php:78 ../../../devices.php:79 ../../../devices.php:104
+#: ../../../devices.php:106
+msgid "Nom de la boîte"
+msgstr "Device name"
+
+#: ../../../devices.php:80 ../../../devices.php:107
+msgid "Localisation"
+msgstr "Location"
+
+#: ../../../devices.php:81 ../../../devices.php:108
+msgid "Localisation (exemple : salon)"
+msgstr "Location ( e.g. living room)"
+
+#: ../../../devices.php:82 ../../../devices.php:114 ../../../apps.php:44
+#: ../../../layout.php:82 ../../../help.php:78 ../../../help.php:118
+msgid "Apps"
+msgstr "Apps"
+
+#: ../../../devices.php:90 ../../../devices.php:122 ../../../apps.php:92
+msgid "Fermer"
+msgstr "Close"
+
+#: ../../../devices.php:91 ../../../devices.php:123 ../../../apps.php:93
+#: ../../../account.php:27
+msgid "Enregistrer les modifications"
+msgstr "Save"
+
+#: ../../../devices.php:100
+msgid "Configurer une boîte"
+msgstr "Configure a device"
+
+#: ../../../apps.php:10
+msgid "Apps - laboîte.cc"
+msgstr "Apps - laboite.cc"
+
+#: ../../../apps.php:52
+msgid "Description"
+msgstr "Description"
+
+#: ../../../apps.php:57
+msgid "Configurer une app"
+msgstr "Configure an app"
+
+#: ../../../apps.php:62
+msgid ""
+"Merci d'indiquer vos préférences dans les champs ci-dessous (n'hésitez pas à "
+"consulter l'"
+msgstr "Please complete the following fields (have a look at the "
+
+#: ../../../apps.php:62 ../../../layout.php:85
+msgid "Aide"
+msgstr "Help"
+
+#: ../../../apps.php:62
+msgid "aide"
+msgstr "help"
+
+#: ../../../apps.php:62
+msgid " pour plus d'informations) : "
+msgstr " for more information about you have to do) :"
+
+#: ../../../apps.php:64
+msgid "Ville"
+msgstr "City"
+
+#: ../../../apps.php:67
+msgid "Nom d'utilisateur ou email"
+msgstr "Username or email"
+
+#: ../../../apps.php:70 ../../../login.php:21 ../../../signup.php:14
+#: ../../../account.php:20
+msgid "Mot de passe"
+msgstr "Password"
+
+#: ../../../apps.php:76
+msgid "N° de flux"
+msgstr "Feed id"
+
+#: ../../../apps.php:79
+msgid "N° arrêt de bus (Timeo)"
+msgstr "Bus stop (Timeo)"
+
+#: ../../../apps.php:82
+msgid "N° ligne de bus (004)"
+msgstr "Bus line (e.g. 004)"
+
+#: ../../../apps.php:85
+msgid "Direction (0 ou 1)"
+msgstr "Direction (0 or 1)"
+
+#: ../../../apps.php:88
+msgid "N° station de vélo"
+msgstr "Bike station"
+
+#: ../../../layout.php:72 ../../../login.php:19 ../../../login.php:22
+msgid "Connexion"
+msgstr "Login"
+
+#: ../../../layout.php:76
+msgid "Mes boîtes"
+msgstr "My devices"
+
+#: ../../../layout.php:76
+msgid "Accueil"
+msgstr "Home"
+
+#: ../../../layout.php:86
+msgid "À propos"
+msgstr "About"
+
+#: ../../../help.php:1
+msgid "Aide - laboîte.cc"
+msgstr "Help - laboite.cc"
+
+#: ../../../help.php:75 ../../../help.php:85
+msgid "Vue d'ensemble"
+msgstr "Overview"
+
+#: ../../../help.php:77 ../../../help.php:90 ../../../help.php:109
+msgid "Serveurs"
+msgstr "Servers"
+
+#: ../../../help.php:87
+msgid "Le projet laboîte est un projet open-source composé de :"
+msgstr ""
+"laboite is an open-source project made up of software and hardware modules:"
+
+#: ../../../help.php:89
+msgid " : des petits écrans connectés à Internet."
+msgstr ": small screens connected to Internet."
+
+#: ../../../help.php:90
+msgid " : des machines qui permettent de configurer les boîtes et les "
+msgstr ": computers that allow the remote configuration of devices and "
+
+#: ../../../help.php:90 ../../../help.php:101 ../../../help.php:112
+msgid "apps"
+msgstr "apps"
+
+#: ../../../help.php:93
+msgid "templates/images/overview_fr_FR.svg"
+msgstr "templates/images/overview_en_US.svg"
+
+#: ../../../help.php:99
+msgid ""
+"Les boîtes sont des équipements connectés à Internet équipés d'un écran et "
+"de capteurs optionnels. Les boîtes sont basées sur la plateforme "
+msgstr ""
+"The devices are compact machines with sensors and a LED matrix. They are "
+"based on "
+
+#: ../../../help.php:99
+msgid "http://arduino.cc/fr/"
+msgstr "http://arduino.cc/en/"
+
+#: ../../../help.php:99
+msgid "Elles peuvent être construites à partir des composants suivants  : "
+msgstr "They can be built using the following components:"
+
+#: ../../../help.php:101
+msgid "Un Arduino Ethernet"
+msgstr "Arduino Ethernet"
+
+#: ../../../help.php:101
+msgid " : c'est l'intelligence du projet laboîte, l'Arduino se connecte au "
+msgstr ": this is the brain of laboite project, Arduino connects to "
+
+#: ../../../help.php:101
+msgid "serveur"
+msgstr "the server"
+
+#: ../../../help.php:101
+msgid " et récupère les différentes "
+msgstr " and retrieves "
+
+#: ../../../help.php:101
+msgid ". Il traite ensuite ces données et les affiche."
+msgstr " data. Then it parses the data and displays them."
+
+#: ../../../help.php:102
+msgid "Une matrice de LED SURE electronics"
+msgstr "A SURE elextronics LED matrix"
+
+#: ../../../help.php:102
+msgid " : une matrice de 32×16 pixels avec deux couleurs."
+msgstr ": a 32&times;16 bicolor LED Dot Matrix Unit Board."
+
+#: ../../../help.php:112
+msgid ""
+"Le serveur est une machine qui accueille PHP + MySQL ainsi qu'une "
+"application web open-source. Cette application permet la configuration à "
+"distance de "
+msgstr ""
+"The server is a computer with an open-source PHP/MySQL webapp deployed. This "
+"webapp allows the remote configuration of "
+
+#: ../../../help.php:112 ../../../help.php:121
+msgid "boîtes"
+msgstr "devices"
+
+#: ../../../help.php:112
+msgid " et d'"
+msgstr " and its "
+
+#: ../../../help.php:112
+msgid ""
+". Cette application web peut être téléchargée depuis github et installer sur "
+"votre serveur. Il est également possible d'utiliser gratuitement l'instance "
+"du serveur "
+msgstr ""
+". This webapp can be dowloaded from github and installed on your server. You "
+"can also use our  hosted ready to use instance on "
+
+#: ../../../help.php:112
+msgid " (ce serveur)."
+msgstr " (this server)."
+
+#: ../../../help.php:114
+msgid "Télécharger la web app laboîte"
+msgstr "Download laboite webapp"
+
+#: ../../../help.php:121
+msgid ""
+"Les apps permettent de configurer facilement les informations affichées sur "
+"les "
+msgstr "Apps allows you to modify the information displayed on the "
+
+#: ../../../help.php:121
+msgid ""
+". Chacune des apps permet l'affichage d'une ou plusieurs données. Voici "
+"quelques exemples : "
+msgstr ""
+". Each app allows the display of one or more information. Here are some "
+"examples: "
+
+#: ../../../help.php:128
+msgid "<strong>Time</strong><br> affiche l'heure d'une ville dans le monde"
+msgstr "<strong>Time</strong><br> shows time for a city in the world"
+
+#: ../../../help.php:134
+msgid "<strong>Emails</strong><br> affiche le nombre de mails non-lus"
+msgstr "<strong>Emails</strong><br> shows the number of unread mails"
+
+#: ../../../help.php:140
+msgid "<strong>Weather</strong><br> affiche les conditions météo"
+msgstr "<strong>Weather</strong><br> displays the weather forecast"
+
+#: ../../../help.php:146
+msgid ""
+"<strong>Buses</strong><br> affiche les minutes avant le passage d'un bus"
+msgstr "<strong>Buses</strong><br> shows the waiting time for the next bus"
+
+#: ../../../help.php:152
+msgid "<strong>Waves</strong><br> affiche les conditions d'un spot"
+msgstr ""
+"<strong>Waves</strong><br> displays predicted conditions for a surf spot"
+
+#: ../../../help.php:161
+msgid ""
+"Une API permet à votre boîte d'accéder à ses différentes apps en utilisant "
+"un protocole et un format compréhensible par une machine. Les deux "
+"protocoles applicatifs disponibles sont "
+msgstr ""
+"An API allows your device to retrieves its apps data using a computer-"
+"freindly network protocol and format. There are two network protocols "
+"available: "
+
+#: ../../../help.php:161
+msgid " et "
+msgstr " and "
+
+#: ../../../help.php:161
+msgid ". Les formats de représentation de données sont "
+msgstr ". Two formats are supported to recover data: "
+
+#: ../../../help.php:161
+msgid ""
+". Voici un exemple de fichier XML contenant trois apps (<strong>Time</"
+"strong>, <strong>Buses</strong> et <strong>Weather</strong>) :"
+msgstr ""
+". Here is a XML file example containing three apps (<strong>Time</strong>, "
+"<strong>Buses</strong> and <strong>Weather</strong>):"
+
+#: ../../../help.php:177
+msgid "Les mêmes informations au format json : "
+msgstr "Same info in json format: "
+
+#: ../../../help.php:192
+msgid "Ces fichiers peuvent être récupérés en utilisant l'url suivante : "
+msgstr "These fils can be retrieved using this url:"
+
+#: ../../../login.php:14 ../../../account.php:10
+msgid "Connexion - laboîte.cc"
+msgstr "Login - laboite.cc"
+
+#: ../../../login.php:20 ../../../signup.php:13
+msgid "Adresse e-mail"
+msgstr "Email"
+
+#: ../../../signup.php:1
+msgid "Inscription - laboîte.cc"
+msgstr "Signup - laboîte.cc"
+
+#: ../../../signup.php:6
+msgid "Attention ! "
+msgstr "Warning! "
+
+#: ../../../signup.php:6
+msgid "L'utilisateur existe déjà"
+msgstr "This email already exists"
+
+#: ../../../signup.php:12
+msgid "Créer un compte"
+msgstr "Sign Up"
+
+#: ../../../signup.php:20
+msgid "Inscription"
+msgstr "Sign Up"
+
+#: ../../../account.php:15
+msgid "Modifier votre compte"
+msgstr "Modify your account"
+
+#: ../../../account.php:16
+msgid "Adresse email"
+msgstr "Email"
+
+#: ../../../account.php:18
+msgid "Modifier votre mot de passe"
+msgstr "Change your password"
+
+#: ../../../account.php:19
+msgid "Ancien mot de passe"
+msgstr "Old password"
+
+#: ../../../account.php:21
+msgid "Langue"
+msgstr "Locale"
+
+#: ../../../account.php:26
+msgid "Déconnexion"
+msgstr "Logout"
+
+#~ msgid "Location"
+#~ msgstr "Location"
