@@ -14,14 +14,6 @@
       <link rel="shortcut icon" href="templates/bootstrap/ico/favicon.png">
       <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
       <style type="text/css">
-        body {
-          padding-top: 60px;
-          padding-bottom: 40px;
-        }
-        .sidebar-nav {
-          padding: 9px 0;
-        }
-
         @media (max-width: 980px) {
           /* Enable use of floated navbar text */
           .navbar-text.pull-right {
@@ -36,7 +28,7 @@
           border: 1px solid #E5E5E5;
           border-radius: 5px 5px 5px 5px;
           box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-          margin: 0 auto 20px;
+          margin: 20px auto 20px;
           max-width: 300px;
           padding: 19px 29px 29px;
         }
@@ -54,14 +46,15 @@
     </style>
   </head>
   <body data-spy="scroll" data-target=".bs-docs-sidebar">
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-static-top">
         <div class="navbar-inner">
-          <div class="container-fluid">
-            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <div class="container">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
-            </button>
+            </a>
             <a class="brand" href="<?php echo "http://" . $_SERVER['SERVER_NAME']; ?>"><img alt="laboîte" src="templates/images/logo.svg"></a>
             <div class="nav-collapse collapse">
               <p class="navbar-text pull-right">

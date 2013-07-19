@@ -42,7 +42,7 @@
     }
   </style>
   <h1><?php echo _('Apps'); ?></h1>
-  <div class="row-fluid">
+  <div class="row">
     <ul class="thumbnails">
       <?php foreach ($apps as $app): ?>
         <li class="span3">

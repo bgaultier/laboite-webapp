@@ -37,9 +37,9 @@
       });
     });
   </script>
-  <div class="row-fluid">
+  <div class="row">
     <h1><?php echo _('Boîtes'); ?></h1>
-    <div class="row-fluid">
+    <div class="row">
       <ul class="thumbnails">
         <?php foreach ($devices as $device): ?>
           <li class="span3">
