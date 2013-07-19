@@ -4,9 +4,6 @@
   
   $version = "0.1";
   
-  $now = time();
-	$last_week = ($now - (7 * 24 * 3600)) * 1000;
-  
   if(isset($_GET['apikey'])) {
     update_device_last_activity($_GET['apikey']);
     $apps = get_device_apps_by_apikey($_GET['apikey']);
