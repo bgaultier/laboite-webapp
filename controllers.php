@@ -98,7 +98,7 @@
   function get_user_app_action($userid, $appid) {
     $app = get_user_app_by_id($userid, $appid);
     if($app == false) {
-      add_user_app($userid, $id);
+      add_user_app($userid, $appid);
       $app = get_user_app_by_id($userid, $appid);
     }
     require 'templates/app.json.php';
