@@ -3,6 +3,7 @@
   require_once '../models.php';
   
   $version = "0.1";
+  $now = time();
   
   if(isset($_GET['apikey'])) {
     update_device_last_activity($_GET['apikey']);
@@ -11,21 +12,20 @@
 	
 	$data["version"] = $version;
 	
-	if(isset($apps[1])) {
+	if(isset($apps[1]))
 	  include_once "app1.php";
-	}
 	
-	if(isset($apps[3])) {
+	if(isset($apps[3]))
 	  include_once "app3.php";
-	}
 	
-	if(isset($apps[4])) {
+	if(isset($apps[4]))
 	  include_once "app4.php";
-	}
 	
-	if(isset($apps[2])) {
+	if(isset($apps[9]))
+	  include_once "app9.php";
+	
+	if(isset($apps[2]))
 	  include_once "app2.php";
-	}
 	
 	if(isset($_GET['format'])) {
 	  if($_GET['format'] == "json") {

@@ -67,7 +67,7 @@
                     <input id="login" type="text" name="login" class="input-large" placeholder="<?php echo _('Nom d\'utilisateur ou email'); ?>" >
                   </div>
                   <div>
-                    <input id="password" type="text" name="password" class="input-large" placeholder="<?php echo _('Mot de passe'); ?>" >
+                    <input id="password" type="password" name="password" class="input-large" placeholder="<?php echo _('Mot de passe'); ?>" >
                   </div>
                   <div>
                     <input id="apikey" type="text" name="apikey" class="input-large" placeholder="<?php echo _('Clé d\'API'); ?>" >
