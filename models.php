@@ -276,7 +276,7 @@
     $link = open_database_connection();
 
     $userid = intval($userid);
-    $query = "UPDATE user_apps SET city ='" . mysql_real_escape_string($values['city']) . "', login ='" . mysql_real_escape_string($values['login']) . "', password ='" . mysql_real_escape_string($values['password']) . "', apikey ='" . mysql_real_escape_string($values['apikey']) . "', stop ='" . mysql_real_escape_string($values['stop']) . "', station ='" . mysql_real_escape_string($values['station']) . "' WHERE userid=$userid AND appid=" . intval($values['id']);
+    $query = "UPDATE user_apps SET city ='" . mysql_real_escape_string($values['city']) . "', login ='" . mysql_real_escape_string($values['login']) . "', password ='" . mysql_real_escape_string($values['password']) . "', apikey ='" . mysql_real_escape_string($values['apikey']) . "', feedid ='" . mysql_real_escape_string($values['feedid']) . "', stop ='" . mysql_real_escape_string($values['stop']) . "', route ='" . mysql_real_escape_string($values['route']) . "', direction ='" . mysql_real_escape_string($values['direction']) . "', station ='" . mysql_real_escape_string($values['station']) . "' WHERE userid=$userid AND appid=" . intval($values['id']);
     $result = mysql_query($query);
     
     close_database_connection($link);
