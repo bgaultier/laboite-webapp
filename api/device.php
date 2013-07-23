@@ -24,6 +24,9 @@
 	if(isset($apps[9]))
 	  include_once "app9.php";
 	
+	if(isset($apps[6]))
+	  include_once "app6.php";
+	
 	if(isset($apps[2]))
 	  include_once "app2.php";
 	
