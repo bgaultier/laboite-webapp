@@ -31,7 +31,10 @@
     $language = $_SESSION['locale'];
   else {
     $language = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-    $language = $language . '_' . strtoupper($language);
+    if($language == "fr")
+      $language = $language . '_' . strtoupper($language);
+    else
+      $language = "en_US";
   }
   putenv("LANG=$language");
   setlocale(LC_ALL, $language);
