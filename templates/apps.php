@@ -47,9 +47,9 @@
       <?php foreach ($apps as $app): ?>
         <li class="span3">
           <div class="thumbnail" style="padding : 20px;">
-            <h3><?php echo $app['name'] ?></h3>
-            <img src="/templates/images/apps/<?php echo strtolower($app['name']) . '.png' ?>" class="img-rounded">
-            <span><strong><?php echo _('Description'); ?></strong><div class="description"><?php echo $app['description'] ?></div></span>
+            <h3><?php echo $app['name_' . getenv('LANG')]; ?></h3>
+            <img src="/templates/images/apps/<?php echo strtolower($app['name_en_US']) . '.png' ?>" class="img-rounded">
+            <span><strong><?php echo _('Description'); ?></strong><div class="description"><?php echo $app['description_' . getenv('LANG')] ?></div></span>
             <!-- confModal -->
             <div aria-hidden="true" aria-labelledby="confModalLabel" role="dialog" tabindex="-1" class="modal hide fade" id="confModal" style="display: none;">
               <div class="modal-header">

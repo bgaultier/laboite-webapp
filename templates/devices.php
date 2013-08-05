@@ -82,7 +82,7 @@
                   <h3><?php echo _('Apps'); ?></h3>
                   <?php foreach ($apps as $app): ?>
                     <label class="checkbox">
-                      <input type="checkbox" name="app<?php echo $app['id']; ?>"><?php echo ' ' .$app['name']; ?>
+                      <input type="checkbox" name="app<?php echo $app['id']; ?>"><?php echo ' ' .$app['name_' . getenv('LANG')]; ?>
                     </label>
                   <?php endforeach; ?>
                 </div>
@@ -114,7 +114,7 @@
                   <h3><?php echo _('Apps'); ?></h3>
                   <?php foreach ($apps as $app): ?>
                     <label class="checkbox">
-                      <input id="app<?php echo $app['id']; ?>" type="checkbox" name="app<?php echo $app['id']; ?>"><?php echo ' ' .$app['name']; ?>
+                      <input id="app<?php echo $app['id']; ?>" type="checkbox" name="app<?php echo $app['id']; ?>"><?php echo ' ' . $app['name_' . getenv('LANG')]; ?>
                     </label>
                   <?php endforeach; ?>
                 </div>

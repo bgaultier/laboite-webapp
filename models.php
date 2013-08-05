@@ -2,7 +2,7 @@
   /* MySQL functions */
   /* TODO those are deprecated */
   function open_database_connection() {
-    $link = mysql_connect('db473297554.db.1and1.com', 'dbo473297554', 'ac1ma9p9');
+    $link = mysql_connect('db473297554.db.1and1.com', 'dbo473297554', '7xx1Riqb');
     mysql_select_db('db473297554', $link);
     mysql_set_charset('utf8', $link);
     
@@ -165,6 +165,10 @@
     $query = "DELETE FROM devices WHERE id = " . mysql_real_escape_string($id) ." LIMIT 1";
     $result = mysql_query($query, $link);
     close_database_connection($link);
+    
+    delete_all_device_apps($id);
+    delete_all_device_messages($id);
+    
 
     return $result;
   }
@@ -201,7 +205,7 @@
   {
     $link = open_database_connection();
 
-    $result = mysql_query("SELECT * FROM user_apps WHERE userid =" . mysql_real_escape_string( $userid));
+    $result = mysql_query("SELECT * FROM user_apps WHERE userid =" . mysql_real_escape_string($userid));
     $apps = array();
     while ($row = mysql_fetch_assoc($result)) {
         $apps[$row["appid"]] = $row;
@@ -284,6 +288,69 @@
     return $result;
   }
   
+  
+  /* Message Model */
+  function device_message_exists($deviceid)
+  {
+    $link = open_database_connection();
+
+    $result = mysql_query('SELECT * FROM device_messages WHERE deviceid = ' . mysql_real_escape_string($deviceid), $link);
+    
+    return mysql_num_rows($result);
+  }
+  
+  function update_device_message($deviceid, $message)
+  {
+    $link = open_database_connection();
+
+    $deviceid = intval($deviceid);
+    setlocale(LC_ALL, 'en_US');
+    $query = "UPDATE device_messages SET message ='" . mysql_real_escape_string(iconv('UTF-8', 'ASCII//TRANSLIT', $message)) . "' WHERE deviceid=$deviceid";
+    $result = mysql_query($query);
+    
+    close_database_connection($link);
+
+    return $result;
+  }
+  
+  function insert_device_message($deviceid, $message)
+  {
+    $link = open_database_connection();
+    
+    $deviceid = intval($deviceid);
+    setlocale(LC_ALL, 'en_US');
+    $query = "INSERT INTO device_messages (deviceid, message) VALUES ('$deviceid', '" . mysql_real_escape_string(iconv('UTF-8', 'ASCII//TRANSLIT', $message)) . ")";
+    var_dump($query);
+    $result = mysql_query($query, $link);
+    close_database_connection($link);
+
+    return $result;
+  }
+  
+  function delete_all_device_messages($deviceid)
+  {
+    $link = open_database_connection();
+    $query = "DELETE FROM device_messages WHERE deviceid = $deviceid";
+    $result = mysql_query($query, $link);
+    close_database_connection($link);
+
+    return $result;
+  }
+  
+  function get_device_last_message($id) {
+    $link = open_database_connection();
+
+    $apikey = mysql_real_escape_string($apikey);
+    $query = "SELECT message FROM device_messages WHERE deviceid = " . mysql_real_escape_string($id) ." LIMIT 1";
+    $result = mysql_query($query);
+    $message = mysql_fetch_assoc($result);
+
+    close_database_connection($link);
+
+    return $message['message'];
+  }
+  
+  
   /* XML model */
   function xml_encode($data) {
     $xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
@@ -291,8 +358,7 @@
     foreach($data as $key=>$value) {
       if(is_array($value)) {
         $xml .= "\t<$key>\n";
-        foreach($value as $key2=>$value2)
-          $xml .= "\t\t<$key2>$value2</$key2>\n";
+        $xml .= array_to_xml($value);
         $xml .= "\t</$key>\n";
       }
       else
@@ -300,6 +366,19 @@
     }
     $xml .= "</response>\n";
     
+    return $xml;
+  }
+  
+  function array_to_xml($data) {
+    foreach($data as $key=>$value) {
+      if(is_array($value)) {
+        $xml .= "\t\t<$key>\n";
+        $xml .= array_to_xml($value);
+        $xml .= "\t\t</$key>\n";
+      }
+      else
+        $xml .= "\t\t<$key>$value</$key>\n";
+    }
     return $xml;
   }
   

@@ -23,8 +23,8 @@
         <option<?php if($_SESSION['locale'] == "en_US") echo " selected=\"selected\""; ?>>en_US</option>
         <option<?php if($_SESSION['locale'] == "fr_FR") echo " selected=\"selected\""; ?>>fr_FR</option>
       </select>
-      <a href="logout" class="btn btn-block btn-warning" type="button"><i class="icon-off icon-white"></i> <?php echo _('Déconnexion'); ?></a>
       <button type="submit" class="btn btn-inverse btn-block"><i class="icon-ok-circle icon-white"></i> <?php echo _('Enregistrer les modifications'); ?></button>
+      <a href="logout" class="btn btn-block btn-warning" type="button"><i class="icon-off icon-white"></i> <?php echo _('Déconnexion'); ?></a>
     </form>
   </div><!-- /container -->
 <?php $content = ob_get_clean() ?>

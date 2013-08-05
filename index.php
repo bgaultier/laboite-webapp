@@ -32,7 +32,7 @@
   else {
     $language = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
     if($language == "fr")
-      $language = $language . '_' . strtoupper($language);
+      $language = "fr_FR";
     else
       $language = "en_US";
   }

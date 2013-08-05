@@ -1,5 +1,14 @@
 <?php
   function login_action() {
+    $user = user_exists_and_password_match($_POST['email'], $_POST['password']);
+    if($user && !empty($_POST['email'])) {
+      $_SESSION['id'] = $user['id'];
+      $_SESSION['email'] = $user['email'];
+      $_SESSION['locale'] = $user['locale'];
+      
+      list_devices_action($_SESSION['id']);
+    }
+    else
       require 'templates/login.php';
   }
   
