@@ -96,13 +96,42 @@
         <div class="page-header">
           <h1><?php echo _("Boîtes"); ?></h1>
         </div>
-        <p><?php echo _("Les boîtes sont des équipements connectés à Internet équipés d'un écran et de capteurs optionnels. Les boîtes sont basées sur la plateforme "); ?><a href="<?php echo _("http://arduino.cc/fr/"); ?>">Arduino</a>. <?php echo _("Elles peuvent être construites à partir des composants suivants  : "); ?>
-          <ul>
-            <li><a href="http://store.arduino.cc/eu/index.php?main_page=product_info&cPath=11&products_id=197"><?php echo _("Un Arduino Ethernet"); ?></a><?php echo _(" : c'est l'intelligence du projet laboîte, l'Arduino se connecte au "); ?><a href="#server"><?php echo _("serveur"); ?></a><?php echo _(" et récupère les différentes "); ?><a href="#apps"><?php echo _("apps"); ?></a><?php echo _(". Il traite ensuite ces données et les affiche."); ?></li>
-            <li><a href="http://www.sureelectronics.net/goods.php?id=1095"><?php echo _("Une matrice de LED SURE electronics"); ?></a><?php echo _(" : une matrice de 32×16 pixels avec deux couleurs."); ?></li>
-          </ul>
-        </p>
+        <p><?php echo _("Les boîtes sont des équipements connectés à Internet équipés d'un écran et de capteurs optionnels. Les boîtes sont basées sur la plateforme "); ?><a href="<?php echo _("http://arduino.cc/fr/"); ?>">Arduino</a>.</p>
         <img style="display: block; margin-left: auto; margin-right: auto;" src="templates/images/laboite.jpg" class="img-polaroid">
+        <h2><?php echo _("Composants"); ?></h2>
+        <p><?php echo _("Les composants nécessaires pour une boîte : "); ?>
+          <ul>
+            <li><a href="http://store.arduino.cc/eu/index.php?main_page=product_info&cPath=11_12&products_id=315"><?php echo _("Un Arduino Ethernet"); ?></a><?php echo _(" : c'est l'intelligence du projet laboîte, l'Arduino se connecte au "); ?><a href="#server"><?php echo _("serveur"); ?></a><?php echo _(" et récupère les différentes "); ?><a href="#apps"><?php echo _("apps"); ?></a><?php echo _(". Il traite ensuite ces données et les affiche."); ?></li>
+            <li><a href="http://www.sureelectronics.net/goods.php?id=1095"><?php echo _("Une matrice de LED SURE electronics"); ?></a><?php echo _(" : une matrice de 32×16 pixels avec deux couleurs."); ?></li>
+            <li><span class="label label-info"><?php echo _("Optionnel"); ?></span> <a href="http://www.tinkerkit.com/shield/"><?php echo _("Un blindage TinkerKit! "); ?></a><?php echo _(" : module d'extension permettant l'ajout de capteurs (<a href=\"http://www.tinkerkit.com/thermistor/\">température</a>, <a href=\"http://www.tinkerkit.com/ldr/\">luminosité</a> et <a href=\"http://www.tinkerkit.com/button/\">bouton</a>). N'oubliez pas les <a href=\"http://www.tinkerkit.com/cable/\">câbles</a> pour connecter les capteurs."); ?></li>
+          </ul>
+          <img style="display: block; margin-left: auto; margin-right: auto; margin-top: 24px; width:420px;" src="<?php echo _("templates/images/bom_fr_FR.svg"); ?>">
+        </p>
+        <h2><?php echo _("Montage"); ?></h2>
+        <p><?php echo _("Voici les étapes de montage d'une boîte : "); ?>
+          <ol>
+            <li><span class="label label-info"><?php echo _("Optionnel"); ?></span> <?php echo _("Branchez les différents capteurs sur le blindage TinkerKit! : "); ?>
+              <ul>
+                <li><?php echo _("Capteur de luminosité&rarr;<strong>I0</strong>"); ?></li>
+                <li><?php echo _("Capteur de température&rarr;<strong>I1</strong>"); ?></li>
+                <li><?php echo _("Bouton poussoir&rarr;<strong>I2</strong>"); ?></li>
+              </ul>
+            </li>
+            <li><span class="label label-info"><?php echo _("Optionnel"); ?></span> <?php echo _("Branchez le blindage sur l’Arduino"); ?></li>
+            <li><?php echo _("Branchez la matrice de LED sur les broches du blindage TinkerKit! en utilisant des fils : "); ?>
+              <ul>
+                <li>DATA&rarr;<strong>7</strong></li>
+                <li>WR&rarr;<strong>6</strong></li>
+                <li>CS&rarr;<strong>5</strong></li>
+                <li>CLK&rarr;<strong>4</strong></li>
+              </ul>
+              <img style="display: block; margin-left: auto; margin-right: auto; margin-top: 24px;" src="templates/images/dotmatrix_connections.svg">
+            </li>
+            <li><?php echo _("Construisez une boîte sympa avec des Legos ou du carton"); ?></li>
+            <li><?php echo _("Modifiez et téléversez le code disponible sur github : "); ?><a href="https://github.com/bgaultier/laboite">https://github.com/bgaultier/laboite</a></li>
+            </ol>
+        </p>
+        
       </section>
       <section id="server">
         <div class="page-header">
@@ -125,7 +154,7 @@
             <div style="height : 40px;">
               <img style="display: block; margin-left: auto; margin-right: auto;" src="templates/images/apps/icon-time.svg" >
             </div>
-						<small><?php echo _("<strong>Time</strong><br> affiche l'heure d'une ville dans le monde"); ?></small>
+						<small><?php echo _("<strong>Heure</strong><br> affiche l'heure d'une ville dans le monde"); ?></small>
 					</li>
 					<li class="thumbnail" style="width : 92px; text-align:center;">
             <div style="height : 40px;">
@@ -137,19 +166,19 @@
             <div style="height : 40px;">
               <img style="display: block; margin-left: auto; margin-right: auto;" src="templates/images/apps/icon-weather.svg" >
             </div>
-						<small><?php echo _("<strong>Weather</strong><br> affiche les conditions météo"); ?></small>
+						<small><?php echo _("<strong>Météo</strong><br> affiche les conditions météo"); ?></small>
 					</li>
 					<li class="thumbnail" style="width : 92px; text-align:center;">
             <div style="height : 40px;">
               <img style="display: block; margin-left: auto; margin-right: auto;" src="templates/images/apps/icon-buses.svg" >
             </div>
-						<small><?php echo _("<strong>Buses</strong><br> affiche les minutes avant le passage d'un bus"); ?></small>
+						<small><?php echo _("<strong>Bus</strong><br> affiche les minutes avant le passage d'un bus"); ?></small>
 					</li>
 					<li class="thumbnail" style="width : 92px; text-align:center;">
             <div style="height : 40px;">
               <img style="display: block; margin-left: auto; margin-right: auto;" src="templates/images/apps/icon-waves.svg" >
             </div>
-						<small><?php echo _("<strong>Waves</strong><br> affiche les conditions d'un spot"); ?></small>
+						<small><?php echo _("<strong>Vagues</strong><br> affiche les conditions d'un spot"); ?></small>
 					</li>					
 			  </ul>
       </section>
