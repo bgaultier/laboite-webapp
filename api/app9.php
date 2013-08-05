@@ -15,5 +15,5 @@
 	// close the connection
 	imap_close($inbox);
 	
-	$data["unreademails"] = count($unread_emails);
+	$data["emails"] = count($unread_emails);
 ?>

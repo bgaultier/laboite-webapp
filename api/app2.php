@@ -16,10 +16,12 @@
   $temp_tomorrow_high = $parsed_json->{'forecast'}->{'simpleforecast'}->{'forecastday'}[2]->{'high'}->{'celsius'};
   $icon_tomorrow = $parsed_json->{'forecast'}->{'simpleforecast'}->{'forecastday'}[2]->{'icon'};
   
-  $data["weather"] = array("today" => icon_to_number($icon),
-                           "temperature" => $temperature,
-                           "tomorrow" => icon_to_number($icon_tomorrow),
-                           "low" => $temp_tomorrow_low,
-                           "high" => $temp_tomorrow_high
+  $today = array("icon" => icon_to_number($icon),
+                 "temperature" => $temperature);
+  $tomorrow = array("icon" => icon_to_number($icon_tomorrow),
+                    "low" => $temp_tomorrow_low,
+                    "high" => $temp_tomorrow_high);
+  $data["weather"] = array("today" => $today,
+                           "tomorrow" => $tomorrow
                           );
 ?>
