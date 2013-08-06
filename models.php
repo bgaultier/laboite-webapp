@@ -2,8 +2,8 @@
   /* MySQL functions */
   /* TODO those are deprecated */
   function open_database_connection() {
-    $link = mysql_connect('db473297554.db.1and1.com', 'dbo473297554', '7xx1Riqb');
-    mysql_select_db('db473297554', $link);
+    $link = mysql_connect('server', 'user', 'password');
+    mysql_select_db('database', $link);
     mysql_set_charset('utf8', $link);
     
     return $link;
