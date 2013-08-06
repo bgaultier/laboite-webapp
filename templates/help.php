@@ -112,24 +112,27 @@
           <ol>
             <li><span class="label label-info"><?php echo _("Optionnel"); ?></span> <?php echo _("Branchez les différents capteurs sur le blindage TinkerKit! : "); ?>
               <ul>
-                <li><?php echo _("Capteur de luminosité&rarr;<strong>I0</strong>"); ?></li>
-                <li><?php echo _("Capteur de température&rarr;<strong>I1</strong>"); ?></li>
-                <li><?php echo _("Bouton poussoir&rarr;<strong>I2</strong>"); ?></li>
+                <li><?php echo _("Capteur de luminosité&rarr;<span class=\"badge\">I0</span>"); ?></li>
+                <li><?php echo _("Capteur de température&rarr;<span class=\"badge\">I1</span>"); ?></li>
+                <li><?php echo _("Bouton poussoir&rarr;<span class=\"badge\">I2</span>"); ?></li>
               </ul>
             </li>
             <li><span class="label label-info"><?php echo _("Optionnel"); ?></span> <?php echo _("Branchez le blindage sur l’Arduino"); ?></li>
             <li><?php echo _("Branchez la matrice de LED sur les broches du blindage TinkerKit! en utilisant des fils : "); ?>
               <ul>
-                <li>DATA&rarr;<strong>7</strong></li>
-                <li>WR&rarr;<strong>6</strong></li>
-                <li>CS&rarr;<strong>5</strong></li>
-                <li>CLK&rarr;<strong>4</strong></li>
+                <li>DATA&rarr;<span class="badge">7</span></li>
+                <li>WR&rarr;<span class="badge">6</span></li>
+                <li>CS&rarr;<span class="badge">5</span></li>
+                <li>CLK&rarr;<span class="badge">4</span></li>
               </ul>
               <img style="display: block; margin-left: auto; margin-right: auto; margin-top: 24px;" src="templates/images/dotmatrix_connections.svg">
             </li>
             <li><?php echo _("Construisez une boîte sympa avec des Legos ou du carton"); ?></li>
-            <li><?php echo _("Modifiez et téléversez le code disponible sur github : "); ?><a href="https://github.com/bgaultier/laboite">https://github.com/bgaultier/laboite</a></li>
-            </ol>
+            <li><?php echo _("Téléchargez le croquis Arduino depuis GitHub : "); ?><a href="https://github.com/bgaultier/laboite">https://github.com/bgaultier/laboite</a></li>
+            <li><?php echo _("Ouvrez votre IDE Arduino et modifiez la ligne 69 en indiquant la clé d'API d'une de vos boîtes :"); ?></li>
+            <code style="color: #000;"><span class="text-warning">char</span> apikey[] = <span class="text-success">"61c119ce"</span>; <span style="color: rgb(153, 153, 153);">// your device API key</span></code>
+            <li><?php echo _("Téléversez le code et prenez un café pour fêter ça !"); ?></li>
+          </ol>
         </p>
         
       </section>
@@ -181,13 +184,18 @@
 						<small><?php echo _("<strong>Vagues</strong><br> affiche les conditions d'un spot"); ?></small>
 					</li>					
 			  </ul>
+			  <p>
+			    <span class="label label-info"><?php echo _("Optionnel"); ?></span>
+          <?php echo _("L'application <strong>Messages</strong> permet l'affichage de messages courts sur une boîte. Pour envoyer un message sur une boîte. Il vous suffit de taper la commande suivante depuis votre ordinateur : "); ?>
+          <code><span class="text-success"><?php echo _("$ curl http://api.laboite.cc/&lt;votre_clé_API&gt;/message -d '{\"message\":\"Votre message\"}' -H 'Content-Type: application/json'"); ?></span></code>
+        </p>
       </section>
       <section id="api">
         <div class="page-header">
           <h1><?php echo _("API"); ?></h1>
         </div>
         <p>
-          <?php echo _("Une API permet à votre boîte d'accéder à ses différentes apps en utilisant un protocole et un format compréhensible par une machine. Les deux protocoles applicatifs disponibles sont "); ?><a href="http://datatracker.ietf.org/doc/draft-ietf-core-coap/">CoAP</a><?php echo _(" et "); ?><a href="datatracker.ietf.org/doc/rfc2616/">HTTP</a><?php echo _(". Les formats de représentation de données sont "); ?><a href="http://wikipedia.org/wiki/Extensible_Markup_Language">XML</a><?php echo _(" et "); ?><a href="http://wikipedia.org/wiki/JavaScript_Object_Notation">json</a><?php echo _(". Voici un exemple de fichier XML contenant trois apps (<strong>Time</strong>, <strong>Buses</strong> et <strong>Weather</strong>) :"); ?>
+          <?php echo _("Une API permet à votre boîte d'accéder à ses différentes apps en utilisant un protocole et un format compréhensible par une machine. Les deux protocoles applicatifs disponibles sont "); ?><a href="http://datatracker.ietf.org/doc/draft-ietf-core-coap/">CoAP</a><?php echo _(" et "); ?><a href="datatracker.ietf.org/doc/rfc2616/">HTTP</a><?php echo _(". Les formats de représentation de données sont "); ?><a href="http://wikipedia.org/wiki/Extensible_Markup_Language">XML</a><?php echo _(" et "); ?><a href="http://wikipedia.org/wiki/JavaScript_Object_Notation">json</a><?php echo _(". Voici un exemple de fichier XML contenant trois apps (<strong>Heure</strong>, <strong>Bus</strong> et <strong>Météo</strong>) :"); ?>
         </p>
         <pre>
 <span class="text-warning">&lt;?xml</span><span class="text-success"> version=</span>"1.0" <span class="text-success">encoding=</span>"utf-8"<span class="text-warning">?&gt;</span>
@@ -196,11 +204,15 @@
 	&lt;time&gt;</span>18:18<span class="text-info">&lt;/time&gt;
 	&lt;nextbus&gt;</span>5<span class="text-info">&lt;/nextbus&gt;
 	&lt;weather&gt;
-		&lt;today&gt;</span>0<span class="text-info">&lt;/today&gt;
-		&lt;temperature&gt;</span>25<span class="text-info">&lt;/temperature&gt;
-		&lt;tomorrow&gt;</span>1<span class="text-info">&lt;/tomorrow&gt;
-		&lt;low&gt;</span>15<span class="text-info">&lt;/low&gt;
-		&lt;high&gt;</span>28<span class="text-info">&lt;/high&gt;
+		&lt;today&gt;
+		  &lt;icon&gt;</span>0<span class="text-info">&lt;/icon&gt;
+		  &lt;temperature&gt;</span>25<span class="text-info">&lt;/temperature&gt;
+		&lt;/today&gt;
+		&lt;tomorrow&gt;
+		  &lt;icon&gt;</span>1<span class="text-info">&lt;/icon&gt;
+		  &lt;low&gt;</span>15<span class="text-info">&lt;/low&gt;
+		  &lt;high&gt;</span>28<span class="text-info">&lt;/high&gt;
+		&lt;/tomorrow&gt;
 	&lt;/weather&gt;
 &lt;/response&gt;</span></pre>
         <p><?php echo _("Les mêmes informations au format json : "); ?>
@@ -210,11 +222,15 @@
     <span class="text-error">"time"</span>: <span class="text-error">"19:10"</span>,
     <span class="text-error">"nextbus"</span>: <span class="text-error">"1"</span>,
     <span class="text-error">"weather"</span>: {
-        <span class="text-error">"today"</span>: <span class="text-error">0</span>,
-        <span class="text-error">"temperature"</span>: <span class="text-error">25</span>,
-        <span class="text-error">"tomorrow"</span>: <span class="text-error">1</span>,
-        <span class="text-error">"low"</span>: <span class="text-error">"15"</span>,
-        <span class="text-error">"high"</span>: <span class="text-error">"28"</span>
+        <span class="text-error">"today"</span>: {
+          <span class="text-error">"icon"</span>: <span class="text-error">0</span>,
+          <span class="text-error">"temperature"</span>: <span class="text-error">25</span>
+        },
+        <span class="text-error">"tomorrow"</span>: {
+          <span class="text-error">"icon"</span>: <span class="text-error">1</span>,
+          <span class="text-error">"low"</span>: <span class="text-error">"15"</span>,
+          <span class="text-error">"high"</span>: <span class="text-error">"28"</span>
+        }
     }
 }</pre>
         <p>
