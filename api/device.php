@@ -62,11 +62,11 @@
 	
 	if(isset($_GET['format'])) {
 	  if($_GET['format'] == "json") {
-	    header('Content-type: application/json');
+	    header('Content-type: application/json; charset=utf-8');
 	    echo json_encode($data);
 	  }
 	  elseif($_GET['format'] == "xml") {
-	    header("Content-type: text/xml");
+	    header("Content-type: text/xml; charset=utf-8");
 	    echo xml_encode($data);
 	  }
 	  else exit("Please specify a valid format : xml or json");
