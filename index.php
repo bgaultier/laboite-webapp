@@ -78,11 +78,11 @@
   elseif ('/apps' == $uri)
     list_apps_action($_SESSION['id']);
   elseif ('/apps.json' == $uri) {
-    header('Content-type: application/json');
+    header('Content-type: application/json; charset=utf8');
     list_apps_json_action($_SESSION['id']);
   }
   elseif ('/app.json' == substr($uri, 0, 9) && isset($_GET['id'])) {
-    header('Content-type: application/json');
+    header('Content-type: application/json; charset=utf-8');
     get_user_app_action($_SESSION['id'], $_GET['id']);
   }
   else
