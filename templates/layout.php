@@ -7,11 +7,11 @@
       <meta name="author" content="Baptiste Gaultier">
       <link href="templates/bootstrap/css/bootstrap.css" rel="stylesheet">
       <link href="templates/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
-      <link rel="apple-touch-icon-precomposed" sizes="144x144" href="templates/bootstrap/ico/apple-touch-icon-144-precomposed.png">
-      <link rel="apple-touch-icon-precomposed" sizes="114x114" href="templates/bootstrap/ico/apple-touch-icon-114-precomposed.png">
-      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="templates/bootstrap/ico/apple-touch-icon-72-precomposed.png">
-      <link rel="apple-touch-icon-precomposed" href="templates/bootstrap/ico/apple-touch-icon-57-precomposed.png">
-      <link rel="shortcut icon" href="templates/bootstrap/ico/favicon.png">
+      <link rel="apple-touch-icon-precomposed" sizes="144x144" href="templates/images/apple-touch-icon-144-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="114x114" href="templates/images/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="templates/images/apple-touch-icon-72-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" href="templates/images/apple-touch-icon-57-precomposed.png">
+      <link rel="shortcut icon" href="templates/images/favicon.png">
       <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
       <style type="text/css">
         @media (max-width: 980px) {

@@ -16,7 +16,7 @@
   if(isset($_GET['action'])) {
     if($_GET['action'] == "message" && isset($input["message"])) {
       $device = get_device_by_apikey($_GET['apikey']);
-      if(isset($device)) {
+      if(isset($device) && strlen($input["message"]) < 140 ) {
         if(device_message_exists($device['id'])) {
           // clean API :)
           header(':', true, 204);
