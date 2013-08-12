@@ -9,7 +9,7 @@
       <div style="text-align:center; margin-bottom:16px;">
         <a href="signup"><?php echo _('Créer un compte ?'); ?></a> - <a href="signup"><?php echo _('Mot de passe oublié ?'); ?></a>
       </div>
-      <button class="btn btn-inverse" type="submit"><?php echo _('Connexion'); ?></button>
+      <button class="btn btn-large btn-inverse btn-block" type="submit"><?php echo _('Connexion'); ?></button>
     </form>
   </div> <!-- /container -->
 <?php $content = ob_get_clean() ?>
