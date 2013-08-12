@@ -143,7 +143,7 @@
         <p>
           <?php echo _("Le serveur est une machine qui accueille PHP + MySQL ainsi qu'une application web open-source. Cette application permet la configuration à distance de "); ?><a href="#devices"><?php echo _("boîtes"); ?></a><?php echo _(" et d'"); ?><a href="#apps"><?php echo _("apps"); ?></a><?php echo _(". Cette application web peut être téléchargée depuis github et installer sur votre serveur. Il est également possible d'utiliser gratuitement l'instance du serveur "); ?><a href="<?php echo $_SERVER['SERVER_NAME']; ?>"><?php echo $_SERVER['SERVER_NAME']; ?></a><?php echo _(" (ce serveur)."); ?>
         </p>
-        <a class="btn btn-primary" href="assets/bootstrap.zip"><i class=" icon-download icon-white"></i> <?php echo _("Télécharger la web app laboîte"); ?></a>
+        <a class="btn btn-primary btn-large" href="https://github.com/bgaultier/laboite-webapp/archive/master.zip"><i class=" icon-download icon-white"></i> <?php echo _("Télécharger la web app laboîte"); ?></a>
       </section>
       <section id="apps">
         <div class="page-header">

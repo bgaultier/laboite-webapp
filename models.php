@@ -2,8 +2,8 @@
   /* MySQL functions */
   /* TODO those are deprecated */
   function open_database_connection() {
-    $link = mysql_connect('server', 'user', 'password');
-    mysql_select_db('database', $link);
+    $link = mysql_connect('db473297554.db.1and1.com', 'dbo473297554', '7xx1Riqb');
+    mysql_select_db('db473297554', $link);
     mysql_set_charset('utf8', $link);
     
     return $link;
@@ -339,8 +339,7 @@
   
   function get_device_last_message($id) {
     $link = open_database_connection();
-
-    $apikey = mysql_real_escape_string($apikey);
+    
     $query = "SELECT message FROM device_messages WHERE deviceid = " . mysql_real_escape_string($id) ." LIMIT 1";
     $result = mysql_query($query);
     $message = mysql_fetch_assoc($result);
