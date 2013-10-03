@@ -62,7 +62,7 @@
   elseif ('/about' == $uri)
     about_action();
   elseif ('/device.json' == substr($uri, 0, 12) && isset($_GET['id'])) {
-    header('Content-type: application/json');
+    header('Content-type: application/json; charset=utf-8');
     get_device_action($_SESSION['id'], $_GET['id']);
   }
   elseif ('/add' == substr($uri, 0, 4)) {

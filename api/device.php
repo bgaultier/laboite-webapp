@@ -10,7 +10,7 @@
     $apps = get_device_apps_by_apikey($_GET['apikey']);
   }
   
-  $input = json_decode(file_get_contents("php://input"), true, 2);  
+  $input = json_decode(file_get_contents("php://input"), true, 2);
   
   // if there is an incoming message
   if(isset($_GET['action'])) {
