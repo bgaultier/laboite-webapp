@@ -27,6 +27,10 @@
       update_user($userid, $_POST['password'], $_POST['locale']);
       $_SESSION['locale'] = $_POST['locale'];
     }
+    elseif($user_modified && !empty($_POST['locale'])) {
+      update_user_locale($userid, $_POST['locale']);
+      $_SESSION['locale'] = $_POST['locale'];
+    }
     require 'templates/account.php';
   }
   
@@ -36,6 +40,13 @@
   
   function about_action() {
       require 'templates/about.php';
+  }
+  
+  function makerfaire_action() {
+    if(isset($_POST["message"]) && strlen($_POST["message"]) < 140 )
+      update_device_message(1, $_POST["message"]);
+    
+    require 'templates/makerfaire.php';
   }
   
   function list_devices_action($userid) {

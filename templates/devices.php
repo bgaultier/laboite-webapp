@@ -10,11 +10,11 @@
 <?php $title = _('Mes boîtes - laboîte.cc'); ?>
 
 <?php ob_start() ?>
-  <style type="text/css">    
+  <style type="text/css">
     .connected {
       color : #73d216;
     }
-    
+
     .not-connected {
       color : #cc0000;
     }
@@ -48,7 +48,7 @@
               <span><strong><?php echo _('Emplacement'); ?></strong><div><?php echo $device['location'] ?></div></span>
               <span><strong><?php echo _('Statut'); ?> <i class="icon-question-sign" data-toggle="tooltip" title="<?php echo _('Indique si cette boîte s\'est connectée à ce serveur dans les 10 dernières minutes'); ?>"></i></strong><div class="<?php echo get_device_status($device['lastactivity']) ?>"><?php echo get_device_status($device['lastactivity']) ?></div></span>
               <span><strong><?php echo _('Clé d\'API'); ?> <i class="icon-question-sign" data-toggle="tooltip" title="<?php echo _('Identifie de manière unique votre boîte'); ?>"></i></strong><div class="muted"><?php echo $device['apikey'] ?></div></span>
-              <span><strong><?php echo _('API'); ?> <i class="icon-question-sign" data-toggle="tooltip" title="<?php echo _('Voir le fichier envoyé à la boîte au format xml, json ou csv'); ?>"></i></strong>
+              <span><strong><?php echo _('API'); ?> <i class="icon-question-sign" data-toggle="tooltip" title="<?php echo _('Voir le fichier envoyé à la boîte au format xml ou json'); ?>"></i></strong>
               <div>
                 <a href="<?php echo 'http://api.' . $_SERVER['SERVER_NAME'] . '/' . $device['apikey'] . '.xml'; ?>" class="btn btn-mini btn-info" target="_blank" type="button">.xml</a>
                 <a href="<?php echo 'http://api.' . $_SERVER['SERVER_NAME'] . '/' . $device['apikey'] . '.json'; ?>" class="btn btn-mini btn-warning" target="_blank" type="button">.json</a>
@@ -66,7 +66,7 @@
             <h3><?php echo _('Ajouter une boîte'); ?></h3>
             <!-- Button to trigger modal -->
             <a class="btn" role="button" data-toggle="modal" data-target="#addModal"><i class="icon-plus-sign"></i> <?php echo _('Ajouter'); ?></a>
-            
+
             <!-- addModal -->
             <div aria-hidden="true" aria-labelledby="addModalLabel" role="dialog" tabindex="-1" class="modal hide fade" id="addModal" style="display: none;">
               <div class="modal-header">
@@ -92,7 +92,7 @@
                 </div>
               </form>
             </div><!--/addModal-->
-            
+
             <!-- updateModal -->
             <div aria-hidden="true" aria-labelledby="updateModalLabel" role="dialog" tabindex="-1" class="modal hide fade" id="updateModal" style="display: none;">
               <div class="modal-header">
@@ -124,8 +124,8 @@
                 </div>
               </form>
             </div><!--/updateModal-->
-            
-            
+
+
           </div><!--/.thumbnail-->
         </li><!--/span5-->
       </ul>

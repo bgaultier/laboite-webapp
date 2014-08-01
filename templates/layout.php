@@ -12,7 +12,7 @@
       <link rel="apple-touch-icon-precomposed" sizes="72x72" href="templates/images/apple-touch-icon-72-precomposed.png">
       <link rel="apple-touch-icon-precomposed" href="templates/images/apple-touch-icon-57-precomposed.png">
       <link rel="shortcut icon" href="templates/images/favicon.png">
-      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+      <script type="text/javascript" src="templates/jquery/jquery.min.js"></script>
       <style type="text/css">
         @media (max-width: 980px) {
           /* Enable use of floated navbar text */
@@ -66,7 +66,7 @@
                 ?>
               </p>
               <ul class="nav">
-                <li<?php if( ('/help' != $_SERVER['REQUEST_URI']) && ('/about' != $_SERVER['REQUEST_URI']) && ('/apps' != $_SERVER['REQUEST_URI']) ) echo ' class="active"' ?>><a href="<?php echo "http://" . $_SERVER['SERVER_NAME']; ?>"><?php if(isset($_SESSION['id'])) echo _('Mes boîtes'); else echo _('Accueil'); ?></a></li>
+                <li<?php if( ('/help' != $_SERVER['REQUEST_URI']) && ('/about' != $_SERVER['REQUEST_URI']) && ('/apps' != $_SERVER['REQUEST_URI']) && ('/makerfaireparis' != $_SERVER['REQUEST_URI']) && ('/mfp' != $_SERVER['REQUEST_URI'])) echo ' class="active"' ?>><a href="<?php echo "http://" . $_SERVER['SERVER_NAME']; ?>"><?php if(isset($_SESSION['id'])) echo _('Mes boîtes'); else echo _('Accueil'); ?></a></li>
                 <?php
                   if(isset($_SESSION['id'])) {
                     echo "<li";
@@ -77,6 +77,7 @@
                 ?>
                 <li<?php if('/help' == $_SERVER['REQUEST_URI']) echo ' class="active"' ?>><a href="help"><?php echo _('Aide'); ?></a></li>
                 <li<?php if('/about' == $_SERVER['REQUEST_URI']) echo ' class="active"' ?>><a href="about"><?php echo _('À propos'); ?></a></li>
+                <li<?php if('/makerfaireparis' == $_SERVER['REQUEST_URI'] || '/mfp' == $_SERVER['REQUEST_URI']) echo ' class="active"' ?>><a href="makerfaireparis"><?php echo _('Maker Faire Paris'); ?></a>
               </ul>
             </div><!--/.nav-collapse -->
           </div>

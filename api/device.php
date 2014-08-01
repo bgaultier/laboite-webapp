@@ -60,6 +60,9 @@
 	if(isset($apps[2]))
 	  include_once "app2.php";
 	
+	if(isset($apps[10]))
+	  include_once "app10.php";
+	
 	if(isset($_GET['format'])) {
 	  if($_GET['format'] == "json") {
 	    header('Content-type: application/json; charset=utf-8');

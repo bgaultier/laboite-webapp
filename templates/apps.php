@@ -87,6 +87,12 @@
                   <div>
                     <input id="station" type="text" name="station" class="input-large" placeholder="<?php echo _('N° station de vélo'); ?>" >
                   </div>
+                  <div>
+                    <input id="station1" type="text" name="station1" class="input-large" placeholder="<?php echo _('Station de départ'); ?>" >
+                  </div>
+                  <div>
+                    <input id="station2" type="text" name="station2" class="input-large" placeholder="<?php echo _("Station d'arrivée"); ?>" >
+                  </div>
                 </div>
                 <div class="modal-footer">
                   <button data-dismiss="modal" class="btn"><?php echo _('Fermer'); ?></button>
