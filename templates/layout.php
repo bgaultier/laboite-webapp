@@ -22,7 +22,7 @@
             padding-right: 5px;
           }
         }
-        
+
         .form-signin {
           background-color: #FFFFFF;
           border: 1px solid #E5E5E5;
@@ -32,11 +32,11 @@
           max-width: 300px;
           padding: 19px 29px 29px;
         }
-        
+
         .form-signin .form-signin-heading, .form-signin .checkbox {
           margin-bottom: 10px;
         }
-        
+
         .form-signin input[type="text"], .form-signin input[type="password"] {
           font-size: 16px;
           height: auto;
@@ -66,7 +66,7 @@
                 ?>
               </p>
               <ul class="nav">
-                <li<?php if( ('/help' != $_SERVER['REQUEST_URI']) && ('/about' != $_SERVER['REQUEST_URI']) && ('/apps' != $_SERVER['REQUEST_URI']) && ('/makerfaireparis' != $_SERVER['REQUEST_URI']) && ('/mfp' != $_SERVER['REQUEST_URI'])) echo ' class="active"' ?>><a href="<?php echo "http://" . $_SERVER['SERVER_NAME']; ?>"><?php if(isset($_SESSION['id'])) echo _('Mes boîtes'); else echo _('Accueil'); ?></a></li>
+                <li<?php if( ('/help' != $_SERVER['REQUEST_URI']) && ('/about' != $_SERVER['REQUEST_URI']) && ('/apps' != $_SERVER['REQUEST_URI'])) echo ' class="active"' ?>><a href="<?php echo "http://" . $_SERVER['SERVER_NAME']; ?>"><?php if(isset($_SESSION['id'])) echo _('Mes boîtes'); else echo _('Accueil'); ?></a></li>
                 <?php
                   if(isset($_SESSION['id'])) {
                     echo "<li";
@@ -77,7 +77,6 @@
                 ?>
                 <li<?php if('/help' == $_SERVER['REQUEST_URI']) echo ' class="active"' ?>><a href="help"><?php echo _('Aide'); ?></a></li>
                 <li<?php if('/about' == $_SERVER['REQUEST_URI']) echo ' class="active"' ?>><a href="about"><?php echo _('À propos'); ?></a></li>
-                <li<?php if('/makerfaireparis' == $_SERVER['REQUEST_URI'] || '/mfp' == $_SERVER['REQUEST_URI']) echo ' class="active"' ?>><a href="makerfaireparis"><?php echo _('Maker Faire Paris'); ?></a>
               </ul>
             </div><!--/.nav-collapse -->
           </div>

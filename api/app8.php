@@ -1,10 +1,11 @@
 <?php
-  $filename = "coffees.xml";
-	if (!file_exists($filename) || ($now - filemtime($filename)) > 300 ) {
-		copy("http://kfet.rsm.enstb.fr/kfet/backend/coffeesperday.php", $filename);
-	}
-	$xml = simplexml_load_file($filename);
-	$perday = $xml->perday;
-  
-  $data["coffees"] = (string)$perday;
+  $filename = "dashboard.json";
+  if (!file_exists($filename) || ($now - filemtime($filename)) > 60 ) {
+	  copy("http://laclef.cc/dashboard.json", $filename);
+  }
+
+	$json_string = file_get_contents($filename);
+	$parsed_json = json_decode($json_string);
+	
+	$data["coffees"] = (string)$parsed_json->coffees_today;
 ?>
