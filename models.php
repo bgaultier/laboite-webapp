@@ -167,6 +167,10 @@
     $link = open_database_connection();
     $query = "INSERT INTO devices (id, creator, name, location, apikey, lastactivity) VALUES ('', " . mysql_real_escape_string($creator) . ", '" . mysql_real_escape_string($name) . "', '" . mysql_real_escape_string($location) . "', SHA1(NOW()), NOW())";
     $result = mysql_query($query, $link);
+
+    // insert a default message
+    insert_device_message(mysql_insert_id(), "Aucun message");
+
     close_database_connection($link);
 
     return $result;
@@ -309,7 +313,7 @@
 
     $result = mysql_query('SELECT * FROM device_messages WHERE deviceid = ' . mysql_real_escape_string($deviceid), $link);
 
-    return mysql_num_rows($result);
+    return (mysql_num_rows($result) > 0);
   }
 
   function update_device_message($deviceid, $message)
@@ -317,6 +321,9 @@
     $link = open_database_connection();
 
     $deviceid = intval($deviceid);
+    if(!device_message_exists($deviceid))
+      insert_device_message($deviceid, "Aucun message");
+
     setlocale(LC_ALL, 'en_US');
     $query = "UPDATE device_messages SET message ='" . mysql_real_escape_string(iconv('UTF-8', 'ASCII//TRANSLIT', $message)) . "' WHERE deviceid=$deviceid";
     $result = mysql_query($query);
@@ -332,8 +339,7 @@
 
     $deviceid = intval($deviceid);
     setlocale(LC_ALL, 'en_US');
-    $query = "INSERT INTO device_messages (deviceid, message) VALUES ('$deviceid', '" . mysql_real_escape_string(iconv('UTF-8', 'ASCII//TRANSLIT', $message)) . ")";
-    var_dump($query);
+    $query = "INSERT INTO device_messages (deviceid, message) VALUES ('$deviceid', '" . mysql_real_escape_string(iconv('UTF-8', 'ASCII//TRANSLIT', $message)) . "')";
     $result = mysql_query($query, $link);
     close_database_connection($link);
 
