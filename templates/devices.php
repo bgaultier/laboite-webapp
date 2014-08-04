@@ -35,6 +35,13 @@
             });
       		});
       });
+      $(".message-btn").click(function() {
+        $.getJSON('device.json?id=' + $(this).attr("id").substring(7), function(device) {
+          $("#deviceid").val(device.id);
+          $("#messageModalLabel").text("<?php echo _('Envoyer un message à'); ?> " + device.name);
+
+        });
+      });
     });
   </script>
   <div class="row">
@@ -47,6 +54,10 @@
               <h3><?php echo $device['name'] ?></h3>
               <span><strong><?php echo _('Emplacement'); ?></strong><div><?php echo $device['location'] ?></div></span>
               <span><strong><?php echo _('Statut'); ?> <i class="icon-question-sign" data-toggle="tooltip" title="<?php echo _('Indique si cette boîte s\'est connectée à ce serveur dans les 10 dernières minutes'); ?>"></i></strong><div class="<?php echo get_device_status($device['lastactivity']) ?>"><?php echo get_device_status($device['lastactivity']) ?></div></span>
+              <span><strong><?php echo _('Message'); ?> <i class="icon-question-sign" data-toggle="tooltip" title="<?php echo _("Envoyer un message court à cette boîte (l'app Messages doit être activée)"); ?>"></i></strong></span>
+              <div class="muted">"<?php if(strlen($device['message']) <= 20) echo $device['message']; else echo implode(' ', array_slice(explode(' ', $device['message']), 0, 5)) . "..."; ?>"</div>
+              <!-- Button to trigger messageModal -->
+              <div style="margin-bottom : 8px;"><a id="message<?php echo $device['id'] ?>" class="btn btn-mini btn-inverse message-btn" role="button" data-toggle="modal" data-target="#messageModal"><i class="icon-envelope icon-white"></i> <?php echo _('Envoyer'); ?></a></div>
               <span><strong><?php echo _('Clé d\'API'); ?> <i class="icon-question-sign" data-toggle="tooltip" title="<?php echo _('Identifie de manière unique votre boîte'); ?>"></i></strong><div class="muted"><?php echo $device['apikey'] ?></div></span>
               <span><strong><?php echo _('API'); ?> <i class="icon-question-sign" data-toggle="tooltip" title="<?php echo _('Voir le fichier envoyé à la boîte au format xml ou json'); ?>"></i></strong>
               <div>
@@ -124,6 +135,25 @@
                 </div>
               </form>
             </div><!--/updateModal-->
+
+            <!-- messageModal -->
+            <div aria-hidden="true" aria-labelledby="messageModalLabel" role="dialog" tabindex="-1" class="modal hide fade" id="messageModal" style="display: none;">
+              <div class="modal-header">
+                <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                <h3 id="messageModalLabel"><?php echo _('Envoyer un message'); ?></h3>
+              </div>
+              <form action="/" method="post" accept-charset="utf-8" style="margin:0">
+                <div class="modal-body">
+                  <h4><?php echo _('Message pour laboîte'); ?></h4>
+                  <input id="deviceid" type="hidden" name="id">
+                  <textarea id="message" name="message" rows="2" class="input-block-level" placeholder="<?php echo _('Tapez ici votre message (max. 140 caractères)'); ?>"></textarea>
+                </div>
+                <div class="modal-footer">
+                  <button data-dismiss="modal" class="btn"><?php echo _('Fermer'); ?></button>
+                  <button type="submit" class="btn btn-inverse"><i class="icon-envelope icon-white"></i> <?php echo _('Envoyer message'); ?></button>
+                </div>
+              </form>
+            </div><!--/messageModal-->
 
 
           </div><!--/.thumbnail-->

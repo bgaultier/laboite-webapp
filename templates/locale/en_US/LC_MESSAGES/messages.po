@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: laboîte\n"
-"POT-Creation-Date: 2013-10-04 00:29+0100\n"
-"PO-Revision-Date: 2013-10-04 00:29+0100\n"
+"POT-Creation-Date: 2014-08-04 12:28+0100\n"
+"PO-Revision-Date: 2014-08-04 12:28+0100\n"
 "Last-Translator: Baptiste Gaultier <b.gaultier@gmail.com>\n"
 "Language-Team: Baptiste Gaultier <b.gaultier@gmail.com>\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.6.7\n"
 "X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
@@ -26,7 +26,7 @@ msgstr "laboite-webapp v0.1"
 
 #: ../../../about.php:7
 msgid ""
-"Cette application géniale est dévellopée par <a href=\"http://"
+"Cette application géniale est développée par <a href=\"http://"
 "baptistegaultier.fr/website/Accueil.html\">Baptiste Gaultier</a> dont le "
 "plan secret est de conquérir le monde avec ses boîtes. Le code de cette "
 "application est open source (<a href=\"http://www.gnu.org/licenses/agpl-3.0."
@@ -36,18 +36,56 @@ msgid ""
 msgstr ""
 "This awesome app is being developed by <a href=\"http://baptistegaultier.fr/"
 "website/Accueil.html\">Baptiste Gaultier</a> who wants to achieve world "
-"domination by spreading his small boxes. laboite project is open source "
+"domination by spreading his small boxes. laborite project is open source "
 "software (<a href=\"http://www.gnu.org/licenses/agpl-3.0.fr.html\">GPL "
 "Affero v3</a>), meaning that the source code is free to download <a href="
 "\"https://github.com/bgaultier/laboite-webapp\">here</a>,  copy, modify and "
 "redistribute."
 
+#: ../../../account.php:10 ../../../login.php:1
+msgid "Connexion - laboîte.cc"
+msgstr "Login - laboite.cc"
+
+#: ../../../account.php:15
+msgid "Modifier votre compte"
+msgstr "Modify your account"
+
+#: ../../../account.php:16
+msgid "Adresse email"
+msgstr "Email"
+
+#: ../../../account.php:18
+msgid "Modifier votre mot de passe"
+msgstr "Change your password"
+
+#: ../../../account.php:19
+msgid "Ancien mot de passe"
+msgstr "Old password"
+
+#: ../../../account.php:20 ../../../apps.php:70 ../../../login.php:8
+#: ../../../signup.php:14
+msgid "Mot de passe"
+msgstr "Password"
+
+#: ../../../account.php:21
+msgid "Langue"
+msgstr "Locale"
+
+#: ../../../account.php:26 ../../../apps.php:99 ../../../devices.php:102
+#: ../../../devices.php:134
+msgid "Enregistrer les modifications"
+msgstr "Save"
+
+#: ../../../account.php:27
+msgid "Déconnexion"
+msgstr "Logout"
+
 #: ../../../apps.php:10
 msgid "Apps - laboîte.cc"
 msgstr "Apps - laboite.cc"
 
-#: ../../../apps.php:44 ../../../help.php:78 ../../../help.php:150
-#: ../../../layout.php:75 ../../../devices.php:82 ../../../devices.php:114
+#: ../../../apps.php:44 ../../../devices.php:93 ../../../devices.php:125
+#: ../../../help.php:78 ../../../help.php:150 ../../../layout.php:75
 msgid "Apps"
 msgstr "Apps"
 
@@ -85,12 +123,7 @@ msgstr "City"
 msgid "Nom d'utilisateur ou email"
 msgstr "Username or email"
 
-#: ../../../apps.php:70 ../../../account.php:20 ../../../login.php:8
-#: ../../../signup.php:14
-msgid "Mot de passe"
-msgstr "Password"
-
-#: ../../../apps.php:73 ../../../devices.php:50 ../../../devices.php:109
+#: ../../../apps.php:73 ../../../devices.php:61 ../../../devices.php:120
 msgid "Clé d'API"
 msgstr "API key"
 
@@ -114,46 +147,123 @@ msgstr "Direction (0 or 1)"
 msgid "N° station de vélo"
 msgstr "Bike station"
 
-#: ../../../apps.php:92 ../../../devices.php:90 ../../../devices.php:122
+#: ../../../apps.php:91
+msgid "Station de départ"
+msgstr "Departure"
+
+#: ../../../apps.php:94
+msgid "Station d'arrivée"
+msgstr "To"
+
+#: ../../../apps.php:98 ../../../devices.php:101 ../../../devices.php:133
+#: ../../../devices.php:152
 msgid "Fermer"
 msgstr "Close"
 
-#: ../../../apps.php:93 ../../../account.php:26 ../../../devices.php:91
-#: ../../../devices.php:123
-msgid "Enregistrer les modifications"
-msgstr "Save"
-
-#: ../../../apps.php:98 ../../../devices.php:58
+#: ../../../apps.php:104 ../../../devices.php:69
 msgid "Configurer"
 msgstr "Configure"
 
-#: ../../../account.php:10 ../../../login.php:1
-msgid "Connexion - laboîte.cc"
-msgstr "Login - laboite.cc"
+#: ../../../devices.php:10
+msgid "Mes boîtes - laboîte.cc"
+msgstr "My devices - laboite.cc"
 
-#: ../../../account.php:15
-msgid "Modifier votre compte"
-msgstr "Modify your account"
+#: ../../../devices.php:41
+msgid "Envoyer un message à"
+msgstr "Send this message to"
 
-#: ../../../account.php:16
-msgid "Adresse email"
-msgstr "Email"
+#: ../../../devices.php:48 ../../../help.php:76 ../../../help.php:89
+#: ../../../help.php:97
+msgid "Boîtes"
+msgstr "Devices"
 
-#: ../../../account.php:18
-msgid "Modifier votre mot de passe"
-msgstr "Change your password"
+#: ../../../devices.php:55
+msgid "Emplacement"
+msgstr "Location"
 
-#: ../../../account.php:19
-msgid "Ancien mot de passe"
-msgstr "Old password"
+#: ../../../devices.php:56
+msgid "Statut"
+msgstr "Status"
 
-#: ../../../account.php:21
-msgid "Langue"
-msgstr "Locale"
+#: ../../../devices.php:56
+msgid ""
+"Indique si cette boîte s'est connectée à ce serveur dans les 10 dernières "
+"minutes"
+msgstr ""
+"Indicates whether a laboite device tried to connect to this server during "
+"the last 10 minutes"
 
-#: ../../../account.php:27
-msgid "Déconnexion"
-msgstr "Logout"
+#: ../../../devices.php:57
+msgid "Message"
+msgstr "Message"
+
+#: ../../../devices.php:57
+msgid ""
+"Envoyer un message court à cette boîte (l'app Messages doit être activée)"
+msgstr ""
+"Send a short message to this laboîte device (Messages app has to be "
+"activated)"
+
+#: ../../../devices.php:60
+msgid "Envoyer"
+msgstr "Send"
+
+#: ../../../devices.php:61
+msgid "Identifie de manière unique votre boîte"
+msgstr "Uniquely identifies a laboite device"
+
+#: ../../../devices.php:62 ../../../help.php:79 ../../../help.php:195
+msgid "API"
+msgstr "API"
+
+#: ../../../devices.php:62
+msgid "Voir le fichier envoyé à la boîte au format xml ou json"
+msgstr "Have a look at the xml, json files sent to your laborite device"
+
+#: ../../../devices.php:70
+msgid "Supprimer"
+msgstr "Delete"
+
+#: ../../../devices.php:77 ../../../devices.php:85
+msgid "Ajouter une boîte"
+msgstr "Add a laboite device"
+
+#: ../../../devices.php:79
+msgid "Ajouter"
+msgstr "Add"
+
+#: ../../../devices.php:89 ../../../devices.php:90 ../../../devices.php:115
+#: ../../../devices.php:117
+msgid "Nom de la boîte"
+msgstr "Device name"
+
+#: ../../../devices.php:91 ../../../devices.php:118
+msgid "Localisation"
+msgstr "Location"
+
+#: ../../../devices.php:92 ../../../devices.php:119
+msgid "Localisation (exemple : salon)"
+msgstr "Location ( e.g. living room)"
+
+#: ../../../devices.php:111
+msgid "Configurer une boîte"
+msgstr "Configure a laboite device"
+
+#: ../../../devices.php:143
+msgid "Envoyer un message"
+msgstr "Send a message"
+
+#: ../../../devices.php:147
+msgid "Message pour laboîte"
+msgstr "Message to laboite"
+
+#: ../../../devices.php:149
+msgid "Tapez ici votre message (max. 140 caractères)"
+msgstr "A text message limited to 140 characters"
+
+#: ../../../devices.php:153
+msgid "Envoyer message"
+msgstr "Send message"
 
 #: ../../../help.php:1
 msgid "Aide - laboîte.cc"
@@ -163,18 +273,9 @@ msgstr "Help - laboite.cc"
 msgid "Vue d'ensemble"
 msgstr "Overview"
 
-#: ../../../help.php:76 ../../../help.php:89 ../../../help.php:97
-#: ../../../devices.php:41
-msgid "Boîtes"
-msgstr "Devices"
-
 #: ../../../help.php:77 ../../../help.php:90 ../../../help.php:141
 msgid "Serveurs"
 msgstr "Servers"
-
-#: ../../../help.php:79 ../../../help.php:195 ../../../devices.php:51
-msgid "API"
-msgstr "API"
 
 #: ../../../help.php:87
 msgid "Le projet laboîte est un projet open-source composé de :"
@@ -448,9 +549,21 @@ msgstr "Same info in json format: "
 msgid "Ces fichiers peuvent être récupérés en utilisant l'url suivante : "
 msgstr "These files can be retrieved using this url: "
 
-#: ../../../login.php:6 ../../../login.php:12 ../../../layout.php:65
+#: ../../../layout.php:65 ../../../login.php:6 ../../../login.php:12
 msgid "Connexion"
 msgstr "Login"
+
+#: ../../../layout.php:69
+msgid "Mes boîtes"
+msgstr "My devices"
+
+#: ../../../layout.php:69
+msgid "Accueil"
+msgstr "Home"
+
+#: ../../../layout.php:79
+msgid "À propos"
+msgstr "About"
 
 #: ../../../login.php:7 ../../../signup.php:13
 msgid "Adresse e-mail"
@@ -463,6 +576,22 @@ msgstr "Sign Up"
 #: ../../../login.php:10
 msgid "Mot de passe oublié ?"
 msgstr "Forgot password"
+
+#: ../../../makerfaire.php:1 ../../../makerfairerome.php:1
+msgid "Maker Faire Rome - laboîte.cc"
+msgstr "Maker Faire Rome - laboite.cc"
+
+#: ../../../makerfaire.php:6 ../../../makerfairerome.php:6
+msgid "Message envoyé !"
+msgstr "Message sent !"
+
+#: ../../../makerfaire.php:11 ../../../makerfairerome.php:11
+msgid "Message de 140 caractères"
+msgstr "A text message limited to 140 characters"
+
+#: ../../../makerfaire.php:12 ../../../makerfairerome.php:12
+msgid "Envoyer le message à laboîte"
+msgstr "Send this message to laboite"
 
 #: ../../../signup.php:1
 msgid "Inscription - laboîte.cc"
@@ -483,91 +612,6 @@ msgstr "Sign Up"
 #: ../../../signup.php:16
 msgid "Inscription"
 msgstr "Sign Up"
-
-#: ../../../layout.php:69
-msgid "Mes boîtes"
-msgstr "My devices"
-
-#: ../../../layout.php:69
-msgid "Accueil"
-msgstr "Home"
-
-#: ../../../layout.php:79
-msgid "À propos"
-msgstr "About"
-
-#: ../../../devices.php:10
-msgid "Mes boîtes - laboîte.cc"
-msgstr "My devices - laboite.cc"
-
-#: ../../../devices.php:48
-msgid "Emplacement"
-msgstr "Location"
-
-#: ../../../devices.php:49
-msgid "Statut"
-msgstr "Status"
-
-#: ../../../devices.php:49
-msgid ""
-"Indique si cette boîte s'est connectée à ce serveur dans les 10 dernières "
-"minutes"
-msgstr ""
-"Indicates whether a laboite device tried to connect to this server during "
-"the last 10 minutes"
-
-#: ../../../devices.php:50
-msgid "Identifie de manière unique votre boîte"
-msgstr "Uniquely identifies a laboite device"
-
-#: ../../../devices.php:51
-msgid "Voir le fichier envoyé à la boîte au format xml, json ou csv"
-msgstr "Have a look at the xml, json or csv files sent to the laboite devices "
-
-#: ../../../devices.php:59
-msgid "Supprimer"
-msgstr "Delete"
-
-#: ../../../devices.php:66 ../../../devices.php:74
-msgid "Ajouter une boîte"
-msgstr "Add a laboite device"
-
-#: ../../../devices.php:68
-msgid "Ajouter"
-msgstr "Add"
-
-#: ../../../devices.php:78 ../../../devices.php:79 ../../../devices.php:104
-#: ../../../devices.php:106
-msgid "Nom de la boîte"
-msgstr "Device name"
-
-#: ../../../devices.php:80 ../../../devices.php:107
-msgid "Localisation"
-msgstr "Location"
-
-#: ../../../devices.php:81 ../../../devices.php:108
-msgid "Localisation (exemple : salon)"
-msgstr "Location ( e.g. living room)"
-
-#: ../../../devices.php:100
-msgid "Configurer une boîte"
-msgstr "Configure a laboite device"
-
-#: ../../../makerfaire.php:1
-msgid "Maker Faire Rome - laboîte.cc"
-msgstr "Maker Faire Rome - laboite.cc"
-
-#: ../../../makerfaire.php:6
-msgid "Message envoyé !"
-msgstr "Message sent !"
-
-#: ../../../makerfaire.php:11
-msgid "Message de 140 caractères"
-msgstr "A text message limited to 140 characters"
-
-#: ../../../makerfaire.php:12
-msgid "Envoyer le message à laboîte"
-msgstr "Send this message to laboite"
 
 #~ msgid "Elles peuvent être construites à partir des composants suivants  : "
 #~ msgstr "They can be built using the following components:"

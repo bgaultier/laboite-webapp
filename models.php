@@ -76,7 +76,8 @@
     $result = mysql_query("SELECT * FROM devices WHERE creator = $userid");
     $devices = array();
     while ($row = mysql_fetch_assoc($result)) {
-        $devices[] = $row;
+      $row["message"] = get_device_last_message($row["id"]);
+      $devices[] = $row;
     }
     close_database_connection($link);
 
