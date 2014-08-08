@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: laboîte\n"
-"POT-Creation-Date: 2014-08-04 12:28+0100\n"
-"PO-Revision-Date: 2014-08-04 12:28+0100\n"
+"POT-Creation-Date: 2014-08-08 17:00+0100\n"
+"PO-Revision-Date: 2014-08-08 17:10+0100\n"
 "Last-Translator: Baptiste Gaultier <b.gaultier@gmail.com>\n"
 "Language-Team: Baptiste Gaultier <b.gaultier@gmail.com>\n"
 "Language: en_GB\n"
@@ -41,6 +41,14 @@ msgstr ""
 "Affero v3</a>), meaning that the source code is free to download <a href="
 "\"https://github.com/bgaultier/laboite-webapp\">here</a>,  copy, modify and "
 "redistribute."
+
+#: ../../../about.php:8
+msgid ""
+"Ce projet n'aurait pu exister sans le soutien de nos <a href=\"thanks"
+"\">contributeurs</a>. Un immense merci à eux !"
+msgstr ""
+"This project would not have been possible without our <a href=\"thanks"
+"\">KissKissBankBank contributors</a>. A huge thank you to all of them!"
 
 #: ../../../account.php:10 ../../../login.php:1
 msgid "Connexion - laboîte.cc"
@@ -85,7 +93,8 @@ msgid "Apps - laboîte.cc"
 msgstr "Apps - laboite.cc"
 
 #: ../../../apps.php:44 ../../../devices.php:93 ../../../devices.php:125
-#: ../../../help.php:78 ../../../help.php:150 ../../../layout.php:75
+#: ../../../help.php:78 ../../../help.php:150 ../../../help2.php:78
+#: ../../../help2.php:150 ../../../layout.php:75
 msgid "Apps"
 msgstr "Apps"
 
@@ -173,7 +182,8 @@ msgid "Envoyer un message à"
 msgstr "Send this message to"
 
 #: ../../../devices.php:48 ../../../help.php:76 ../../../help.php:89
-#: ../../../help.php:97
+#: ../../../help.php:97 ../../../help2.php:76 ../../../help2.php:89
+#: ../../../help2.php:97
 msgid "Boîtes"
 msgstr "Devices"
 
@@ -213,6 +223,7 @@ msgid "Identifie de manière unique votre boîte"
 msgstr "Uniquely identifies a laboite device"
 
 #: ../../../devices.php:62 ../../../help.php:79 ../../../help.php:195
+#: ../../../help2.php:79 ../../../help2.php:195
 msgid "API"
 msgstr "API"
 
@@ -265,41 +276,44 @@ msgstr "A text message limited to 140 characters"
 msgid "Envoyer message"
 msgstr "Send message"
 
-#: ../../../help.php:1
+#: ../../../help.php:1 ../../../help2.php:1
 msgid "Aide - laboîte.cc"
 msgstr "Help - laboite.cc"
 
-#: ../../../help.php:75 ../../../help.php:85
+#: ../../../help.php:75 ../../../help.php:85 ../../../help2.php:75
+#: ../../../help2.php:85
 msgid "Vue d'ensemble"
 msgstr "Overview"
 
 #: ../../../help.php:77 ../../../help.php:90 ../../../help.php:141
+#: ../../../help2.php:77 ../../../help2.php:90 ../../../help2.php:141
 msgid "Serveurs"
 msgstr "Servers"
 
-#: ../../../help.php:87
+#: ../../../help.php:87 ../../../help2.php:87
 msgid "Le projet laboîte est un projet open-source composé de :"
 msgstr ""
 "laboite is an open-source project made up of software and hardware modules:"
 
-#: ../../../help.php:89
+#: ../../../help.php:89 ../../../help2.php:89
 msgid " : des petits écrans connectés à Internet."
 msgstr ": small screens connected to Internet."
 
-#: ../../../help.php:90
+#: ../../../help.php:90 ../../../help2.php:90
 msgid " : des machines qui permettent de configurer les boîtes et les "
 msgstr ""
 ": computers that allow the remote configuration of laboite devices and "
 
 #: ../../../help.php:90 ../../../help.php:104 ../../../help.php:144
+#: ../../../help2.php:90 ../../../help2.php:104 ../../../help2.php:144
 msgid "apps"
 msgstr "apps"
 
-#: ../../../help.php:93
+#: ../../../help.php:93 ../../../help2.php:93
 msgid "templates/images/overview_fr_FR.svg"
 msgstr "templates/images/overview_en_US.svg"
 
-#: ../../../help.php:99
+#: ../../../help.php:99 ../../../help2.php:99
 msgid ""
 "Les boîtes sont des équipements connectés à Internet équipés d'un écran et "
 "de capteurs optionnels. Les boîtes sont basées sur la plateforme "
@@ -307,56 +321,57 @@ msgstr ""
 "The laboite devices are compact machines with sensors and a LED matrix. They "
 "are based on "
 
-#: ../../../help.php:99
+#: ../../../help.php:99 ../../../help2.php:99
 msgid "http://arduino.cc/fr/"
 msgstr "http://arduino.cc/en/"
 
-#: ../../../help.php:101
+#: ../../../help.php:101 ../../../help2.php:101
 msgid "Composants"
 msgstr "Components"
 
-#: ../../../help.php:102
+#: ../../../help.php:102 ../../../help2.php:102
 msgid "Les composants nécessaires pour une boîte : "
 msgstr "Components needed to build a laboite device:"
 
-#: ../../../help.php:104
+#: ../../../help.php:104 ../../../help2.php:104
 msgid "Un Arduino Ethernet"
 msgstr "Arduino Ethernet"
 
-#: ../../../help.php:104
+#: ../../../help.php:104 ../../../help2.php:104
 msgid " : c'est l'intelligence du projet laboîte, l'Arduino se connecte au "
 msgstr ": this is the brain of laboite project, Arduino connects to "
 
-#: ../../../help.php:104
+#: ../../../help.php:104 ../../../help2.php:104
 msgid "serveur"
 msgstr "the server"
 
-#: ../../../help.php:104
+#: ../../../help.php:104 ../../../help2.php:104
 msgid " et récupère les différentes "
 msgstr " and retrieves "
 
-#: ../../../help.php:104
+#: ../../../help.php:104 ../../../help2.php:104
 msgid ". Il traite ensuite ces données et les affiche."
 msgstr " data. Then it parses the data and displays them."
 
-#: ../../../help.php:105
+#: ../../../help.php:105 ../../../help2.php:105
 msgid "Une matrice de LED SURE electronics"
 msgstr "A SURE elextronics LED matrix"
 
-#: ../../../help.php:105
+#: ../../../help.php:105 ../../../help2.php:105
 msgid " : une matrice de 32×16 pixels avec deux couleurs."
 msgstr ": a 32&times;16 bicolor LED Dot Matrix Unit Board."
 
 #: ../../../help.php:106 ../../../help.php:113 ../../../help.php:120
-#: ../../../help.php:188
+#: ../../../help.php:188 ../../../help2.php:106 ../../../help2.php:113
+#: ../../../help2.php:120 ../../../help2.php:188
 msgid "Optionnel"
 msgstr "Optional"
 
-#: ../../../help.php:106
+#: ../../../help.php:106 ../../../help2.php:106
 msgid "Un blindage TinkerKit! "
 msgstr "A TinkerKit! shield"
 
-#: ../../../help.php:106
+#: ../../../help.php:106 ../../../help2.php:106
 msgid ""
 " : module d'extension permettant l'ajout de capteurs (<a href=\"http://www."
 "tinkerkit.com/thermistor/\">température</a>, <a href=\"http://www.tinkerkit."
@@ -370,53 +385,53 @@ msgstr ""
 "com/button/\">button</a>). Do not forget <a href=\"http://www.tinkerkit.com/"
 "cable/\">wires</a>!"
 
-#: ../../../help.php:108
+#: ../../../help.php:108 ../../../help2.php:108
 msgid "templates/images/bom_fr_FR.svg"
 msgstr "templates/images/bom_en_US.svg"
 
-#: ../../../help.php:110
+#: ../../../help.php:110 ../../../help2.php:110
 msgid "Montage"
 msgstr "Building"
 
-#: ../../../help.php:111
+#: ../../../help.php:111 ../../../help2.php:111
 msgid "Voici les étapes de montage d'une boîte : "
 msgstr "The following list outlines steps for building a laboite device:"
 
-#: ../../../help.php:113
+#: ../../../help.php:113 ../../../help2.php:113
 msgid "Branchez les différents capteurs sur le blindage TinkerKit! : "
 msgstr "Plug all the sensors on the shield: "
 
-#: ../../../help.php:115
+#: ../../../help.php:115 ../../../help2.php:115
 msgid "Capteur de luminosité&rarr;<span class=\"badge\">I0</span>"
 msgstr "LDR&rarr;<span class=\"badge\">I0</span>"
 
-#: ../../../help.php:116
+#: ../../../help.php:116 ../../../help2.php:116
 msgid "Capteur de température&rarr;<span class=\"badge\">I1</span>"
 msgstr "Thermistor&rarr;<span class=\"badge\">I1</span>"
 
-#: ../../../help.php:117
+#: ../../../help.php:117 ../../../help2.php:117
 msgid "Bouton poussoir&rarr;<span class=\"badge\">I2</span>"
 msgstr "Pushbutton&rarr;<span class=\"badge\">I2</span>"
 
-#: ../../../help.php:120
+#: ../../../help.php:120 ../../../help2.php:120
 msgid "Branchez le blindage sur l’Arduino"
 msgstr "Please stack the TinkerKit! shield on top of the Arduino board"
 
-#: ../../../help.php:121
+#: ../../../help.php:121 ../../../help2.php:121
 msgid ""
 "Branchez la matrice de LED sur les broches du blindage TinkerKit! en "
 "utilisant des fils : "
 msgstr "Plug the LED matrix on TinkerKit! shield pins using wires:"
 
-#: ../../../help.php:130
+#: ../../../help.php:130 ../../../help2.php:130
 msgid "Construisez une boîte sympa avec des Legos ou du carton"
 msgstr "Build a fancy case for your laboite device using Legos or cardboard."
 
-#: ../../../help.php:131
+#: ../../../help.php:131 ../../../help2.php:131
 msgid "Téléchargez le croquis Arduino depuis GitHub : "
 msgstr "Download Arduino sketch from GitHub:"
 
-#: ../../../help.php:132
+#: ../../../help.php:132 ../../../help2.php:132
 msgid ""
 "Ouvrez votre IDE Arduino et modifiez la ligne 69 en indiquant la clé d'API "
 "d'une de vos boîtes :"
@@ -424,11 +439,11 @@ msgstr ""
 "Fire up Arduino IDE and modify line 69, modify the apikey variable by typing "
 "one of your devices keys."
 
-#: ../../../help.php:134
+#: ../../../help.php:134 ../../../help2.php:134
 msgid "Téléversez le code et prenez un café pour fêter ça !"
 msgstr "Upload the sketch and enjoy a coffee to celebrate !"
 
-#: ../../../help.php:144
+#: ../../../help.php:144 ../../../help2.php:144
 msgid ""
 "Le serveur est une machine qui accueille PHP + MySQL ainsi qu'une "
 "application web open-source. Cette application permet la configuration à "
@@ -437,15 +452,16 @@ msgstr ""
 "The server is a computer with an open-source PHP/MySQL webapp deployed. This "
 "webapp allows the remote configuration of "
 
-#: ../../../help.php:144 ../../../help.php:153
+#: ../../../help.php:144 ../../../help.php:153 ../../../help2.php:144
+#: ../../../help2.php:153
 msgid "boîtes"
 msgstr "devices"
 
-#: ../../../help.php:144
+#: ../../../help.php:144 ../../../help2.php:144
 msgid " et d'"
 msgstr " and its "
 
-#: ../../../help.php:144
+#: ../../../help.php:144 ../../../help2.php:144
 msgid ""
 ". Cette application web peut être téléchargée depuis github et installer sur "
 "votre serveur. Il est également possible d'utiliser gratuitement l'instance "
@@ -454,21 +470,21 @@ msgstr ""
 ". This webapp can be dowloaded from github and installed on your server. You "
 "can also use our  hosted ready to use instance on "
 
-#: ../../../help.php:144
+#: ../../../help.php:144 ../../../help2.php:144
 msgid " (ce serveur)."
 msgstr " (this server)."
 
-#: ../../../help.php:146
+#: ../../../help.php:146 ../../../help2.php:146
 msgid "Télécharger la web app laboîte"
 msgstr "Download laboite webapp"
 
-#: ../../../help.php:153
+#: ../../../help.php:153 ../../../help2.php:153
 msgid ""
 "Les apps permettent de configurer facilement les informations affichées sur "
 "les "
 msgstr "Apps allows you to modify the information displayed on the "
 
-#: ../../../help.php:153
+#: ../../../help.php:153 ../../../help2.php:153
 msgid ""
 ". Chacune des apps permet l'affichage d'une ou plusieurs données. Voici "
 "quelques exemples : "
@@ -476,28 +492,28 @@ msgstr ""
 ". Each app allows the display of one or more information. Here are some "
 "examples: "
 
-#: ../../../help.php:160
+#: ../../../help.php:160 ../../../help2.php:160
 msgid "<strong>Heure</strong><br> affiche l'heure d'une ville dans le monde"
 msgstr "<strong>Time</strong><br> shows time for a city in the world"
 
-#: ../../../help.php:166
+#: ../../../help.php:166 ../../../help2.php:166
 msgid "<strong>Emails</strong><br> affiche le nombre de mails non-lus"
 msgstr "<strong>Emails</strong><br> shows the number of unread mails"
 
-#: ../../../help.php:172
+#: ../../../help.php:172 ../../../help2.php:172
 msgid "<strong>Météo</strong><br> affiche les conditions météo"
 msgstr "<strong>Weather</strong><br> displays the weather forecast"
 
-#: ../../../help.php:178
+#: ../../../help.php:178 ../../../help2.php:178
 msgid "<strong>Bus</strong><br> affiche les minutes avant le passage d'un bus"
 msgstr "<strong>Bus</strong><br> shows the waiting time for the next bus"
 
-#: ../../../help.php:184
+#: ../../../help.php:184 ../../../help2.php:184
 msgid "<strong>Vagues</strong><br> affiche les conditions d'un spot"
 msgstr ""
 "<strong>Waves</strong><br> displays predicted conditions for a surf spot"
 
-#: ../../../help.php:189
+#: ../../../help.php:189 ../../../help2.php:189
 msgid ""
 "L'application <strong>Messages</strong> permet l'affichage de messages "
 "courts sur une boîte. Pour envoyer un message sur une boîte. Il vous suffit "
@@ -507,7 +523,7 @@ msgstr ""
 "of your laboite devices. To send a message to your device, please use this "
 "command :"
 
-#: ../../../help.php:190
+#: ../../../help.php:190 ../../../help2.php:190
 msgid ""
 "$ curl http://api.laboite.cc/&lt;votre_clé_API&gt;/message -d '{\"message\":"
 "\"Votre message\"}' -H 'Content-Type: application/json'"
@@ -515,7 +531,7 @@ msgstr ""
 "$ curl http://api.laboite.cc/&lt;your_API_key&gt;/message -d '{\"message\":"
 "\"Your message\"}' -H 'Content-Type: application/json'"
 
-#: ../../../help.php:198
+#: ../../../help.php:198 ../../../help2.php:198
 msgid ""
 "Une API permet à votre boîte d'accéder à ses différentes apps en utilisant "
 "un protocole et un format compréhensible par une machine. Les deux "
@@ -525,15 +541,15 @@ msgstr ""
 "computer-friendly network protocol and format. There are two network "
 "protocols available: "
 
-#: ../../../help.php:198
+#: ../../../help.php:198 ../../../help2.php:198
 msgid " et "
 msgstr " and "
 
-#: ../../../help.php:198
+#: ../../../help.php:198 ../../../help2.php:198
 msgid ". Les formats de représentation de données sont "
 msgstr ". Two formats are supported to recover data: "
 
-#: ../../../help.php:198
+#: ../../../help.php:198 ../../../help2.php:198
 msgid ""
 ". Voici un exemple de fichier XML contenant trois apps (<strong>Heure</"
 "strong>, <strong>Bus</strong> et <strong>Météo</strong>) :"
@@ -541,11 +557,11 @@ msgstr ""
 ". Here is a XML file example containing three apps (<strong>Time</strong>, "
 "<strong>Buses</strong> and <strong>Weather</strong>):"
 
-#: ../../../help.php:218
+#: ../../../help.php:218 ../../../help2.php:218
 msgid "Les mêmes informations au format json : "
 msgstr "Same info in json format: "
 
-#: ../../../help.php:237
+#: ../../../help.php:237 ../../../help2.php:237
 msgid "Ces fichiers peuvent être récupérés en utilisant l'url suivante : "
 msgstr "These files can be retrieved using this url: "
 
@@ -612,6 +628,42 @@ msgstr "Sign Up"
 #: ../../../signup.php:16
 msgid "Inscription"
 msgstr "Sign Up"
+
+#: ../../../thanks.php:1
+msgid "Remerciements - laboîte.cc"
+msgstr "Thanks - laboite.cc"
+
+#: ../../../thanks.php:20
+msgid "Merci!"
+msgstr "Cheers!"
+
+#: ../../../thanks.php:21
+msgid ""
+"Pour accélérer le développement du projet, stabiliser le code-source et "
+"augmenter sa communauté, le projet laboîte a levé <strong>3 516 €</strong> "
+"en Juillet 2014."
+msgstr ""
+"To boost the dev effort, to make a more stable code and to expand the "
+"community, the laboite project  raised <strong>3 516 €</strong> on "
+"KissKissBankBank in July 2014."
+
+#: ../../../thanks.php:26
+msgid "Contributeurs"
+msgstr "Funders"
+
+#: ../../../thanks.php:29
+msgid ""
+"Nous tenons ici à remercier chaleureusement nos 56 contributeurs pour leur "
+"soutien :"
+msgstr "We would like to thank our amazing funders:"
+
+#: ../../../thanks.php:33
+msgid "Prénom"
+msgstr "First name"
+
+#: ../../../thanks.php:34
+msgid "Nom"
+msgstr "Last name"
 
 #~ msgid "Elles peuvent être construites à partir des composants suivants  : "
 #~ msgstr "They can be built using the following components:"
