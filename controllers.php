@@ -1,8 +1,8 @@
 <?php
   function login_action() {
-    $user = user_exists_and_password_match($_POST['email'], $_POST['password']);
+  $user = user_exists_and_password_match($_POST['email'], $_POST['password']);
     if($user && !empty($_POST['email'])) {
-      $_SESSION['id'] = $user['id'];
+    $_SESSION['id'] = $user['id'];
       $_SESSION['email'] = $user['email'];
       $_SESSION['locale'] = $user['locale'];
 
@@ -13,66 +13,72 @@
   }
 
   function logout_action() {
-      require 'templates/logout.php';
+    require 'templates/logout.php';
   }
 
   function signup_action() {
-      require 'templates/signup.php';
+    require 'templates/signup.php';
   }
 
   function account_action($email) {
-    // dealing with user configuration form
+  // dealing with user configuration form
     $user_modified = user_exists_and_password_match($email, $_POST['oldpassword']);
     if($user_modified && !empty($_POST['password'])) {
-      update_user($userid, $_POST['password'], $_POST['locale']);
+    update_user($userid, $_POST['password'], $_POST['locale']);
       $_SESSION['locale'] = $_POST['locale'];
     }
     elseif($user_modified && !empty($_POST['locale'])) {
-      update_user_locale($userid, $_POST['locale']);
+    update_user_locale($userid, $_POST['locale']);
       $_SESSION['locale'] = $_POST['locale'];
     }
     require 'templates/account.php';
   }
 
   function help_action() {
-      require 'templates/help.php';
+    require 'templates/help.php';
+  }
+
+  function thanks_action() {
+  require 'templates/thanks.php';
   }
 
   function about_action() {
-      require 'templates/about.php';
+    require 'templates/about.php';
   }
 
   function makerfaire_action() {
-    if(isset($_POST["message"]) && strlen($_POST["message"]) < 140 )
+  if(isset($_POST["message"]) && strlen($_POST["message"]) < 140 )
       update_device_message(1, $_POST["message"]);
 
     require 'templates/makerfaire.php';
   }
 
   function list_devices_action($userid) {
-      // dealing with device configuration form
-      $device_modified = get_device_by_id($userid, $_POST['id']);
-      if($device_modified && isset($_POST['name'])) {
-        update_device($_POST['id'], $_POST['name'], $_POST['location']);
-        delete_all_device_apps($_POST['id']);
-        foreach ($_POST as $key=>$value) {
-          if (strpos($key,'app') !== false)
-            update_device_app($_POST['id'], substr($key, 3, strlen($key)));
-        }
+    // dealing with device configuration form
+    $device_modified = get_device_by_id($userid, $_POST['id']);
+    if($device_modified && isset($_POST['name'])) {
+      update_device($_POST['id'], $_POST['name'], $_POST['location']);
+      delete_all_device_apps($_POST['id']);
+      foreach ($_POST as $key=>$value) {
+        if (strpos($key,'app') !== false)
+          update_device_app($_POST['id'], substr($key, 3, strlen($key)));
       }
-      // dealing with message form
-      if($device_modified && isset($_POST['message']))
-        update_device_message($_POST['id'], $_POST['message']);
-      // then list all the user devices
-      $devices = get_all_user_devices($userid);
-      $apps = get_all_apps();
-      require 'templates/devices.php';
+    }
+    // dealing with message form
+    if($device_modified && isset($_POST['message']))
+      update_device_message($_POST['id'], $_POST['message']);
+    // then list all the user devices
+    $devices = get_all_user_devices($userid);
+    $apps = get_all_apps();
+
+    require 'templates/devices.php';
   }
 
   function get_device_action($userid, $deviceid) {
     $device = get_device_by_id($userid, $deviceid);
     $device_apps = get_device_apps($deviceid);
     $device['apps'] = $device_apps;
+
     require 'templates/device.json.php';
   }
 
@@ -94,8 +100,7 @@
       regenerate_apikey($device['id']);
       list_devices_action($userid);
     }
-    else
-      die;
+    else die;
   }
 
   function list_apps_action($userid) {

@@ -2,7 +2,7 @@
   /*
     laboîte-webapp v0.1 is a PHP+MySQL web application that allows the
     remote configuration of devices connected to Internet.
-    
+
     Copyright (C) 2013  Baptiste Gaultier
 
     This program is free software: you can redistribute it and/or modify
@@ -21,11 +21,11 @@
 
   // start new or resume existing session
   session_start();
-  
+
   // load and initialize any global libraries
   require_once 'models.php';
   require_once 'controllers.php';
-  
+
   // internationalization
   if(isset($_SESSION['locale']))
     $language = $_SESSION['locale'];
@@ -59,6 +59,8 @@
     account_action($_SESSION['email']);
   elseif ('/help' == $uri)
     help_action();
+  elseif ('/thanks' == $uri)
+    thanks_action();
   elseif ('/about' == $uri)
     about_action();
   elseif ('/device.json' == substr($uri, 0, 12) && isset($_GET['id'])) {
