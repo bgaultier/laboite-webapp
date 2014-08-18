@@ -34,7 +34,7 @@
     		  });
         });
       });
-    }); 
+    });
   </script>
   <style type="text/css">
     .description {
@@ -79,7 +79,7 @@
                     <input id="stop" type="text" name="stop" class="input-large" placeholder="<?php echo _('N° arrêt de bus (Timeo)'); ?>" >
                   </div>
                   <div>
-                    <input id="route" type="text" name="route" class="input-large" placeholder="<?php echo _('N° ligne de bus (004)'); ?>" >
+                    <input id="route" type="text" name="route" class="input-large" placeholder="<?php echo _('N° ligne de bus (4 par exemple)'); ?>" >
                   </div>
                   <div>
                     <input id="direction" type="text" name="direction" class="input-large" placeholder="<?php echo _('Direction (0 ou 1)'); ?>" >
@@ -104,10 +104,10 @@
             <a id="app<?php echo $app['id'] ?>" class="btn btn-block conf-btn" role="button" data-toggle="modal" data-target="#confModal"><i class="icon-wrench"></i> <?php echo _('Configurer'); ?></a>
           </div><!--/.thumbnail-->
         </li><!--/.span-->
-      <?php endforeach; ?> 
+      <?php endforeach; ?>
     </ul><!--/thumbnails-->
   </div><!--/.row-fluid -->
-      
+
 <?php $content = ob_get_clean() ?>
 
 <?php include 'layout.php' ?>

@@ -35,6 +35,9 @@
   }
 
   function help_action() {
+    // get all the apps descriptions
+    $apps = get_all_apps();
+
     require 'templates/help.php';
   }
 

@@ -1,245 +1,443 @@
 <?php $title = _("Aide - laboîte.cc"); ?>
 
 <?php ob_start() ?>
-  <style type="text/css">
-    /* Sidenav */
-    .bs-docs-sidenav {
-      width: 228px;
-      margin: 30px 0 0;
-      padding: 0;
-      background-color: #fff;
-      -webkit-border-radius: 6px;
-         -moz-border-radius: 6px;
-              border-radius: 6px;
-      -webkit-box-shadow: 0 1px 4px rgba(0,0,0,.065);
-         -moz-box-shadow: 0 1px 4px rgba(0,0,0,.065);
-              box-shadow: 0 1px 4px rgba(0,0,0,.065);
-    }
-    .bs-docs-sidenav > li > a {
-      display: block;
-      width: 190px \9;
-      margin: 0 0 -1px;
-      padding: 8px 14px;
-      border: 1px solid #e5e5e5;
-    }
-    .bs-docs-sidenav > li:first-child > a {
-      -webkit-border-radius: 6px 6px 0 0;
-         -moz-border-radius: 6px 6px 0 0;
-              border-radius: 6px 6px 0 0;
-    }
-    .bs-docs-sidenav > li:last-child > a {
-      -webkit-border-radius: 0 0 6px 6px;
-         -moz-border-radius: 0 0 6px 6px;
-              border-radius: 0 0 6px 6px;
-    }
-    .bs-docs-sidenav > .active > a {
-      position: relative;
-      z-index: 2;
-      padding: 9px 15px;
-      border: 0;
-      text-shadow: 0 1px 0 rgba(0,0,0,.15);
-      -webkit-box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
-         -moz-box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
-              box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
-    }
-    /* Chevrons */
-    .bs-docs-sidenav .icon-chevron-right {
-      float: right;
-      margin-top: 2px;
-      margin-right: -6px;
-      opacity: .25;
-    }
-    .bs-docs-sidenav > li > a:hover {
-      background-color: #f5f5f5;
-    }
-    .bs-docs-sidenav a:hover .icon-chevron-right {
-      opacity: .5;
-    }
-    .bs-docs-sidenav .active .icon-chevron-right,
-    .bs-docs-sidenav .active a:hover .icon-chevron-right {
-      background-image: url(../templates/bootstrap/img/glyphicons-halflings-white.png);
-      opacity: 1;
-    }
-    .bs-docs-sidenav.affix {
-      top: 40px;
-    }
-    .bs-docs-sidenav.affix-bottom {
-      position: absolute;
-      top: auto;
-      bottom: 270px;
-    }
-  </style>
-  <div class="row">
-    <div id="help-sidebar" class="span3 bs-docs-sidebar">
-      <ul class="nav nav-list bs-docs-sidenav affix-top" data-spy="affix">
-        <li class="active"><a href="#overview"><i class="icon-chevron-right"></i> <?php echo _("Vue d'ensemble"); ?></a></li>
-        <li><a href="#devices"><i class="icon-chevron-right"></i> <?php echo _("Boîtes"); ?></a></li>
-        <li><a href="#server"><i class="icon-chevron-right"></i> <?php echo _("Serveurs"); ?></a></li>
-        <li><a href="#apps"><i class="icon-chevron-right"></i> <?php echo _("Apps"); ?></a></li>
-        <li><a href="#api"><i class="icon-chevron-right"></i> <?php echo _("API"); ?></a></li>
-      </ul>
-    </div>
-    <div class="span9">
-      <section id="overview">
-        <div class="page-header">
-          <h1><?php echo _("Vue d'ensemble"); ?></h1>
-        </div>
-        <p class="lead"><?php echo _("Le projet laboîte est un projet open-source composé de :"); ?>
-          <ul class ="lead">
-            <li style="margin-bottom : 20px;"><a href="#devices"><?php echo _("Boîtes"); ?></a><?php echo _(" : des petits écrans connectés à Internet."); ?></li>
-            <li><a href="#server"><?php echo _("Serveurs"); ?></a><?php echo _(" : des machines qui permettent de configurer les boîtes et les "); ?><a href="#apps"><?php echo _("apps"); ?></a>.</li>
-          </ul>
-        </p>
-        <img style="display: block; margin-left: auto; margin-right: auto;" src="<?php echo _("templates/images/overview_fr_FR.svg"); ?>" class="img-polaroid">
-      </section>
-      <section id="devices">
-        <div class="page-header">
-          <h1><?php echo _("Boîtes"); ?></h1>
-        </div>
-        <p><?php echo _("Les boîtes sont des équipements connectés à Internet équipés d'un écran et de capteurs optionnels. Les boîtes sont basées sur la plateforme "); ?><a href="<?php echo _("http://arduino.cc/fr/"); ?>">Arduino</a>.</p>
-        <img style="display: block; margin-left: auto; margin-right: auto;" src="templates/images/laboite.jpg" class="img-polaroid">
-        <h2><?php echo _("Composants"); ?></h2>
-        <p><?php echo _("Les composants nécessaires pour une boîte : "); ?>
-          <ul>
-            <li><a href="http://store.arduino.cc/eu/index.php?main_page=product_info&cPath=11_12&products_id=315"><?php echo _("Un Arduino Ethernet"); ?></a><?php echo _(" : c'est l'intelligence du projet laboîte, l'Arduino se connecte au "); ?><a href="#server"><?php echo _("serveur"); ?></a><?php echo _(" et récupère les différentes "); ?><a href="#apps"><?php echo _("apps"); ?></a><?php echo _(". Il traite ensuite ces données et les affiche."); ?></li>
-            <li><a href="http://www.sureelectronics.net/goods.php?id=1095"><?php echo _("Une matrice de LED SURE electronics"); ?></a><?php echo _(" : une matrice de 32×16 pixels avec deux couleurs."); ?></li>
-            <li><span class="label label-info"><?php echo _("Optionnel"); ?></span> <a href="http://www.tinkerkit.com/shield/"><?php echo _("Un blindage TinkerKit! "); ?></a><?php echo _(" : module d'extension permettant l'ajout de capteurs (<a href=\"http://www.tinkerkit.com/thermistor/\">température</a>, <a href=\"http://www.tinkerkit.com/ldr/\">luminosité</a> et <a href=\"http://www.tinkerkit.com/button/\">bouton</a>). N'oubliez pas les <a href=\"http://www.tinkerkit.com/cable/\">câbles</a> pour connecter les capteurs."); ?></li>
-          </ul>
-          <img style="display: block; margin-left: auto; margin-right: auto; margin-top: 24px; width:420px;" src="<?php echo _("templates/images/bom_fr_FR.svg"); ?>">
-        </p>
-        <h2><?php echo _("Montage"); ?></h2>
-        <p><?php echo _("Voici les étapes de montage d'une boîte : "); ?>
-          <ol>
-            <li><span class="label label-info"><?php echo _("Optionnel"); ?></span> <?php echo _("Branchez les différents capteurs sur le blindage TinkerKit! : "); ?>
-              <ul>
-                <li><?php echo _("Capteur de luminosité&rarr;<span class=\"badge\">I0</span>"); ?></li>
-                <li><?php echo _("Capteur de température&rarr;<span class=\"badge\">I1</span>"); ?></li>
-                <li><?php echo _("Bouton poussoir&rarr;<span class=\"badge\">I2</span>"); ?></li>
-              </ul>
-            </li>
-            <li><span class="label label-info"><?php echo _("Optionnel"); ?></span> <?php echo _("Branchez le blindage sur l’Arduino"); ?></li>
-            <li><?php echo _("Branchez la matrice de LED sur les broches du blindage TinkerKit! en utilisant des fils : "); ?>
-              <ul>
-                <li>DATA&rarr;<span class="badge">7</span></li>
-                <li>WR&rarr;<span class="badge">6</span></li>
-                <li>CS&rarr;<span class="badge">5</span></li>
-                <li>CLK&rarr;<span class="badge">4</span></li>
-              </ul>
-              <img style="display: block; margin-left: auto; margin-right: auto; margin-top: 24px;" src="templates/images/dotmatrix_connections.svg">
-            </li>
-            <li><?php echo _("Construisez une boîte sympa avec des Legos ou du carton"); ?></li>
-            <li><?php echo _("Téléchargez le croquis Arduino depuis GitHub : "); ?><a href="https://github.com/bgaultier/laboite">https://github.com/bgaultier/laboite</a></li>
-            <li><?php echo _("Ouvrez votre IDE Arduino et modifiez la ligne 69 en indiquant la clé d'API d'une de vos boîtes :"); ?></li>
-            <code style="color: #000;"><span class="text-warning">char</span> apikey[] = <span class="text-success">"61c119ce"</span>; <span style="color: rgb(153, 153, 153);">// your device API key</span></code>
-            <li><?php echo _("Téléversez le code et prenez un café pour fêter ça !"); ?></li>
-          </ol>
-        </p>
-        
-      </section>
-      <section id="server">
-        <div class="page-header">
-          <h1><?php echo _("Serveurs"); ?></h1>
-        </div>
-        <p>
-          <?php echo _("Le serveur est une machine qui accueille PHP + MySQL ainsi qu'une application web open-source. Cette application permet la configuration à distance de "); ?><a href="#devices"><?php echo _("boîtes"); ?></a><?php echo _(" et d'"); ?><a href="#apps"><?php echo _("apps"); ?></a><?php echo _(". Cette application web peut être téléchargée depuis github et installer sur votre serveur. Il est également possible d'utiliser gratuitement l'instance du serveur "); ?><a href="<?php echo $_SERVER['SERVER_NAME']; ?>"><?php echo $_SERVER['SERVER_NAME']; ?></a><?php echo _(" (ce serveur)."); ?>
-        </p>
-        <a class="btn btn-primary btn-large" href="https://github.com/bgaultier/laboite-webapp/archive/master.zip"><i class=" icon-download icon-white"></i> <?php echo _("Télécharger la web app laboîte"); ?></a>
-      </section>
-      <section id="apps">
-        <div class="page-header">
-          <h1><?php echo _("Apps"); ?></h1>
-        </div>
-        <p>
-          <?php echo _("Les apps permettent de configurer facilement les informations affichées sur les "); ?><a href="#devices"><?php echo _("boîtes"); ?></a><?php echo _(". Chacune des apps permet l'affichage d'une ou plusieurs données. Voici quelques exemples : "); ?>
-        </p>
-        <ul class="thumbnails" style>
-          <li class="thumbnail" style="width : 92px; text-align:center;">
-            <div style="height : 40px;">
-              <img style="display: block; margin-left: auto; margin-right: auto;" src="templates/images/apps/icon-time.svg" >
-            </div>
+	<style>
+		/* Sidenav */
+		.bs-docs-sidenav {
+			width: 228px;
+			margin: 30px 0 0;
+			padding: 0;
+			background-color: #fff;
+			-webkit-border-radius: 6px;
+				 -moz-border-radius: 6px;
+							border-radius: 6px;
+			-webkit-box-shadow: 0 1px 4px rgba(0,0,0,.065);
+				 -moz-box-shadow: 0 1px 4px rgba(0,0,0,.065);
+							box-shadow: 0 1px 4px rgba(0,0,0,.065);
+		}
+		.bs-docs-sidenav > li > a {
+			display: block;
+			width: 190px \9;
+			margin: 0 0 -1px;
+			padding: 8px 14px;
+			border: 1px solid #e5e5e5;
+		}
+		.bs-docs-sidenav > li:first-child > a {
+			-webkit-border-radius: 6px 6px 0 0;
+				 -moz-border-radius: 6px 6px 0 0;
+							border-radius: 6px 6px 0 0;
+		}
+		.bs-docs-sidenav > li:last-child > a {
+			-webkit-border-radius: 0 0 6px 6px;
+				 -moz-border-radius: 0 0 6px 6px;
+							border-radius: 0 0 6px 6px;
+		}
+		.bs-docs-sidenav > .active > a {
+			position: relative;
+			z-index: 2;
+			padding: 9px 15px;
+			border: 0;
+			text-shadow: 0 1px 0 rgba(0,0,0,.15);
+			-webkit-box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
+				 -moz-box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
+							box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
+		}
+		/* Chevrons */
+		.bs-docs-sidenav .icon-chevron-right {
+			float: right;
+			margin-top: 2px;
+			margin-right: -6px;
+			opacity: .25;
+		}
+		.bs-docs-sidenav > li > a:hover {
+			background-color: #f5f5f5;
+		}
+		.bs-docs-sidenav a:hover .icon-chevron-right {
+			opacity: .5;
+		}
+		.bs-docs-sidenav .active .icon-chevron-right,
+		.bs-docs-sidenav .active a:hover .icon-chevron-right {
+			background-image: url(../templates/bootstrap/img/glyphicons-halflings-white.png);
+			opacity: 1;
+		}
+		.bs-docs-sidenav.affix {
+			top: 40px;
+		}
+		.bs-docs-sidenav.affix-bottom {
+			position: absolute;
+			top: auto;
+			bottom: 270px;
+		}
+	</style>
+	<div class="row">
+		<div id="help-sidebar" class="span3 bs-docs-sidebar visible-desktop">
+			<ul class="nav nav-list bs-docs-sidenav affix-top" data-spy="affix">
+				<li class="active"><a href="#introduction"><i class="icon-chevron-right"></i> <?php echo _("Introduction"); ?></a></li>
+				<li><a href="#guide"><i class="icon-chevron-right"></i> <?php echo _("Guide de montage"); ?></a></li>
+				<li><a href="#apps"><i class="icon-chevron-right"></i> <?php echo _("Apps"); ?></a></li>
+				<li><a href="#api"><i class="icon-chevron-right"></i> <?php echo _("API"); ?></a></li>
+			</ul>
+		</div>
+		<div class="span9">
+			<section id="introduction">
+				<div class="page-header">
+					<h1><?php echo _("Introduction"); ?></h1>
+				</div>
+				<p class="lead"><?php echo _("Les boîtes sont des petites horloges connectées qui affichent des informations provenant d'Internet. Pour monter votre boîte, nous vous invitons à lire le guide ci-dessous."); ?></p>
+				<div class="row">
+					<iframe class="span5" width="640" height="360" src="//www.youtube-nocookie.com/embed/nFBnD05FARQ?rel=0" frameborder="0" allowfullscreen></iframe>
+				</div>
+			</section>
+			<section id="guide">
+				<div class="page-header">
+					<h1><?php echo _("Guide de montage"); ?></h1>
+				</div>
+				<p><?php echo _("laboîte est un"); ?> <a href="<?php echo _("http://fr.wikipedia.org/wiki/Arduino"); ?>">Arduino</a> <?php echo _(" accompagnée d'un module Ethernet et d'un écran (appelé aussi matrice de LED)."); ?></p>
+				<h2><?php echo _("Composants"); ?></h2>
+				<div class="row">
+					<div class="span4">
+						<p><?php echo _("Pour construire une boite, vous aurez besoin de : "); ?></p>
+						<ul>
+							<li><a href="http://store.arduino.cc/product/A000066"><?php echo _("Un Arduino UNO"); ?></a></li>
+							<li><a href="http://store.arduino.cc/product/A000072"><?php echo _("Un module Ethernet"); ?></a><?php echo _(" ou <i>shield</i> en anglais"); ?></li>
+							<li><a href="http://store.arduino.cc/product/E000013"><?php echo _("Un écran de 32×16 leds"); ?></a></li>
+							<li><a href="http://store.arduino.cc/product/M000006"><?php echo _("Un câble USB type A/B"); ?></a></li>
+							<li><a href="http://snootlab.fr/cables/23-kit-10-cordons-6-m-f.html"><?php echo _("Des fils de prototypage male/femelle ×6"); ?></a></li>
+							<li><a href="#"><?php echo _("Un boîtier imprimé en 3D"); ?></a></li>
+						</ul>
+					</div>
+					<img class="span4" style="display: block; margin: 16px; " src="<?php echo _("templates/images/bom_kkbb_fr_FR.svg"); ?>">
+				</div>
+				<h2><?php echo _("Montage"); ?></h2>
+				<p><?php echo _("Voici les étapes de montage d'une boîte : "); ?></p>
+				<ol>
+					<li>
+						<?php echo _("Commencez par brancher le module Ethernet sur l’Arduino"); ?>
+						<div class="row">
+							<img class="img-polaroid" style="width: 288px;" src="templates/images/step1.gif">
+						</div>
+					</li>
+					<li>
+						<?php echo _("Utilisez les fils de prototypage pour raccorder la matrice de LED au module Ethernet : "); ?>
+						<div class="row">
+							<div class="span2">
+								<table class="table span1">
+									<thead>
+										<tr>
+											<th><?php echo _("Écran"); ?></th>
+											<th>Arduino</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>5V</td>
+											<td><span class="badge badge-inverse">+5V</span></td>
+										</tr>
+										<tr>
+											<td>GND</td>
+											<td><span class="badge badge-inverse">GND</span></td>
+										</tr>
+										<tr>
+											<td>DATA</td>
+											<td><span class="badge badge-inverse">7</span></td>
+										</tr>
+										<tr>
+											<td>WR</td>
+											<td><span class="badge badge-inverse">6</span></td>
+										</tr>
+										<tr>
+											<td>CS</td>
+											<td><span class="badge badge-inverse">5</span></td>
+										</tr>
+										<tr>
+											<td>CLK</td>
+											<td><span class="badge badge-inverse">4</span></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<div class="row">
+							<img class="img-polaroid" style="width: 288px;" style="margin : 16px" src="templates/images/step2.gif">
+						</div>
+						<div class="row">
+							<img style="width: 288px;" src="templates/images/dotmatrix_connections.svg">
+						</div>
+					</li>
+					<li>
+						<?php echo _("Placez l'ensemble dans le boîtier assemblé (vis placées entre les parties avant et arrière)"); ?>
+						<div class="row">
+							<img class="img-polaroid" style="width: 288px;" src="templates/images/step3.gif">
+						</div>
+					</li>
+					<li>
+						<?php echo _("Raccordez le câble Ethernet sur votre box Internet"); ?>
+					</li>
+					<li>
+						<?php echo _("Raccordez le câble USB à votre ordinateur (après avoir installer l'"); ?><a href="https://github.com/bgaultier/laboite"><?php echo _("IDE Arduino)"); ?></a>
+					</li>
+					<li>
+						<div><?php echo _("Téléchargez la librairie ht1632c puis décompresser le contenu de l'archive dans votre répertoire Arduino"); ?> <code>/libraries</code></div>
+						<a class="btn btn-mini btn-primary" href="ht1632c.zip"><i class=" icon-download icon-white"></i> <?php echo _("ht1632c.zip"); ?></a>
+					</li>
+					<li>
+						<div><?php echo _("Téléchargez le croquis Arduino puis décompresser le contenu de l'archive dans votre répertoire Arduino"); ?></div>
+						<a class="btn btn-mini btn-primary" href="https://github.com/bgaultier/laboite/archive/master.zip"><i class=" icon-download icon-white"></i> <?php echo _("laboite.ino"); ?></a>
+					</li>
+					<li>
+						<?php echo _("Créez un compte sur le site"); ?> <a href="signup"><?php echo $_SERVER['SERVER_NAME']; ?></a>
+					</li>
+					<li>
+						<?php echo _("Identifiez vous ensuite pour ajouter une boîte en cliquant sur le bouton"); ?> <a class="btn btn-mini" href="/"><i class="icon-plus-sign"></i> <?php echo _('Ajouter'); ?></a>
+					</li>
+					<li id="step10">
+						<?php echo _("Une fois votre boîte créée, copiez la suite de caractère appelée <b>Clé d'API</b>"); ?>
+					</li>
+					<li>
+						<?php echo _("Configurez ensuite vos apps en cliquant sur l'onglet"); ?> <a href="apps" target="_blank"><?php echo _("Apps"); ?></a>. <?php echo _("Reportez vous à la"); ?> <a href="apps" target="_blank"><?php echo _("section"); ?></a> <?php echo _(" ci-dessous pour plus d'informations sur la configuration des apps"); ?>
+					</li>
+					<li>
+						<?php echo _("Activez ensuite les apps sur votre boîte (onglet"); ?> <a href="/" target="_blank"><?php echo _("Mes boîtes"); ?></a>)
+					</li>
+					<li><?php echo _("Ouvrez votre IDE Arduino et modifiez la ligne 69 du fichier laboite.ino en indiquant la clé d'API que vous avez copié à l'"); ?><a href="#step10"><?php echo _("étape 10 "); ?></a>: <br/><code style="color: #000;"><span class="text-warning">char</span> apikey[] = <span class="text-success">"61c119ce"</span>; <span style="color: rgb(153, 153, 153);">// your device API key</span></code></li>
+
+					<li><?php echo _("Téléversez le code et prenez un café pour fêter ça !"); ?></li>
+				</ol>
+			</section>
+			<section id="apps">
+				<div class="page-header">
+					<h1><?php echo _("Apps"); ?></h1>
+				</div>
+				<p>
+					<?php echo _("Les apps permettent de configurer facilement les informations affichées sur les "); ?><a href="#devices"><?php echo _("boîtes"); ?></a><?php echo _(". Chacune des apps permet l'affichage d'une ou plusieurs données. Voici quelques exemples : "); ?>
+				</p>
+				<ul class="thumbnails" style>
+					<li class="thumbnail" style="width : 92px; text-align:center;">
+						<div style="height : 40px;">
+							<img style="display: block; margin-left: auto; margin-right: auto;" src="templates/images/apps/icon-time.svg" >
+						</div>
 						<small><?php echo _("<strong>Heure</strong><br> affiche l'heure d'une ville dans le monde"); ?></small>
 					</li>
 					<li class="thumbnail" style="width : 92px; text-align:center;">
-            <div style="height : 40px;">
-              <img style="display: block; margin-left: auto; margin-right: auto;" src="templates/images/apps/icon-emails.svg" >
-            </div>
+						<div style="height : 40px;">
+							<img style="display: block; margin-left: auto; margin-right: auto;" src="templates/images/apps/icon-emails.svg" >
+						</div>
 						<small><?php echo _("<strong>Emails</strong><br> affiche le nombre de mails non-lus"); ?></small>
 					</li>
 					<li class="thumbnail" style="width : 92px; text-align:center;">
-            <div style="height : 40px;">
-              <img style="display: block; margin-left: auto; margin-right: auto;" src="templates/images/apps/icon-weather.svg" >
-            </div>
+						<div style="height : 40px;">
+							<img style="display: block; margin-left: auto; margin-right: auto;" src="templates/images/apps/icon-weather.svg" >
+						</div>
 						<small><?php echo _("<strong>Météo</strong><br> affiche les conditions météo"); ?></small>
 					</li>
 					<li class="thumbnail" style="width : 92px; text-align:center;">
-            <div style="height : 40px;">
-              <img style="display: block; margin-left: auto; margin-right: auto;" src="templates/images/apps/icon-buses.svg" >
-            </div>
+						<div style="height : 40px;">
+							<img style="display: block; margin-left: auto; margin-right: auto;" src="templates/images/apps/icon-buses.svg" >
+						</div>
 						<small><?php echo _("<strong>Bus</strong><br> affiche les minutes avant le passage d'un bus"); ?></small>
 					</li>
 					<li class="thumbnail" style="width : 92px; text-align:center;">
-            <div style="height : 40px;">
-              <img style="display: block; margin-left: auto; margin-right: auto;" src="templates/images/apps/icon-waves.svg" >
-            </div>
+						<div style="height : 40px;">
+							<img style="display: block; margin-left: auto; margin-right: auto;" src="templates/images/apps/icon-waves.svg" >
+						</div>
 						<small><?php echo _("<strong>Vagues</strong><br> affiche les conditions d'un spot"); ?></small>
-					</li>					
-			  </ul>
-			  <p>
-			    <span class="label label-info"><?php echo _("Optionnel"); ?></span>
-          <?php echo _("L'application <strong>Messages</strong> permet l'affichage de messages courts sur une boîte. Pour envoyer un message sur une boîte. Il vous suffit de taper la commande suivante depuis votre ordinateur : "); ?>
-          <code><span class="text-success"><?php echo _("$ curl http://api.laboite.cc/&lt;votre_clé_API&gt;/message -d '{\"message\":\"Votre message\"}' -H 'Content-Type: application/json'"); ?></span></code>
-        </p>
-      </section>
-      <section id="api">
-        <div class="page-header">
-          <h1><?php echo _("API"); ?></h1>
-        </div>
-        <p>
-          <?php echo _("Une API permet à votre boîte d'accéder à ses différentes apps en utilisant un protocole et un format compréhensible par une machine. Les deux protocoles applicatifs disponibles sont "); ?><a href="http://datatracker.ietf.org/doc/draft-ietf-core-coap/">CoAP</a><?php echo _(" et "); ?><a href="datatracker.ietf.org/doc/rfc2616/">HTTP</a><?php echo _(". Les formats de représentation de données sont "); ?><a href="http://wikipedia.org/wiki/Extensible_Markup_Language">XML</a><?php echo _(" et "); ?><a href="http://wikipedia.org/wiki/JavaScript_Object_Notation">json</a><?php echo _(". Voici un exemple de fichier XML contenant trois apps (<strong>Heure</strong>, <strong>Bus</strong> et <strong>Météo</strong>) :"); ?>
-        </p>
-        <pre>
+					</li>
+				</ul>
+				<div id="apps-accordion">
+					<div class="accordion" id="accordion">
+						<div class="accordion-group">
+							<div class="accordion-heading">
+								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#<?php echo strtolower($apps[0]["name_en_US"]); ?>">
+									<?php echo $apps[0]['name_' . getenv('LANG')]; ?>
+								</a>
+							</div>
+							<div style="height: 0px;" id="<?php echo strtolower($apps[0]["name_en_US"]); ?>" class="accordion-body collapse">
+								<div class="accordion-inner">
+									<p><strong><?php echo _("Description : "); ?></strong> <?php echo $apps[0]['description_' . getenv('LANG')]; ?></p>
+									<p><strong><?php echo _("Paramètre : "); ?></strong><?php echo _("Ville"); ?></p>
+									<p><strong><?php echo _("Valeur : "); ?></strong> <?php echo _('permet de régler le fuseau horaire affiché par laboîte. Les valeurs possibles pour ce paramètre sont listées sur <a href="http://php.net/manual/fr/timezones.php">ce site</a>.'); ?></p>
+									<p><strong><?php echo _("Défaut : "); ?></strong><?php echo _("Europe/Paris"); ?></p>
+								</div>
+							</div>
+						</div>
+						<div class="accordion-group">
+							<div class="accordion-heading">
+								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#<?php echo strtolower($apps[1]["name_en_US"]); ?>">
+									<?php echo $apps[1]["name_fr_FR"]; ?>
+								</a>
+							</div>
+							<div style="height: 0px;" id="<?php echo strtolower($apps[1]["name_en_US"]); ?>" class="accordion-body collapse">
+								<div class="accordion-inner">
+									<p><strong><?php echo _("Description : "); ?></strong> <?php echo $apps[1]['description_' . getenv('LANG')]; ?></p>
+									<p><strong><?php echo _("Paramètre : "); ?></strong><?php echo _("Ville"); ?></p>
+									<p><strong><?php echo _("Valeur : "); ?></strong> <?php echo _('permet de régler la localisation des prévisions météo. Les valeurs possibles pour ce paramètre sont listées sur <a href="http://www.wunderground.com/weather-forecast/FR.html">le site de Wunderground</a>.'); ?></p>
+									<p><strong><?php echo _("Défaut : "); ?></strong><?php echo _("Rennes"); ?></p>
+								</div>
+							</div>
+						</div>
+						<div class="accordion-group">
+							<div class="accordion-heading">
+								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#<?php echo strtolower($apps[2]["name_en_US"]); ?>">
+									<?php echo $apps[2]['name_' . getenv('LANG')]; ?>
+								</a>
+							</div>
+							<div style="height: 0px;" id="<?php echo strtolower($apps[2]["name_en_US"]); ?>" class="accordion-body collapse">
+								<div class="accordion-inner">
+									<p><strong><?php echo _("Description : "); ?></strong> <?php echo $apps[2]['description_' . getenv('LANG')]; ?></p>
+									<p><strong><?php echo _("Paramètres : "); ?></strong><?php echo _('N° arrêt de bus (Timeo)'); ?>, <?php echo _('N° ligne de bus'); ?>, <?php echo _('Direction'); ?></p>
+									<p><strong><?php echo _("Valeur : "); ?></strong> <?php echo _('permet de spécifier votre arrêt de bus. Nous vous invitons à consulter le site <a href="http://m.starbusmetro.fr/">m.starbusmetro.fr</a> puis indiquez le nom de votre arrêt. Choississez ensuite votre direction et votre ligne. Enfin reprenez les éléments indiqués dans l\'url du site dans les paramètres comme indiqué ci-dessous :'); ?></p>
+									<code style="font-size: 14px;" class="muted">http://m.starbusmetro.fr/arret/<span class="text-warning">1176</span>/<span class="text-error">4</span>/<span class="text-info">0</span></code>
+									<p style="margin-top : 16px; "class="text-warning"><?php echo _('N° arrêt de bus (Timeo)'); ?>, <?php echo _('N° ligne de bus'); ?>, <?php echo _('Direction'); ?></p>
+									<p class="text-error"><?php echo _('N° ligne de bus'); ?></p>
+									<p class="text-info"><?php echo _('Direction'); ?></p>
+									<p><strong><?php echo _("Exemple : "); ?></strong><?php echo _('Pour l\'arrêt Beaulieu Insa de la ligne 4, les paramètres seront les suivants : <span class="text-warning">1176 (N° arrêt de bus)</span>, <span class="text-error">4 (N° ligne de bus)</span>, <span class="text-info">0 (Direction)</span>.'); ?></p>
+								</div>
+							</div>
+						</div>
+						<div class="accordion-group">
+							<div class="accordion-heading">
+								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#<?php echo strtolower($apps[3]["name_en_US"]); ?>">
+									<?php echo $apps[3]['name_' . getenv('LANG')]; ?>
+								</a>
+							</div>
+							<div style="height: 0px;" id="<?php echo strtolower($apps[3]["name_en_US"]); ?>" class="accordion-body collapse">
+								<div class="accordion-inner">
+									<p><strong><?php echo _("Description : "); ?></strong> <?php echo $apps[3]['description_' . getenv('LANG')]; ?></p>
+									<p><strong><?php echo _("Paramètre : "); ?></strong><?php echo _('N° station de vélo'); ?></p>
+									<p><strong><?php echo _("Valeur : "); ?></strong> <?php echo _('permet de spécifier votre arrêt de vélo. Nous vous invitons à consulter le site <a href="https://www.levelostar.fr/fr/stations/liste-des-stations.html">levelostar.fr</a> puis indiquez le numéro de votre arrêt.'); ?></p>
+									<p><strong><?php echo _("Exemple : "); ?></strong><?php echo _("Pour l'arrêt Place de Bretagne, le numéro de la station est 24."); ?></p>
+								</div>
+							</div>
+						</div>
+						<div class="accordion-group">
+							<div class="accordion-heading">
+								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#<?php echo strtolower($apps[4]["name_en_US"]); ?>">
+									<?php echo $apps[4]['name_' . getenv('LANG')]; ?>
+								</a>
+							</div>
+							<div style="height: 0px;" id="<?php echo strtolower($apps[4]["name_en_US"]); ?>" class="accordion-body collapse">
+								<div class="accordion-inner">
+									<p><strong><?php echo _("Description : "); ?></strong> <?php echo $apps[4]['description_' . getenv('LANG')]; ?></p>
+									<p><strong><?php echo _("Paramètres : "); ?></strong> <?php echo _('Clé d\'API'); ?>, <?php echo _('N° de flux'); ?></p>
+									<p><strong><?php echo _("Valeur : "); ?></strong> <?php echo _('permet de configurer le flux emoncms qui sera affiché sur votre boîte. Pour connaître la valeur à indiquer, nous vous invitons à consulter le site	<a href="http://emoncms.org/feed/list">emoncms.org</a> puis indiquez le numéro de votre flux (ou <i>feed</i> en anglais).'); ?></p>
+								</div>
+							</div>
+						</div>
+						<div class="accordion-group">
+							<div class="accordion-heading">
+								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#<?php echo strtolower($apps[5]["name_en_US"]); ?>">
+									<?php echo $apps[5]['name_' . getenv('LANG')]; ?>
+								</a>
+							</div>
+							<div style="height: 0px;" id="<?php echo strtolower($apps[5]["name_en_US"]); ?>" class="accordion-body collapse">
+								<div class="accordion-inner">
+									<p><strong><?php echo _("Description : "); ?></strong> <?php echo $apps[5]['description_' . getenv('LANG')]; ?></p>
+									<p><strong><?php echo _("Paramètres : "); ?></strong> <?php echo _('Clé d\'API'); ?>, <?php echo _('N° de flux'); ?></p>
+									<p><strong><?php echo _("Valeur : "); ?></strong> <?php echo _('permet de régler la localisation des prévisions de vagues. Les valeurs possibles pour ce paramètre sont listées sur <a href="http://www.allosurf.net/meteo-quiberon-port-blanc-surf-report-vent-premium-57.html">le site de Allosurf</a>.'); ?></p>
+								</div>
+							</div>
+						</div>
+						<div class="accordion-group">
+							<div class="accordion-heading">
+								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#<?php echo strtolower($apps[6]["name_en_US"]); ?>">
+									<?php echo $apps[6]['name_' . getenv('LANG')]; ?>
+								</a>
+							</div>
+							<div style="height: 0px;" id="<?php echo strtolower($apps[6]["name_en_US"]); ?>" class="accordion-body collapse">
+								<div class="accordion-inner">
+									<p><strong><?php echo _("Description : "); ?></strong> <?php echo $apps[6]['description_' . getenv('LANG')]; ?></p>
+									<p>
+										<span class="label label-info"><?php echo _("Optionnel"); ?></span>
+										<?php echo _('L\'application <strong>Messages</strong> permet l\'affichage de messages courts sur une boîte. Pour envoyer un message sur une boîte, vous pouvez utiliser le bouton <a href="/" class="btn btn-mini btn-inverse message-btn" role="button" data-toggle="modal" data-target="#messageModal"><i class="icon-envelope icon-white"></i> Envoyer</a> dans l\'onglet Mes boîtes. Vous pouvez également taper la commande suivante depuis votre ordinateur : '); ?>
+										<code><span class="text-success"><?php echo _("$ curl http://api.laboite.cc/&lt;votre_clé_API&gt;/message -d '{\"message\":\"Votre message\"}' -H 'Content-Type: application/json'"); ?></span></code>
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="accordion-group">
+							<div class="accordion-heading">
+								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#<?php echo strtolower($apps[6]["name_en_US"]); ?>">
+									<?php echo $apps[6]['name_' . getenv('LANG')]; ?>
+								</a>
+							</div>
+							<div style="height: 0px;" id="<?php echo strtolower($apps[6]["name_en_US"]); ?>" class="accordion-body collapse">
+								<div class="accordion-inner">
+									<p><strong><?php echo _("Description : "); ?></strong> <?php echo $apps[6]['description_' . getenv('LANG')]; ?></p>
+									<p>
+										<span class="label label-info"><?php echo _("Optionnel"); ?></span>
+										<?php echo _('L\'application <strong>Messages</strong> permet l\'affichage de messages courts sur une boîte. Pour envoyer un message sur une boîte, vous pouvez utiliser le bouton <a href="/" class="btn btn-mini btn-inverse message-btn" role="button" data-toggle="modal" data-target="#messageModal"><i class="icon-envelope icon-white"></i> Envoyer</a> dans l\'onglet Mes boîtes. Vous pouvez également taper la commande suivante depuis votre ordinateur : '); ?>
+										<code><span class="text-success"><?php echo _("$ curl http://api.laboite.cc/&lt;votre_clé_API&gt;/message -d '{\"message\":\"Votre message\"}' -H 'Content-Type: application/json'"); ?></span></code>
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="accordion-group">
+							<div class="accordion-heading">
+								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#<?php echo strtolower($apps[7]["name_en_US"]); ?>">
+									<?php echo $apps[7]['name_' . getenv('LANG')]; ?>
+								</a>
+							</div>
+							<div style="height: 0px;" id="<?php echo strtolower($apps[7]["name_en_US"]); ?>" class="accordion-body collapse">
+								<div class="accordion-inner">
+									<p><strong><?php echo _("Description : "); ?></strong> <?php echo $apps[7]['description_' . getenv('LANG')]; ?></p>
+								<p><strong><?php echo _("Paramètres : "); ?></strong> <?php echo _('Identifiant'); ?></p>
+								<p><strong><?php echo _("Valeur : "); ?></strong> <?php echo _('permet de spécifier votre identifiant utilisateur sur <a href="http://laclef.cc/kfet#api">api.laclef.cc</a>.'); ?></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section id="api">
+				<div class="page-header">
+					<h1><?php echo _("API"); ?></h1>
+				</div>
+				<p>
+					<?php echo _("Une API permet à votre boîte d'accéder à ses différentes apps en utilisant un protocole et un format compréhensible par une machine. Les deux protocoles applicatifs disponibles sont "); ?><a href="http://datatracker.ietf.org/doc/draft-ietf-core-coap/">CoAP</a><?php echo _(" et "); ?><a href="datatracker.ietf.org/doc/rfc2616/">HTTP</a><?php echo _(". Les formats de représentation de données sont "); ?><a href="http://wikipedia.org/wiki/Extensible_Markup_Language">XML</a><?php echo _(" et "); ?><a href="http://wikipedia.org/wiki/JavaScript_Object_Notation">json</a><?php echo _(". Voici un exemple de fichier XML contenant trois apps (<strong>Heure</strong>, <strong>Bus</strong> et <strong>Météo</strong>) :"); ?>
+				</p>
+				<pre>
 <span class="text-warning">&lt;?xml</span><span class="text-success"> version=</span>"1.0" <span class="text-success">encoding=</span>"utf-8"<span class="text-warning">?&gt;</span>
 <span class="text-info">&lt;response&gt;
-	&lt;version&gt;</span>0.1<span class="text-info">&lt;/version&gt;
-	&lt;time&gt;</span>18:18<span class="text-info">&lt;/time&gt;
-	&lt;nextbus&gt;</span>5<span class="text-info">&lt;/nextbus&gt;
-	&lt;weather&gt;
-		&lt;today&gt;
-		  &lt;icon&gt;</span>0<span class="text-info">&lt;/icon&gt;
-		  &lt;temperature&gt;</span>25<span class="text-info">&lt;/temperature&gt;
-		&lt;/today&gt;
-		&lt;tomorrow&gt;
-		  &lt;icon&gt;</span>1<span class="text-info">&lt;/icon&gt;
-		  &lt;low&gt;</span>15<span class="text-info">&lt;/low&gt;
-		  &lt;high&gt;</span>28<span class="text-info">&lt;/high&gt;
-		&lt;/tomorrow&gt;
-	&lt;/weather&gt;
+  &lt;version&gt;</span>0.1<span class="text-info">&lt;/version&gt;
+  &lt;time&gt;</span>18:18<span class="text-info">&lt;/time&gt;
+  &lt;nextbus&gt;</span>5<span class="text-info">&lt;/nextbus&gt;
+  &lt;weather&gt;
+    &lt;today&gt;
+      &lt;icon&gt;</span>0<span class="text-info">&lt;/icon&gt;
+      &lt;temperature&gt;</span>25<span class="text-info">&lt;/temperature&gt;
+    &lt;/today&gt;
+    &lt;tomorrow&gt;
+      &lt;icon&gt;</span>1<span class="text-info">&lt;/icon&gt;
+      &lt;low&gt;</span>15<span class="text-info">&lt;/low&gt;
+      &lt;high&gt;</span>28<span class="text-info">&lt;/high&gt;
+    &lt;/tomorrow&gt;
+  &lt;/weather&gt;
 &lt;/response&gt;</span></pre>
         <p><?php echo _("Les mêmes informations au format json : "); ?>
         </p>
         <pre>{
-    <span class="text-error">"version"</span>: <span class="text-error">"0.1"</span>,
-    <span class="text-error">"time"</span>: <span class="text-error">"19:10"</span>,
-    <span class="text-error">"nextbus"</span>: <span class="text-error">"1"</span>,
-    <span class="text-error">"weather"</span>: {
-        <span class="text-error">"today"</span>: {
-          <span class="text-error">"icon"</span>: <span class="text-error">0</span>,
-          <span class="text-error">"temperature"</span>: <span class="text-error">25</span>
-        },
-        <span class="text-error">"tomorrow"</span>: {
-          <span class="text-error">"icon"</span>: <span class="text-error">1</span>,
-          <span class="text-error">"low"</span>: <span class="text-error">"15"</span>,
-          <span class="text-error">"high"</span>: <span class="text-error">"28"</span>
-        }
+  <span class="text-error">"version"</span>: <span class="text-error">"0.1"</span>,
+  <span class="text-error">"time"</span>: <span class="text-error">"19:10"</span>,
+  <span class="text-error">"nextbus"</span>: <span class="text-error">"1"</span>,
+  <span class="text-error">"weather"</span>: {
+    <span class="text-error">"today"</span>: {
+      <span class="text-error">"icon"</span>: <span class="text-error">0</span>,
+      <span class="text-error">"temperature"</span>: <span class="text-error">25</span>
+    },
+    <span class="text-error">"tomorrow"</span>: {
+      <span class="text-error">"icon"</span>: <span class="text-error">1</span>,
+      <span class="text-error">"low"</span>: <span class="text-error">"15"</span>,
+      <span class="text-error">"high"</span>: <span class="text-error">"28"</span>
     }
+  }
 }</pre>
-        <p>
-          <?php echo _("Ces fichiers peuvent être récupérés en utilisant l'url suivante : "); ?><code><a href="http://api.<?php echo $_SERVER['SERVER_NAME'] . '/964de680.xml' ?>">http://api.<?php echo $_SERVER['SERVER_NAME'] . '/' . htmlentities('<apikey>.<xml|json>');; ?></a></code>
-        </p>
-      </section>
-    </div><!--/.span9 -->
-  </div><!--/.row -->
-  
+				<p>
+					<?php echo _("Ces fichiers peuvent être récupérés en utilisant l'url suivante : "); ?><code><a href="http://api.<?php echo $_SERVER['SERVER_NAME'] . '/964de680.xml' ?>">http://api.<?php echo $_SERVER['SERVER_NAME'] . '/' . htmlentities('<apikey>.<xml|json>');; ?></a></code>
+				</p>
+			</section>
+
+		</div><!--/.span9 -->
+	</div><!--/.row -->
+
 <?php $content = ob_get_clean() ?>
 
 <?php include 'layout.php' ?>
