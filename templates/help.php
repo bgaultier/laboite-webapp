@@ -76,6 +76,7 @@
 				<li><a href="#guide"><i class="icon-chevron-right"></i> <?php echo _("Guide de montage"); ?></a></li>
 				<li><a href="#apps"><i class="icon-chevron-right"></i> <?php echo _("Apps"); ?></a></li>
 				<li><a href="#api"><i class="icon-chevron-right"></i> <?php echo _("API"); ?></a></li>
+				<li><a href="#mailinglist"><i class="icon-chevron-right"></i> <?php echo _("Liste de discussion"); ?></a></li>
 			</ul>
 		</div>
 		<div class="span9">
@@ -118,7 +119,8 @@
 						</div>
 					</li>
 					<li>
-						<?php echo _("Utilisez les fils de prototypage pour raccorder la matrice de LED au module Ethernet : "); ?>
+						<div style="margin-bottom:8px;"><?php echo _("Utilisez les fils de prototypage pour raccorder la matrice de LED au module Ethernet."); ?></div>
+						<span class="label label-warning"><?php echo _("Attention"); ?></span> <?php echo _("Deux versions de la matrice de LED sont disponibles avec des connecteurs différents. La dernière version de la matrice indique une tension d'alimentation de 12V mais fonctionera parfaitement avec les 5V fournis par notre Arduino."); ?>
 						<div class="row">
 							<div class="span2">
 								<table class="table span1">
@@ -130,7 +132,7 @@
 									</thead>
 									<tbody>
 										<tr>
-											<td>5V</td>
+											<td>5V/12V</td>
 											<td><span class="badge badge-inverse">+5V</span></td>
 										</tr>
 										<tr>
@@ -167,11 +169,14 @@
 					<li>
 						<?php echo _("Placez l'ensemble dans le boîtier assemblé (vis placées entre les parties avant et arrière)"); ?>
 						<div class="row">
-							<img class="img-polaroid" style="width: 288px;" src="templates/images/step3.gif">
+							<img class="img-polaroid" style="width: 288px;" src="templates/images/step4.gif">
 						</div>
 					</li>
 					<li>
 						<?php echo _("Raccordez le câble Ethernet sur votre box Internet"); ?>
+						<div class="row">
+							<img class="img-polaroid" style="width: 288px;" src="templates/images/step5.gif">
+						</div>
 					</li>
 					<li>
 						<?php echo _("Raccordez le câble USB à votre ordinateur (après avoir installer l'"); ?><a href="https://github.com/bgaultier/laboite"><?php echo _("IDE Arduino)"); ?></a>
@@ -356,23 +361,6 @@
 						</div>
 						<div class="accordion-group">
 							<div class="accordion-heading">
-								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#<?php echo strtolower($apps[6]["name_en_US"]); ?>">
-									<?php echo $apps[6]['name_' . getenv('LANG')]; ?>
-								</a>
-							</div>
-							<div style="height: 0px;" id="<?php echo strtolower($apps[6]["name_en_US"]); ?>" class="accordion-body collapse">
-								<div class="accordion-inner">
-									<p><strong><?php echo _("Description : "); ?></strong> <?php echo $apps[6]['description_' . getenv('LANG')]; ?></p>
-									<p>
-										<span class="label label-info"><?php echo _("Optionnel"); ?></span>
-										<?php echo _('L\'application <strong>Messages</strong> permet l\'affichage de messages courts sur une boîte. Pour envoyer un message sur une boîte, vous pouvez utiliser le bouton <a href="/" class="btn btn-mini btn-inverse message-btn" role="button" data-toggle="modal" data-target="#messageModal"><i class="icon-envelope icon-white"></i> Envoyer</a> dans l\'onglet Mes boîtes. Vous pouvez également taper la commande suivante depuis votre ordinateur : '); ?>
-										<code><span class="text-success"><?php echo _("$ curl http://api.laboite.cc/&lt;votre_clé_API&gt;/message -d '{\"message\":\"Votre message\"}' -H 'Content-Type: application/json'"); ?></span></code>
-									</p>
-								</div>
-							</div>
-						</div>
-						<div class="accordion-group">
-							<div class="accordion-heading">
 								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#<?php echo strtolower($apps[7]["name_en_US"]); ?>">
 									<?php echo $apps[7]['name_' . getenv('LANG')]; ?>
 								</a>
@@ -380,8 +368,9 @@
 							<div style="height: 0px;" id="<?php echo strtolower($apps[7]["name_en_US"]); ?>" class="accordion-body collapse">
 								<div class="accordion-inner">
 									<p><strong><?php echo _("Description : "); ?></strong> <?php echo $apps[7]['description_' . getenv('LANG')]; ?></p>
-								<p><strong><?php echo _("Paramètres : "); ?></strong> <?php echo _('Identifiant'); ?></p>
-								<p><strong><?php echo _("Valeur : "); ?></strong> <?php echo _('permet de spécifier votre identifiant utilisateur sur <a href="http://laclef.cc/kfet#api">api.laclef.cc</a>.'); ?></p>
+									<p><strong><?php echo _("Paramètres : "); ?></strong> <?php echo _('Identifiant'); ?></p>
+									<p><strong><?php echo _("Valeur : "); ?></strong> <?php echo _('permet de spécifier votre identifiant utilisateur sur <a href="http://laclef.cc/kfet#api">api.laclef.cc</a>.'); ?></p>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -434,7 +423,22 @@
 					<?php echo _("Ces fichiers peuvent être récupérés en utilisant l'url suivante : "); ?><code><a href="http://api.<?php echo $_SERVER['SERVER_NAME'] . '/964de680.xml' ?>">http://api.<?php echo $_SERVER['SERVER_NAME'] . '/' . htmlentities('<apikey>.<xml|json>');; ?></a></code>
 				</p>
 			</section>
-
+			<section id="mailinglist">
+				<div class="page-header">
+					<h1><?php echo _("Liste de discussion"); ?></h1>
+				</div>
+				<p><?php echo _("Si vous souhaitez partager avec la communauté une photo de votre boîte ou une app que vous avez dévellopée. Ou bien, si vous ne trouvez pas de réponse à votre problème sur cette page, nous vous invitons à vous inscrire à notre liste de discussion ici"); ?> <strong>support@laboite.cc</strong> :</p>
+				<FORM ACTION="http://kundenserver.de/cgi-bin/mailinglist.cgi" METHOD="POST" TARGET="_BLANK"><INPUT CHECKED NAME="subscribe_r" TYPE="RADIO" VALUE="subscribe">
+				<?php echo _("Oui, je souhaite m'inscrire à la liste de discussion"); ?>
+				<BR><INPUT NAME="subscribe_r" TYPE="RADIO" VALUE="unsubscribe">
+				<?php echo _("Veuillez me retirer de la liste de discussion"); ?><BR>
+				<?php echo _("Veuillez indiquer votre adresse email ici :"); ?>
+				<BR><INPUT class="input-large" MAXLENGTH="51" NAME="mailaccount_r" SIZE="51" type="email"><BR>
+				<?php echo _("Veuillez à nouveau indiquer votre adresse email ici pour vérification :"); ?>
+				<BR><INPUT class="input-large" MAXLENGTH="51" NAME="mailaccount2_r" SIZE="51" type="email"><BR>
+					<button type="submit" class="btn btn-inverse"><i class="icon-ok-circle icon-white"></i> <?php echo _("S'inscrire"); ?></button>
+					<INPUT NAME="FBMLNAME" TYPE="HIDDEN" VALUE="support@laboite.cc"><INPUT NAME="FBLANG" TYPE="HIDDEN" VALUE="fr"><INPUT NAME="FBURLERROR_L" TYPE="HIDDEN" VALUE="http://kundenserver.de/mailinglist/error.fr.html"><INPUT NAME="FBURLSUBSCRIBE_L" TYPE="HIDDEN" VALUE="http://kundenserver.de/mailinglist/subscribe.fr.html"><INPUT NAME="FBURLUNSUBSCRIBE_L" TYPE="HIDDEN" VALUE="http://kundenserver.de/mailinglist/unsubscribe.fr.html"><INPUT NAME="FBURLINVALID_L" TYPE="HIDDEN" VALUE="http://kundenserver.de/mailinglist/invalid.fr.html"></FORM>
+			</section>
 		</div><!--/.span9 -->
 	</div><!--/.row -->
 
