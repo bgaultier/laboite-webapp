@@ -171,6 +171,8 @@
 						<div class="row">
 							<img class="img-polaroid" style="width: 288px;" src="templates/images/step4.gif">
 						</div>
+						<div><?php echo _("Si vous disposez d'une imprimante 3D, téléchargez nos fichiers .stl : "); ?></div>
+						<a class="btn btn-mini btn-primary" href="laboite_stl.zip"><i class=" icon-download icon-white"></i> <?php echo _("boitiers.stl"); ?></a>
 					</li>
 					<li>
 						<?php echo _("Raccordez le câble Ethernet sur votre box Internet"); ?>
@@ -179,9 +181,10 @@
 						</div>
 					</li>
 					<li>
-						<?php echo _("Raccordez le câble USB à votre ordinateur (après avoir installer l'"); ?><a href="https://github.com/bgaultier/laboite"><?php echo _("IDE Arduino)"); ?></a>
+						<div style="margin-bottom:8px;"><?php echo _("Raccordez le câble USB à votre ordinateur (après avoir installer l'"); ?><a href="https://github.com/bgaultier/laboite"><?php echo _("IDE Arduino)"); ?></a></div>
+						<span class="label label-warning"><?php echo _("Attention"); ?></span> <?php echo _("Si le téléversement échoue, veuillez installer ces pilotes"); ?> <a href="ch341ser_mac.zip">Mac</a> <?php echo _("ou"); ?> <a href="CH341SER.EXE">Windows</a>
 					</li>
-					<li>
+					<li style="margin-top:8px;">
 						<div><?php echo _("Téléchargez la librairie ht1632c puis décompresser le contenu de l'archive dans votre répertoire Arduino"); ?> <code>/libraries</code></div>
 						<a class="btn btn-mini btn-primary" href="ht1632c.zip"><i class=" icon-download icon-white"></i> <?php echo _("ht1632c.zip"); ?></a>
 					</li>
@@ -292,7 +295,7 @@
 									<p><strong><?php echo _("Paramètres : "); ?></strong><?php echo _('N° arrêt de bus (Timeo)'); ?>, <?php echo _('N° ligne de bus'); ?>, <?php echo _('Direction'); ?></p>
 									<p><strong><?php echo _("Valeur : "); ?></strong> <?php echo _('permet de spécifier votre arrêt de bus. Nous vous invitons à consulter le site <a href="http://m.starbusmetro.fr/">m.starbusmetro.fr</a> puis indiquez le nom de votre arrêt. Choississez ensuite votre direction et votre ligne. Enfin reprenez les éléments indiqués dans l\'url du site dans les paramètres comme indiqué ci-dessous :'); ?></p>
 									<code style="font-size: 14px;" class="muted">http://m.starbusmetro.fr/arret/<span class="text-warning">1176</span>/<span class="text-error">4</span>/<span class="text-info">0</span></code>
-									<p style="margin-top : 16px; "class="text-warning"><?php echo _('N° arrêt de bus (Timeo)'); ?>, <?php echo _('N° ligne de bus'); ?>, <?php echo _('Direction'); ?></p>
+									<p style="margin-top : 16px; " class="text-warning"><?php echo _('N° arrêt de bus (Timeo)'); ?>, <?php echo _('N° ligne de bus'); ?>, <?php echo _('Direction'); ?></p>
 									<p class="text-error"><?php echo _('N° ligne de bus'); ?></p>
 									<p class="text-info"><?php echo _('Direction'); ?></p>
 									<p><strong><?php echo _("Exemple : "); ?></strong><?php echo _('Pour l\'arrêt Beaulieu Insa de la ligne 4, les paramètres seront les suivants : <span class="text-warning">1176 (N° arrêt de bus)</span>, <span class="text-error">4 (N° ligne de bus)</span>, <span class="text-info">0 (Direction)</span>.'); ?></p>
