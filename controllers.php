@@ -24,11 +24,11 @@
   // dealing with user configuration form
     $user_modified = user_exists_and_password_match($email, $_POST['oldpassword']);
     if($user_modified && !empty($_POST['password'])) {
-    update_user($userid, $_POST['password'], $_POST['locale']);
+      update_user($user_modified['id'], $_POST['password'], $_POST['locale']);
       $_SESSION['locale'] = $_POST['locale'];
     }
     elseif($user_modified && !empty($_POST['locale'])) {
-    update_user_locale($userid, $_POST['locale']);
+      update_user_locale($user_modified['id'], $_POST['locale']);
       $_SESSION['locale'] = $_POST['locale'];
     }
     require 'templates/account.php';
@@ -60,7 +60,8 @@
     // dealing with device configuration form
     $device_modified = get_device_by_id($userid, $_POST['id']);
     if($device_modified && isset($_POST['name'])) {
-      update_device($_POST['id'], $_POST['name'], $_POST['location']);
+      $update_message = true;
+      update_device($_POST['id'], $_POST['name'], $_POST['location'], $_POST['speed'], $_POST['startsleep'], $_POST['stopsleep']);
       delete_all_device_apps($_POST['id']);
       foreach ($_POST as $key=>$value) {
         if (strpos($key,'app') !== false)
@@ -133,5 +134,24 @@
       $app = get_user_app_by_id($userid, $appid);
     }
     require 'templates/app.json.php';
+  }
+
+  function sbm_action($apikey) {
+    $device = get_device_by_apikey($apikey);
+
+    if($device && isset($_POST['name'])) {
+      $update_message = true;
+      update_device($_POST['id'], $_POST['name'], $_POST['location'], $_POST['speed'], $_POST['startsleep'], $_POST['stopsleep']);
+      delete_all_device_apps($_POST['id']);
+      foreach ($_POST as $key=>$value) {
+        if (strpos($key,'app') !== false)
+          update_device_app($_POST['id'], substr($key, 3, strlen($key)));
+      }
+      $device = get_device_by_apikey($apikey);
+    }
+    $apps = get_all_apps();
+    $device_apps = get_device_apps($device['id']);
+
+    require 'templates/sbm.php';
   }
 ?>

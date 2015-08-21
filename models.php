@@ -84,6 +84,19 @@
     return $devices;
   }
 
+  function get_user_by_device_apikey($apikey)
+  {
+    $link = open_database_connection();
+
+    $query = "SELECT creator FROM devices WHERE apikey = \"$apikey\" LIMIT 1";
+    $result = mysql_query($query);
+    $userid = mysql_fetch_assoc($result);
+
+    close_database_connection($link);
+
+    return $userid;
+  }
+
   function get_device_by_id($userid, $deviceid)
   {
     $link = open_database_connection();
@@ -112,6 +125,20 @@
     return $device;
   }
 
+  function get_device_speed_by_apikey($apikey)
+  {
+    $link = open_database_connection();
+
+    $apikey = mysql_real_escape_string($apikey);
+    $query = "SELECT speed FROM devices WHERE apikey = \"$apikey\" LIMIT 1";
+    $result = mysql_query($query);
+    $device = mysql_fetch_assoc($result);
+
+    close_database_connection($link);
+
+    return intval($device["speed"]);
+  }
+
   function get_device_status($lastactivity)
   {
     if( (strtotime($lastactivity) + 600) >  time () )
@@ -120,10 +147,15 @@
       return "not-connected";
   }
 
-  function update_device($id, $name, $location)
+  function update_device($id, $name, $location, $speed, $startsleep, $stopsleep)
   {
     $link = open_database_connection();
-    $query = "UPDATE devices SET name = '" . mysql_real_escape_string($name) . "', location = '" . mysql_real_escape_string($location) . "', lastactivity = NOW() WHERE id = ". mysql_real_escape_string($id) . " LIMIT 1";
+    $query = "UPDATE devices SET name = '" . mysql_real_escape_string($name) .
+                             "', location = '" . mysql_real_escape_string($location) .
+                             "', speed = " . mysql_real_escape_string($speed) .
+                             ", startsleep = " . mysql_real_escape_string($startsleep) .
+                             ", stopsleep = " . mysql_real_escape_string($stopsleep) .
+                             " WHERE id = ". mysql_real_escape_string($id) . " LIMIT 1";
     $result = mysql_query($query, $link);
     close_database_connection($link);
 
@@ -247,6 +279,21 @@
     return $apps;
   }
 
+  function device_is_sleeping($apikey)
+  {
+    $device = get_device_by_apikey($apikey);
+
+    if(is_null($device['startsleep']))
+      return false;
+
+    $sleeping = false;
+
+    if(date('G') > $device['startsleep'] || date('G') < $device['stopsleep'])
+      $sleeping = true;
+
+    return $sleeping;
+  }
+
   function get_device_apps_by_apikey($apikey)
   {
     $device = get_device_by_apikey($apikey);
@@ -285,7 +332,7 @@
     $link = open_database_connection();
 
     $id = intval($id);
-    $query = "INSERT INTO user_apps (userid, appid, status, city, login, password, apikey, feedid, stop, route, direction, station) VALUES (" . mysql_real_escape_string($userid) . ", $id, '1', '', '', '', '', '', '', '', '', '')";
+    $query = "INSERT INTO user_apps (userid, appid, status, city, login, password, apikey, feedid, stop, route, direction, station1, mode1, station2, mode2, url, parking) VALUES (" . mysql_real_escape_string($userid) . ", $id, '1', '', '', '', '', '', '', '', '', '', '', '', '', '', '')";
     $result = mysql_query($query, $link);
 
     close_database_connection($link);
@@ -298,7 +345,21 @@
     $link = open_database_connection();
 
     $userid = intval($userid);
-    $query = "UPDATE user_apps SET city ='" . mysql_real_escape_string($values['city']) . "', login ='" . mysql_real_escape_string($values['login']) . "', password ='" . mysql_real_escape_string($values['password']) . "', apikey ='" . mysql_real_escape_string($values['apikey']) . "', feedid ='" . mysql_real_escape_string($values['feedid']) . "', stop ='" . mysql_real_escape_string($values['stop']) . "', route ='" . mysql_real_escape_string($values['route']) . "', direction ='" . mysql_real_escape_string($values['direction']) . "', station ='" . mysql_real_escape_string($values['station']) . "', station1 ='" . mysql_real_escape_string($values['station1']) . "', station2 ='" . mysql_real_escape_string($values['station2']) . "' WHERE userid=$userid AND appid=" . intval($values['id']);
+    $query = "UPDATE user_apps SET city ='" . mysql_real_escape_string($values['city']) .
+                                         "', login ='" . mysql_real_escape_string($values['login']) .
+                                         "', password ='" . mysql_real_escape_string($values['password']) .
+                                         "', apikey ='" . mysql_real_escape_string($values['apikey']) .
+                                         "', feedid ='" . mysql_real_escape_string($values['feedid']) .
+                                         "', stop ='" . mysql_real_escape_string($values['stop']) .
+                                         "', route ='" . mysql_real_escape_string($values['route']) .
+                                         "', direction ='" . mysql_real_escape_string($values['direction']) .
+                                         "', station ='" . mysql_real_escape_string($values['station']) .
+                                         "', station1 ='" . mysql_real_escape_string($values['station1']) .
+                                         "', mode1 ='" . mysql_real_escape_string($values['mode1']) .
+                                         "', station2 ='" . mysql_real_escape_string($values['station2']) .
+                                         "', mode2 ='" . mysql_real_escape_string($values['mode2']) .
+                                         "', url ='" . mysql_real_escape_string($values['url']) .
+                                         "', parking ='" . mysql_real_escape_string($values['parking']) . "' WHERE userid=$userid AND appid=" . intval($values['id']);
     $result = mysql_query($query);
 
     close_database_connection($link);

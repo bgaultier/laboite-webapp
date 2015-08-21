@@ -3,6 +3,6 @@
   $url .= $apps[4]['station'];
   $response = simplexml_load_file($url);
   $bikes_available = $response->answer->data->station->bikesavailable;
-  
-  $data["bikes"] = (string)$bikes_available;
+
+  $data["bikes"] = intval($bikes_available);
 ?>

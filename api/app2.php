@@ -4,7 +4,7 @@
 
   if(strtolower($city) == "paris")
     $city = "zmw:00000.37.07156";
-  if (!file_exists($filename) || ($now - filemtime($filename)) > 1800 ) {
+  if (!file_exists($filename) || ($now - filemtime($filename)) > 2700 ) {
 	  copy("http://api.wunderground.com/api/947b3174d64aba0f/geolookup/conditions/forecast/q/$city.json", $filename);
   }
 

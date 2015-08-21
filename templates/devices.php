@@ -45,6 +45,12 @@
     });
   </script>
   <div class="row">
+    <?php if($update_message) { ?>
+    <div class="alert alert-success">
+      <button type="button" class="close" data-dismiss="alert">×</button>
+      <?php echo _('Vos mises à jour ont bien été prises en compte et seront effectives dans quelques instants.'); ?>
+    </div>
+    <?php } ?>
     <h1><?php echo _('Boîtes'); ?></h1>
     <div class="row">
       <ul class="thumbnails">
@@ -115,13 +121,32 @@
                   <h4><?php echo _('Nom de la boîte'); ?></h4>
                   <input id="id" type="hidden" name="id">
                   <input id="name" type="text" name="name" class="input-large" placeholder="<?php echo _('Nom de la boîte'); ?>">
-                  <h4><?php echo _('Localisation'); ?></h3>
+                  <h4><?php echo _('Localisation'); ?></h4>
                   <input id="location" type="text" name="location" class="input-large" placeholder="<?php echo _('Localisation (exemple : salon)'); ?>">
                   <h4><?php echo _('Clé d\'API'); ?></h4>
                   <div class="input-append">
                     <input type="text" id="apikey" name="apikey" class="input-medium uneditable-input" disabled value="">
                     <a id="regenerate" class="btn" href="#"><i class="icon-repeat"></i></a>
                   </div>
+                  <h4><?php echo _('Vitesse de défilement'); ?></h4>
+                  <select name="speed">
+                    <option value="30"<?php if($device['speed'] == "30") echo " selected=\"selected\""; ?>><?php echo _('Rapide'); ?></option>
+                    <option value="50"<?php if($device['speed'] == "50") echo " selected=\"selected\""; ?>><?php echo _('Modéré'); ?></option>
+                    <option value="80"<?php if($device['speed'] == "80") echo " selected=\"selected\""; ?>><?php echo _('Lent'); ?></option>
+                  </select>
+                  <h4><?php echo _('Période de veille'); ?></h4>
+                  <select class="input-small" name="startsleep">
+                      <option value="NULL"<?php if(is_null($device['startsleep'] == NULL)) echo " selected=\"selected\""; ?>><?php echo _('Début'); ?></option>
+                      <?php for ($i=18; $i < 24; $i++) { ?>
+                        <option value="<?php echo $i; ?>"<?php if($device['startsleep'] == strval($i)) echo " selected=\"selected\""; ?>><?php if($i<10) echo '0'; echo $i; ?>:00</option>
+                      <?php } ?>
+                  </select><span style="font-size: 26px;">&rarr;</span>
+                  <select class="input-small" name="stopsleep">
+                      <option value="NULL"<?php if($device['stopsleep'] == NULL) echo " selected=\"selected\""; ?>><?php echo _('Fin'); ?></option>
+                      <?php for ($i=0; $i < 13; $i++) { ?>
+                        <option value="<?php echo $i; ?>"<?php if($device['stopsleep'] == strval($i)) echo " selected=\"selected\""; ?>><?php if($i<10) echo '0'; echo $i; ?>:00</option>
+                      <?php } ?>
+                  </select>
                   <h3><?php echo _('Apps'); ?></h3>
                   <?php foreach ($apps as $app): ?>
                     <label class="checkbox">

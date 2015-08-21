@@ -171,8 +171,12 @@
 						<div class="row">
 							<img class="img-polaroid" style="width: 288px;" src="templates/images/step4.gif">
 						</div>
-						<div><?php echo _("Si vous disposez d'une imprimante 3D, téléchargez nos fichiers .stl : "); ?></div>
-						<a class="btn btn-mini btn-primary" href="laboite_stl.zip"><i class=" icon-download icon-white"></i> <?php echo _("boitiers.stl"); ?></a>
+						<div><?php echo _("Si vous avez une imprimante 3D (ou un FabLab) à proximité, téléchargez nos fichiers .stl : "); ?></div>
+						<a class="btn btn-mini btn-primary" href="laboite_stl.zip"><i class=" icon-download icon-white"></i> <?php echo _("boitiers.stl v1"); ?></a>
+						<a class="btn btn-mini btn-primary" href="laboite_stl2.zip"><i class=" icon-download icon-white"></i> <?php echo _("boitiers.stl v2"); ?></a>
+						<div class="row" style="margin-top:16px; margin-bottom:16px;">
+							<iframe class="img-polaroid" width="288px" height="216px" src="https://sketchfab.com/models/4525f2a0ef7e4c66b6b2976e14d911ff/embed" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" onmousewheel=""></iframe>
+						</div>
 					</li>
 					<li>
 						<?php echo _("Raccordez le câble Ethernet sur votre box Internet"); ?>
@@ -181,7 +185,7 @@
 						</div>
 					</li>
 					<li>
-						<div style="margin-bottom:8px;"><?php echo _("Raccordez le câble USB à votre ordinateur (après avoir installer l'"); ?><a href="https://github.com/bgaultier/laboite"><?php echo _("IDE Arduino)"); ?></a></div>
+						<div style="margin-bottom:8px;"><?php echo _("Raccordez le câble USB à votre ordinateur (après avoir installer l'"); ?><a href="http://arduino.cc/en/Main/Software"><?php echo _("IDE Arduino)"); ?></a></div>
 						<span class="label label-warning"><?php echo _("Attention"); ?></span> <?php echo _("Si le téléversement échoue, veuillez installer ces pilotes"); ?> <a href="ch341ser_mac.zip">Mac</a> <?php echo _("ou"); ?> <a href="CH341SER.EXE">Windows</a>
 					</li>
 					<li style="margin-top:8px;">
@@ -189,8 +193,12 @@
 						<a class="btn btn-mini btn-primary" href="ht1632c.zip"><i class=" icon-download icon-white"></i> <?php echo _("ht1632c.zip"); ?></a>
 					</li>
 					<li>
-						<div><?php echo _("Téléchargez le croquis Arduino puis décompresser le contenu de l'archive dans votre répertoire Arduino"); ?></div>
+						<div><?php echo _("Téléchargez le croquis Arduino puis décompresser le contenu de l'archive dans votre répertoire Arduino (le répertoire laboite-master devra être renommé en laboite)"); ?></div>
 						<a class="btn btn-mini btn-primary" href="https://github.com/bgaultier/laboite/archive/master.zip"><i class=" icon-download icon-white"></i> <?php echo _("laboite.ino"); ?></a>
+						<div><?php echo _("Votre répertoire Arduino devrait ressembler à quelque chose comme cela :"); ?></div>
+						<div class="row">
+							<img style="margin : 32px; width: 256px;" src="templates/images/directories.svg">
+						</div>
 					</li>
 					<li>
 						<?php echo _("Créez un compte sur le site"); ?> <a href="signup"><?php echo $_SERVER['SERVER_NAME']; ?></a>
@@ -373,6 +381,47 @@
 									<p><strong><?php echo _("Description : "); ?></strong> <?php echo $apps[7]['description_' . getenv('LANG')]; ?></p>
 									<p><strong><?php echo _("Paramètres : "); ?></strong> <?php echo _('Identifiant'); ?></p>
 									<p><strong><?php echo _("Valeur : "); ?></strong> <?php echo _('permet de spécifier votre identifiant utilisateur sur <a href="http://laclef.cc/kfet#api">api.laclef.cc</a>.'); ?></p>
+								</div>
+							</div>
+						</div>
+						<div class="accordion-group">
+							<div class="accordion-heading">
+								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#<?php echo strtolower($apps[8]["name_en_US"]); ?>">
+									<?php echo $apps[8]['name_' . getenv('LANG')]; ?>
+								</a>
+							</div>
+							<div style="height: 0px;" id="<?php echo strtolower($apps[8]["name_en_US"]); ?>" class="accordion-body collapse">
+								<div class="accordion-inner">
+									<p><strong><?php echo _("Description : "); ?></strong> <?php echo $apps[8]['description_' . getenv('LANG')]; ?></p>
+									<p><strong><?php echo _("Paramètres : "); ?></strong> <?php echo _('Adresse email et mot de passe Gmail'); ?></p>
+									<p><strong><?php echo _("Valeur : "); ?></strong> <?php echo _('permet de spécifier vos identifiants Gmail afin de récupérer le nombre de mails non-lus de votre compte <a href="https://mail.google.com/">Gmail</a>.'); ?></p>
+								</div>
+							</div>
+						</div>
+						<div class="accordion-group">
+							<div class="accordion-heading">
+								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#<?php echo strtolower($apps[9]["name_en_US"]); ?>">
+									<?php echo $apps[9]['name_' . getenv('LANG')]; ?>
+								</a>
+							</div>
+							<div style="height: 0px;" id="<?php echo strtolower($apps[9]["name_en_US"]); ?>" class="accordion-body collapse">
+								<div class="accordion-inner">
+									<p><strong><?php echo _("Description : "); ?></strong> <?php echo $apps[9]['description_' . getenv('LANG')]; ?></p>
+									<p><strong><?php echo _("Paramètres : "); ?></strong> <?php echo _("Nom des arrêts RATP/SNCF de départ et d'arrivée (Exemples : Sentier, Opéra...)"); ?></p>
+								</div>
+							</div>
+						</div>
+						<div class="accordion-group">
+							<div class="accordion-heading">
+								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#<?php echo strtolower($apps[10]["name_en_US"]); ?>">
+									<?php echo $apps[10]['name_' . getenv('LANG')]; ?>
+								</a>
+							</div>
+							<div style="height: 0px;" id="<?php echo strtolower($apps[10]["name_en_US"]); ?>" class="accordion-body collapse">
+								<div class="accordion-inner">
+									<p><strong><?php echo _("Description : "); ?></strong> <?php echo $apps[10]['description_' . getenv('LANG')]; ?></p>
+									<p><strong><?php echo _("Paramètres : "); ?></strong> <?php echo _('Adresse URL de votre agenda privé'); ?></p>
+									<p><strong><?php echo _("Valeur : "); ?></strong> <?php echo _("permet de spécifier l'adresse de votre agenda privé (iCal uniquement). Pour savoir comment trouver cette URL, nous vous invitons à consulter l'aide de <a href=\"https://support.google.com/calendar/answer/2465776?hl=fr\" >Google agenda</a> ou celle de <a href=\"https://fr.aide.yahoo.com/kb/SLN15901.html\">Yahoo agenda</a>. Sachez que l'app <strong>Agenda</strong> est comptatible avec tous les agendas au format <code>.ics</code>."); ?></p>
 								</div>
 							</div>
 						</div>

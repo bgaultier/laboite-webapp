@@ -8,5 +8,8 @@
   $response = simplexml_load_file($url);
   $next_departure = $response->answer->data->stopline->departures->departure[0];
 
-  $data["bus"] = (string)floor(((strtotime($next_departure) - $now) / 60));
+  $next_departure = floor(((strtotime($next_departure) - $now) / 60));
+
+  if ($next_departure > -2)
+    $data["bus"] = str_replace ('-', '<', (string)$next_departure);
 ?>

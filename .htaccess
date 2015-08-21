@@ -11,7 +11,10 @@ DirectoryIndex index.php
 
 # Various rewrite rules.
 <IfModule mod_rewrite.c>
+  RewriteRule ^boites/([a-zA-Z0-9_-]+)$ index.php?apikey=$1 [L]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule ^(.*)$ index.php [L,QSA]
+  RewriteCond %{SERVER_PORT} ^80$
+  RewriteRule ^(.*)$ https://www.laboite.cc/$1 [R]
 </IfModule>

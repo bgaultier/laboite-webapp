@@ -12,7 +12,6 @@
 <?php ob_start() ?>
   <script type="text/javascript">
     $(document).ready(function () {
-      //$('.icon-question-sign').tooltip();
       $(".conf-btn").click(function() {
         var appid = $(this).attr("id").substring(3);
         $.getJSON('app.json?id=' + appid, function(app) {
@@ -90,8 +89,35 @@
                   <div>
                     <input id="station1" type="text" name="station1" class="input-large" placeholder="<?php echo _('Station de départ'); ?>" >
                   </div>
+                  <div id="mode1" class="input-large" style="margin-bottom:24px;">
+                    <select name="mode1">
+                      <option>RER</option>
+                      <option>SNCF</option>
+                      <option>METRO</option>
+                      <option>TRAM</option>
+                    </select>
+                  </div>
                   <div>
                     <input id="station2" type="text" name="station2" class="input-large" placeholder="<?php echo _("Station d'arrivée"); ?>" >
+                  </div>
+                  <div id="mode2" class="input-large">
+                    <select name="mode2">
+                      <option>RER</option>
+                      <option>SNCF</option>
+                      <option>METRO</option>
+                      <option>TRAM</option>
+                    </select>
+                  </div>
+                  <div>
+                    <input id="url" type="text" name="url" class="input-xlarge" placeholder="<?php echo _('Adresse ical de votre agenda'); ?>">
+                  </div>
+                  <div id="parking" class="input-large" style="margin-bottom:24px;">
+                    <select name="parking">
+                      <option value="HFR">Henri Fréville</option>
+                      <option value="JFK">J.F. Kennedy</option>
+                      <option value="POT">La Poterie</option>
+                      <option value="VU">Villejean-Université</option>
+                    </select>
                   </div>
                 </div>
                 <div class="modal-footer">
