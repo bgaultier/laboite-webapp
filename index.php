@@ -1,9 +1,9 @@
 <?php
   /*
-    laboîte-webapp v0.1 is a PHP+MySQL web application that allows the
+    laboîte-webapp v0.2 is a PHP+MySQL web application that allows the
     remote configuration of devices connected to Internet.
 
-    Copyright (C) 2013  Baptiste Gaultier
+    Copyright (C) 2015  Baptiste Gaultier
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -89,6 +89,9 @@
   }
   elseif ('/boites' == substr($uri, 0, 7) && isset($_GET['apikey'])) {
      sbm_action($_GET['apikey']);
+  }
+  elseif ('/stations' == substr($uri, 0, 9) && isset($_GET['name'])) {
+     find_station_action($_GET['name']);
   }
   else
     login_action();

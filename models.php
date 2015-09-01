@@ -367,6 +367,21 @@
     return $result;
   }
 
+  function update_sbm_apps($userid, $stop, $station, $parking)
+  {
+    $link = open_database_connection();
+
+    $userid = intval($userid);
+    $query = "UPDATE user_apps SET stop ='" . mysql_real_escape_string($stop) .
+                               "', station ='" . mysql_real_escape_string($station) .
+                               "', parking ='" . mysql_real_escape_string($parking) . "' WHERE userid=$userid";
+    $result = mysql_query($query);
+
+    close_database_connection($link);
+
+    return $result;
+  }
+
 
   /* Message Model */
   function device_message_exists($deviceid)
@@ -430,6 +445,37 @@
     return $message['message'];
   }
 
+  /* STAR station Model */
+  function get_station_departures_by_name($name) {
+    $link = open_database_connection();
+
+    $query = "SELECT id FROM stations WHERE name LIKE \"" . mysql_real_escape_string($name) . '"';
+    $result = mysql_query($query);
+
+    $departures = array();
+    while ($row = mysql_fetch_assoc($result)) {
+        $departure = array();
+
+        $url = "https://data.explore.star.fr/api/records/1.0/search?dataset=tco-bus-circulation-passages-tr&apikey=d55230a97e137bd4b073009462489f85d6486c1c242fb43db3d152a7&sort=-depart&refine.idarret=";
+        $url .= $row['id'];
+
+    	$json_string = file_get_contents($url);
+
+      $parsed_json = json_decode($json_string);
+
+    	$records = $parsed_json->{'records'};
+
+    	$departures = array();
+    	foreach ($records as $record) {
+            if(!array_key_exists($record->{'fields'}->{'destination'} , $departures)) {
+                $departures[$record->{'fields'}->{'destination'}] = array('stop' => $row['id'], 'nomcourtligne' => $record->{'fields'}->{'nomcourtligne'});
+            }
+    	}
+    }
+    close_database_connection($link);
+
+    return $departures;
+  }
 
   /* XML model */
   function xml_encode($data) {
