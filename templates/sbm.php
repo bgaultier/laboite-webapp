@@ -152,9 +152,6 @@
 			<option value="85" <?php if($station == 85) echo " selected=\"selected\""; ?>>La Courrouze</option>
 		</select>
 		<h2><?php echo _('Parc Relais'); ?></h2>
-		<div>
-			<?php var_dump($_POST); ?>
-		</div>
 		<select name="parking">
 		  <option value="HFR" <?php if($parking == "HFR") echo " selected=\"selected\""; ?>>Henri Fréville</option>
 		  <option value="JFK" <?php if($parking == "JFK") echo " selected=\"selected\""; ?>>J.F. Kennedy</option>
