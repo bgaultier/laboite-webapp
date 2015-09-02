@@ -147,15 +147,15 @@
         if (strpos($key,'app') !== false)
           update_device_app($_POST['id'], substr($key, 3, strlen($key)));
       }
-      if($_POST['stop'])
+      if($_POST['parking'])
         update_sbm_apps($device['creator'], $_POST['stop'], $_POST['station'], $_POST['parking']);
 
       $device = get_device_by_apikey($apikey);
     }
     $apps = get_all_apps();
     $device_apps = get_device_apps($device['id']);
-    $station = get_user_app_by_id($device['creator'], 4)['station'];
-    //$parking = get_user_app_by_id($device['creator'], 12)['parking'];
+    $station = intval(get_user_app_by_id($device['creator'], 4)['station']);
+    $parking = get_user_app_by_id($device['creator'], 12)['parking'];
     $stop = get_user_app_by_id($device['creator'], 14)['stop'];
 
     require 'templates/sbm.php';

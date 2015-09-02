@@ -454,18 +454,15 @@
 
     $departures = array();
     while ($row = mysql_fetch_assoc($result)) {
-        $departure = array();
-
         $url = "https://data.explore.star.fr/api/records/1.0/search?dataset=tco-bus-circulation-passages-tr&apikey=d55230a97e137bd4b073009462489f85d6486c1c242fb43db3d152a7&sort=-depart&refine.idarret=";
         $url .= $row['id'];
 
     	$json_string = file_get_contents($url);
 
-      $parsed_json = json_decode($json_string);
+        $parsed_json = json_decode($json_string);
 
     	$records = $parsed_json->{'records'};
 
-    	$departures = array();
     	foreach ($records as $record) {
             if(!array_key_exists($record->{'fields'}->{'destination'} , $departures)) {
                 $departures[$record->{'fields'}->{'destination'}] = array('stop' => $row['id'], 'nomcourtligne' => $record->{'fields'}->{'nomcourtligne'});

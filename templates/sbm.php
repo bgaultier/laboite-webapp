@@ -12,11 +12,14 @@
 		}
 
 		function find_station_action(name) {
+			$.mobile.loading('show');
+
 			station_input = document.getElementById('inset-autocomplete-input');
 			station_input.disabled = true;
 			station_input.value = name;
 
 			$.getJSON( "/stations/?name=" + name, function( data ) {
+				$.mobile.loading('hide');
 				$('#stations').hide();
 				departures = $('#departures');
 				$.each(data, function( key, value ) {
@@ -63,97 +66,100 @@
 				<input id="app<?php echo $app['id']; ?>" type="checkbox" name="app<?php echo $app['id']; ?>"<?php if(array_key_exists('app'.$app['id'], $device_apps)) echo " checked"; ?>><?php echo ' ' . $app['name_' . getenv('LANG')]; ?>
 			</label>
 		<?php endforeach; ?>
-		<h2><?php echo _('Configuration LE vélo STAR'); ?></h2>
+		<h2><?php echo _('LE vélo STAR'); ?></h2>
 		<select name="station">
-		    <option value="1" <?php if($station == 1) echo " selected=\"selected\""; ?>>REPUBLIQUE</option>
-			<option value="2" <?php if($station == 2) echo " selected=\"selected\""; ?>>MAIRIE</option>
-			<option value="3" <?php if($station == 3) echo " selected=\"selected\""; ?>>CHAMP JACQUET</option>
-			<option value="4" <?php if($station == 4) echo " selected=\"selected\""; ?>>PLACE HOCHE</option>
-			<option value="5" <?php if($station == 5) echo " selected=\"selected\""; ?>>SAINTE-ANNE</option>
-			<option value="6" <?php if($station == 6) echo " selected=\"selected\""; ?>>HOTEL DIEU</option>
-			<option value="7" <?php if($station == 7) echo " selected=\"selected\""; ?>>FAC DE DROIT</option>
-			<option value="8" <?php if($station == 8) echo " selected=\"selected\""; ?>>RECTORAT</option>
-			<option value="9" <?php if($station == 9) echo " selected=\"selected\""; ?>>SAINT GEORGES</option>
-			<option value="10" <?php if($station == 10) echo " selected=\"selected\""; ?>>MUSEE BEAUX ARTS</option>
-			<option value="11" <?php if($station == 11) echo " selected=\"selected\""; ?>>LIBERTE</option>
+			<option value="1" <?php if($station == 1) echo " selected=\"selected\""; ?>>République</option>
+			<option value="2" <?php if($station == 2) echo " selected=\"selected\""; ?>>Mairie</option>
+			<option value="3" <?php if($station == 3) echo " selected=\"selected\""; ?>>Champ Jacquet</option>
+			<option value="4" <?php if($station == 4) echo " selected=\"selected\""; ?>>Place Hoche</option>
+			<option value="5" <?php if($station == 5) echo " selected=\"selected\""; ?>>Sainte-Anne</option>
+			<option value="6" <?php if($station == 6) echo " selected=\"selected\""; ?>>Hôtel Dieu</option>
+			<option value="7" <?php if($station == 7) echo " selected=\"selected\""; ?>>Fac de Droit</option>
+			<option value="8" <?php if($station == 8) echo " selected=\"selected\""; ?>>Rectorat</option>
+			<option value="9" <?php if($station == 9) echo " selected=\"selected\""; ?>>Saint-Georges</option>
+			<option value="10" <?php if($station == 10) echo " selected=\"selected\""; ?>>Musée Beaux-Arts</option>
+			<option value="11" <?php if($station == 11) echo " selected=\"selected\""; ?>>Liberté</option>
 			<option value="12" <?php if($station == 12) echo " selected=\"selected\""; ?>>TNB</option>
-			<option value="13" <?php if($station == 13) echo " selected=\"selected\""; ?> disabled>DINAN</option>
-			<option value="14" <?php if($station == 14) echo " selected=\"selected\""; ?>>LAENNEC</option>
-			<option value="15" <?php if($station == 15) echo " selected=\"selected\""; ?>>GARE SOLFERINO</option>
-			<option value="16" <?php if($station == 16) echo " selected=\"selected\""; ?>>CHAMPS LIBRES</option>
-			<option value="17" <?php if($station == 17) echo " selected=\"selected\""; ?>>CHARLES DE GAULLE</option>
-			<option value="18" <?php if($station == 18) echo " selected=\"selected\""; ?>>DALLE DU COLOMBIER</option>
-			<option value="19" <?php if($station == 19) echo " selected=\"selected\""; ?>>PLELO COLOMBIER</option>
-			<option value="20" <?php if($station == 20) echo " selected=\"selected\""; ?>>PONT DE NANTES</option>
-			<option value="21" <?php if($station == 21) echo " selected=\"selected\""; ?> disabled>LES HALLES</option>
-			<option value="22" <?php if($station == 22) echo " selected=\"selected\""; ?>>OBERTHUR</option>
-			<option value="23" <?php if($station == 23) echo " selected=\"selected\""; ?>>ROTONDE</option>
-			<option value="24" <?php if($station == 24) echo " selected=\"selected\""; ?>>PLACE DE BRETAGNE</option>
-			<option value="25" <?php if($station == 25) echo " selected=\"selected\""; ?>>OFFICE DE TOURISME</option>
-			<option value="26" <?php if($station == 26) echo " selected=\"selected\""; ?>>LES LICES</option>
-			<option value="27" <?php if($station == 27) echo " selected=\"selected\""; ?>>HORIZONS</option>
-			<option value="28" <?php if($station == 28) echo " selected=\"selected\""; ?>>CHEQUES POSTAUX</option>
-			<option value="29" <?php if($station == 29) echo " selected=\"selected\""; ?>>JULES FERRY</option>
-			<option value="30" <?php if($station == 30) echo " selected=\"selected\""; ?>>GUEHENNO-FOUGERES</option>
-			<option value="31" <?php if($station == 31) echo " selected=\"selected\""; ?>>VOLTAIRE</option>
-			<option value="32" <?php if($station == 32) echo " selected=\"selected\""; ?>>LA TOUCHE</option>
-			<option value="33" <?php if($station == 33) echo " selected=\"selected\""; ?>>ANATOLE FRANCE</option>
-			<option value="34" <?php if($station == 34) echo " selected=\"selected\""; ?>>BREST VERDUN</option>
-			<option value="35" <?php if($station == 35) echo " selected=\"selected\""; ?>>PONT DE CHATEAUDUN</option>
-			<option value="36" <?php if($station == 36) echo " selected=\"selected\""; ?>>PAUL BERT</option>
-			<option value="37" <?php if($station == 37) echo " selected=\"selected\""; ?>>AUBERGE DE JEUNESSE</option>
-			<option value="38" <?php if($station == 38) echo " selected=\"selected\""; ?>>MARBEUF</option>
-			<option value="39" <?php if($station == 39) echo " selected=\"selected\""; ?>>PONTCHAILLOU</option>
-			<option value="40" <?php if($station == 40) echo " selected=\"selected\""; ?>>PIERRE MARTIN</option>
-			<option value="41" <?php if($station == 41) echo " selected=\"selected\""; ?>>CIMETIERE EST</option>
-			<option value="42" <?php if($station == 42) echo " selected=\"selected\""; ?>>ROBIDOU</option>
-			<option value="43" <?php if($station == 43) echo " selected=\"selected\""; ?>>CITE JUDICIAIRE</option>
-			<option value="44" <?php if($station == 44) echo " selected=\"selected\""; ?>>METZ SEVIGNE</option>
-			<option value="45" <?php if($station == 45) echo " selected=\"selected\""; ?>>GARES (SUD)</option>
-			<option value="46" <?php if($station == 46) echo " selected=\"selected\""; ?>>PLAINE DE BAUD</option>
-			<option value="47" <?php if($station == 47) echo " selected=\"selected\""; ?>>BEAULIEU CHIMIE</option>
-			<option value="48" <?php if($station == 48) echo " selected=\"selected\""; ?> disabled>BEAULIEU RESTAU U</option>
-			<option value="49" <?php if($station == 49) echo " selected=\"selected\""; ?>>BEAULIEU BOIS PERRIN</option>
-			<option value="51" <?php if($station == 51) echo " selected=\"selected\""; ?>>BOUZAT</option>
-			<option value="52" <?php if($station == 52) echo " selected=\"selected\""; ?>>VILLEJEAN-UNIVERSITE</option>
-			<option value="53" <?php if($station == 53) echo " selected=\"selected\""; ?>>J.F. KENNEDY</option>
-			<option value="54" <?php if($station == 54) echo " selected=\"selected\""; ?>>PONTCHAILLOU (TER)</option>
-			<option value="55" <?php if($station == 55) echo " selected=\"selected\""; ?>>PREFECTURE</option>
-			<option value="56" <?php if($station == 56) echo " selected=\"selected\""; ?>>BERGER</option>
-			<option value="57" <?php if($station == 57) echo " selected=\"selected\""; ?>>ATALANTE CHAMPEAUX</option>
-			<option value="58" <?php if($station == 58) echo " selected=\"selected\""; ?>>LA HARPE</option>
-			<option value="59" <?php if($station == 59) echo " selected=\"selected\""; ?>>PISCINE GAYEULLES</option>
-			<option value="60" <?php if($station == 60) echo " selected=\"selected\""; ?>>CUCILLE</option>
-			<option value="61" <?php if($station == 61) echo " selected=\"selected\""; ?>>JACQUES CARTIER</option>
-			<option value="62" <?php if($station == 62) echo " selected=\"selected\""; ?>>CLEMENCEAU</option>
-			<option value="63" <?php if($station == 63) echo " selected=\"selected\""; ?>>HENRI FREVILLE</option>
-			<option value="64" <?php if($station == 64) echo " selected=\"selected\""; ?>>ITALIE</option>
-			<option value="66" <?php if($station == 66) echo " selected=\"selected\""; ?>>PISCINE BREQUIGNY</option>
-			<option value="67" <?php if($station == 67) echo " selected=\"selected\""; ?>>BINQUENAIS</option>
-			<option value="68" <?php if($station == 68) echo " selected=\"selected\""; ?>>ALMA</option>
-			<option value="69" <?php if($station == 69) echo " selected=\"selected\""; ?>>CHAMPS MANCEAUX</option>
-			<option value="70" <?php if($station == 70) echo " selected=\"selected\""; ?>>MERMOZ</option>
-			<option value="71" <?php if($station == 71) echo " selected=\"selected\""; ?>>SAINTE THERESE</option>
-			<option value="72" <?php if($station == 72) echo " selected=\"selected\""; ?>>CLEUNAY</option>
-			<option value="73" <?php if($station == 73) echo " selected=\"selected\""; ?>>GENIAUX</option>
-			<option value="74" <?php if($station == 74) echo " selected=\"selected\""; ?>>DE LESSEPS</option>
-			<option value="75" <?php if($station == 75) echo " selected=\"selected\""; ?>>ZAC SAINT SULPICE</option>
-			<option value="76" <?php if($station == 76) echo " selected=\"selected\""; ?>>MONTS D'ARREE</option>
-			<option value="77" <?php if($station == 77) echo " selected=\"selected\""; ?>>HOUX CITE U</option>
-			<option value="78" <?php if($station == 78) echo " selected=\"selected\""; ?>>GROS CHENE</option>
-			<option value="80" <?php if($station == 80) echo " selected=\"selected\""; ?>>PAINLEVE</option>
-			<option value="81" <?php if($station == 81) echo " selected=\"selected\""; ?>>TURMEL</option>
-			<option value="82" <?php if($station == 82) echo " selected=\"selected\""; ?>>LA POTERIE</option>
-			<option value="83" <?php if($station == 83) echo " selected=\"selected\""; ?>>RONCERAY</option>
-			<option value="84" <?php if($station == 84) echo " selected=\"selected\""; ?>>GARE BEAUMONT</option>
-			<option value="85" <?php if($station == 85) echo " selected=\"selected\""; ?>>LA COUROUZE</option>
+			<option value="13" <?php if($station == 13) echo " selected=\"selected\""; ?> disabled>Dinan</option>
+			<option value="14" <?php if($station == 14) echo " selected=\"selected\""; ?>>Laënnec</option>
+			<option value="15" <?php if($station == 15) echo " selected=\"selected\""; ?>>Gares - Solferino</option>
+			<option value="16" <?php if($station == 16) echo " selected=\"selected\""; ?>>Champs Libres</option>
+			<option value="17" <?php if($station == 17) echo " selected=\"selected\""; ?>>Charles de Gaulle</option>
+			<option value="18" <?php if($station == 18) echo " selected=\"selected\""; ?>>Dalle Colombier</option>
+			<option value="19" <?php if($station == 19) echo " selected=\"selected\""; ?>>Plélo Colombier</option>
+			<option value="20" <?php if($station == 20) echo " selected=\"selected\""; ?>>Pont de Nantes</option>
+			<option value="21" <?php if($station == 21) echo " selected=\"selected\""; ?> disabled>Les Halles</option>
+			<option value="22" <?php if($station == 22) echo " selected=\"selected\""; ?>>Oberthur</option>
+			<option value="23" <?php if($station == 23) echo " selected=\"selected\""; ?>>La Rotonde</option>
+			<option value="24" <?php if($station == 24) echo " selected=\"selected\""; ?>>Place de Bretagne</option>
+			<option value="25" <?php if($station == 25) echo " selected=\"selected\""; ?>>Office de Tourisme</option>
+			<option value="26" <?php if($station == 26) echo " selected=\"selected\""; ?>>Les Lices</option>
+			<option value="27" <?php if($station == 27) echo " selected=\"selected\""; ?>>Horizons</option>
+			<option value="28" <?php if($station == 28) echo " selected=\"selected\""; ?>>Chèques Postaux</option>
+			<option value="29" <?php if($station == 29) echo " selected=\"selected\""; ?>>Jules Ferry</option>
+			<option value="30" <?php if($station == 30) echo " selected=\"selected\""; ?>>Guéhenno - Fougères</option>
+			<option value="31" <?php if($station == 31) echo " selected=\"selected\""; ?>>Voltaire</option>
+			<option value="32" <?php if($station == 32) echo " selected=\"selected\""; ?>>La Touche</option>
+			<option value="33" <?php if($station == 33) echo " selected=\"selected\""; ?>>Anatole France</option>
+			<option value="34" <?php if($station == 34) echo " selected=\"selected\""; ?>>Brest - Verdun</option>
+			<option value="35" <?php if($station == 35) echo " selected=\"selected\""; ?>>Pont de Châteaudun</option>
+			<option value="36" <?php if($station == 36) echo " selected=\"selected\""; ?>>Paul Bert</option>
+			<option value="37" <?php if($station == 37) echo " selected=\"selected\""; ?>>Auberge de Jeunesse</option>
+			<option value="38" <?php if($station == 38) echo " selected=\"selected\""; ?>>Marbeuf</option>
+			<option value="39" <?php if($station == 39) echo " selected=\"selected\""; ?>>Pontchaillou Métro</option>
+			<option value="40" <?php if($station == 40) echo " selected=\"selected\""; ?>>Pierre Martin</option>
+			<option value="41" <?php if($station == 41) echo " selected=\"selected\""; ?>>Cimetière Est</option>
+			<option value="42" <?php if($station == 42) echo " selected=\"selected\""; ?>>Robidou</option>
+			<option value="43" <?php if($station == 43) echo " selected=\"selected\""; ?>>Cité Judiciaire</option>
+			<option value="44" <?php if($station == 44) echo " selected=\"selected\""; ?>>Metz - Sévigné</option>
+			<option value="45" <?php if($station == 45) echo " selected=\"selected\""; ?>>Gares Sud - Féval</option>
+			<option value="46" <?php if($station == 46) echo " selected=\"selected\""; ?>>Plaine de Baud</option>
+			<option value="47" <?php if($station == 47) echo " selected=\"selected\""; ?>>Beaulieu Chimie</option>
+			<option value="48" <?php if($station == 48) echo " selected=\"selected\""; ?> disabled>Beaulieu Restau U</option>
+			<option value="49" <?php if($station == 49) echo " selected=\"selected\""; ?>>Beaulieu Diapason</option>
+			<option value="51" <?php if($station == 51) echo " selected=\"selected\""; ?>>Bouzat</option>
+			<option value="52" <?php if($station == 52) echo " selected=\"selected\""; ?>>Villejean-Université</option>
+			<option value="53" <?php if($station == 53) echo " selected=\"selected\""; ?>>J.F. Kennedy</option>
+			<option value="54" <?php if($station == 54) echo " selected=\"selected\""; ?>>Pontchaillou Halte TER</option>
+			<option value="55" <?php if($station == 55) echo " selected=\"selected\""; ?>>Préfecture</option>
+			<option value="56" <?php if($station == 56) echo " selected=\"selected\""; ?>>Berger</option>
+			<option value="57" <?php if($station == 57) echo " selected=\"selected\""; ?>>Atalante Champeaux</option>
+			<option value="58" <?php if($station == 58) echo " selected=\"selected\""; ?>>La Harpe</option>
+			<option value="59" <?php if($station == 59) echo " selected=\"selected\""; ?>>Gayeulles Piscine</option>
+			<option value="60" <?php if($station == 60) echo " selected=\"selected\""; ?>>Cucillé</option>
+			<option value="61" <?php if($station == 61) echo " selected=\"selected\""; ?>>Jacques Cartier</option>
+			<option value="62" <?php if($station == 62) echo " selected=\"selected\""; ?>>Clemenceau</option>
+			<option value="63" <?php if($station == 63) echo " selected=\"selected\""; ?>>Henri Fréville</option>
+			<option value="64" <?php if($station == 64) echo " selected=\"selected\""; ?>>Italie</option>
+			<option value="66" <?php if($station == 66) echo " selected=\"selected\""; ?>>Bréquigny Piscine</option>
+			<option value="67" <?php if($station == 67) echo " selected=\"selected\""; ?>>Binquenais</option>
+			<option value="68" <?php if($station == 68) echo " selected=\"selected\""; ?>>Alma</option>
+			<option value="69" <?php if($station == 69) echo " selected=\"selected\""; ?>>Champs Manceaux</option>
+			<option value="70" <?php if($station == 70) echo " selected=\"selected\""; ?>>Mermoz</option>
+			<option value="71" <?php if($station == 71) echo " selected=\"selected\""; ?>>Sainte-Thérèse</option>
+			<option value="72" <?php if($station == 72) echo " selected=\"selected\""; ?>>Cleunay</option>
+			<option value="73" <?php if($station == 73) echo " selected=\"selected\""; ?>>Géniaux</option>
+			<option value="74" <?php if($station == 74) echo " selected=\"selected\""; ?>>De Lesseps</option>
+			<option value="75" <?php if($station == 75) echo " selected=\"selected\""; ?>>ZA Saint Sulpice</option>
+			<option value="76" <?php if($station == 76) echo " selected=\"selected\""; ?>>Monts d'Arrée</option>
+			<option value="77" <?php if($station == 77) echo " selected=\"selected\""; ?>>Houx Cité U</option>
+			<option value="78" <?php if($station == 78) echo " selected=\"selected\""; ?>>Gros-Chêne</option>
+			<option value="80" <?php if($station == 80) echo " selected=\"selected\""; ?>>Painlevé</option>
+			<option value="81" <?php if($station == 81) echo " selected=\"selected\""; ?>>Turmel</option>
+			<option value="82" <?php if($station == 82) echo " selected=\"selected\""; ?>>La Poterie</option>
+			<option value="83" <?php if($station == 83) echo " selected=\"selected\""; ?>>Ronceray</option>
+			<option value="84" <?php if($station == 84) echo " selected=\"selected\""; ?>>Gares - Beaumont</option>
+			<option value="85" <?php if($station == 85) echo " selected=\"selected\""; ?>>La Courrouze</option>
 		</select>
 		<h2><?php echo _('Parc Relais'); ?></h2>
+		<div>
+			<?php var_dump($_POST); ?>
+		</div>
 		<select name="parking">
-		  <option value="HFR">Henri Fréville</option>
-		  <option value="JFK">J.F. Kennedy</option>
-		  <option value="POT">La Poterie</option>
-		  <option value="VU">Villejean-Université</option>
+		  <option value="HFR" <?php if($parking == "HFR") echo " selected=\"selected\""; ?>>Henri Fréville</option>
+		  <option value="JFK" <?php if($parking == "JFK") echo " selected=\"selected\""; ?>>J.F. Kennedy</option>
+		  <option value="POT" <?php if($parking == "POT") echo " selected=\"selected\""; ?>>La Poterie</option>
+		  <option value="VU" <?php if($parking == "VU") echo " selected=\"selected\""; ?>>Villejean-Université</option>
 		</select>
 		<h2><?php echo _('Arrêt de Bus'); ?></h2>
 		<div id="stations-search" class="ui-filterable">
@@ -863,7 +869,7 @@
 		</ul>
 		<div id="departures">
 		</div>
-		<input id="stop" type="hidden" name="stop">
+		<input id="stop" type="hidden" name="stop" value="<?php echo $stop; ?>">
 		<br>
 		<input data-theme="b" data-icon="check" type="submit" value="<?php echo _('Enregistrer'); ?>">
 	</form>
