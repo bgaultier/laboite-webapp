@@ -19,6 +19,7 @@
     $link = open_database_connection();
     $query = 'INSERT INTO users (id, email, password) VALUES (\'\', \'' . mysql_real_escape_string($email) .'\', SHA1(\'' . mysql_real_escape_string($password) . '\'))';
     $result = mysql_query($query, $link);
+    $result = mysql_insert_id();
     close_database_connection($link);
 
     return $result;
@@ -200,9 +201,10 @@
     $link = open_database_connection();
     $query = "INSERT INTO devices (id, creator, name, location, apikey, lastactivity) VALUES ('', " . mysql_real_escape_string($creator) . ", '" . mysql_real_escape_string($name) . "', '" . mysql_real_escape_string($location) . "', SHA1(NOW()), NOW())";
     $result = mysql_query($query, $link);
+    $result = mysql_insert_id();
 
     // insert a default message
-    insert_device_message(mysql_insert_id(), "Aucun message");
+    insert_device_message($result, "Aucun message");
 
     close_database_connection($link);
 
