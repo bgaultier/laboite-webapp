@@ -15,8 +15,9 @@
 			$.mobile.loading('show');
 
 			station_input = document.getElementById('inset-autocomplete-input');
-			station_input.disabled = true;
-			station_input.value = name;
+			//station_input.disabled = true;
+			//station_input.value = name;
+			station_input.parentNode.style.display = 'none';
 
 			$.getJSON( "/stations/?name=" + name, function( data ) {
 				$.mobile.loading('hide');
