@@ -5,19 +5,17 @@
 		$("#update-btn").click(function() {
 			$(this).remove();
 		});
+		
 		function set_station_input(element, stop) {
 			$(element).buttonMarkup({theme: 'b'});
 			$('#stop').val(stop);
-			//$('#departures').hide();
 		}
 
 		function find_station_action(name) {
 			$.mobile.loading('show');
 
 			station_input = document.getElementById('inset-autocomplete-input');
-			//station_input.disabled = true;
-			//station_input.value = name;
-			station_input.parentNode.style.display = 'none';
+			station_input.value = name;
 
 			$.getJSON( "/stations/?name=" + name, function( data ) {
 				$.mobile.loading('hide');
@@ -27,6 +25,11 @@
 					departures.append('<a href="#" class="ui-btn ui-icon-check ui-btn-icon-left" onclick="set_station_input(this,' + value['stop'] + ')">' + value['nomcourtligne'] + ' - ' + key + '</a>');
 				});
 			});
+		}
+
+		function show_stations() {
+			$('#stations').show();
+			$('#departures').empty();
 		}
 	</script>
 	<?php if($update_message) { ?>
@@ -161,7 +164,7 @@
 		</select>
 		<h2><?php echo _('Arrêt de Bus'); ?></h2>
 		<div id="stations-search" class="ui-filterable">
-			<input id="inset-autocomplete-input" name="stop" data-type="search" placeholder="<?php echo _("Nom de l'arrêt"); ?>">
+			<input id="inset-autocomplete-input" onclick="show_stations()" name="stop" data-type="search" placeholder="<?php echo _("Nom de l'arrêt"); ?>">
 		</div>
 		<ul id="stations" data-role="listview" data-inset="true" data-filter="true" data-filter-reveal="true" data-input="#inset-autocomplete-input">
 		    <li><a onclick="find_station_action(this.innerHTML)" href="#">25 Fusillés</a></li>
