@@ -5,7 +5,7 @@
 		$("#update-btn").click(function() {
 			$(this).remove();
 		});
-		
+
 		function set_station_input(element, stop) {
 			$(element).buttonMarkup({theme: 'b'});
 			$('#stop').val(stop);
@@ -163,6 +163,9 @@
 		  <option value="VU" <?php if($parking == "VU") echo " selected=\"selected\""; ?>>Villejean-Université</option>
 		</select>
 		<h2><?php echo _('Arrêt de Bus'); ?></h2>
+		<?php if($update_message) { ?>
+			<a href="/boites/<?php echo $device['apikey']; ?>" class="ui-btn ui-icon-recycle ui-btn-icon-left"><?php echo _('Arrêt') . " " . $stop_name; ?></a>
+		<?php } else { ?>
 		<div id="stations-search" class="ui-filterable">
 			<input id="inset-autocomplete-input" onclick="show_stations()" name="stop" data-type="search" placeholder="<?php echo _("Nom de l'arrêt"); ?>">
 		</div>
@@ -870,6 +873,7 @@
 		</ul>
 		<div id="departures">
 		</div>
+		<?php } ?>
 		<input id="stop" type="hidden" name="stop" value="<?php echo $stop; ?>">
 		<br>
 		<input data-theme="b" data-icon="check" type="submit" value="<?php echo _('Enregistrer'); ?>">
