@@ -41,6 +41,10 @@
     require 'templates/help.php';
   }
 
+  function guide_action() {
+    require 'templates/guide.php';
+  }
+
   function thanks_action() {
   require 'templates/thanks.php';
   }
@@ -157,6 +161,7 @@
     $station = intval(get_user_app_by_id($device['creator'], 4)['station']);
     $parking = get_user_app_by_id($device['creator'], 12)['parking'];
     $stop = get_user_app_by_id($device['creator'], 14)['stop'];
+    $stop_name = get_stop_name_by_id($stop);
 
     require 'templates/sbm.php';
   }

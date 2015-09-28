@@ -476,6 +476,18 @@
     return $departures;
   }
 
+  function get_stop_name_by_id($id) {
+    $link = open_database_connection();
+
+    $query = "SELECT name FROM stations WHERE id = \"" . mysql_real_escape_string($id) . "\" LIMIT 1";
+    $result = mysql_query($query);
+    $stop = mysql_fetch_assoc($result);
+
+    close_database_connection($link);
+
+    return $stop['name'];
+  }
+
   /* XML model */
   function xml_encode($data) {
     $xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
