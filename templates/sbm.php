@@ -35,7 +35,7 @@
 	<?php if($update_message) { ?>
 		<button id="update-btn" type="button" class="ui-btn ui-icon-delete ui-btn-icon-right"><?php echo _('Vos mises à jour ont bien été prises en compte et seront effectives dans quelques instants.'); ?></button>
 	<?php } ?>
-	<form method="post" accept-charset="utf-8">
+	<form method="post" accept-charset="utf-8" action="/boites/<?php echo $device['apikey']; ?>">
 		<h2><?php echo _('Nom de la boîte'); ?></h2>
 		<input id="id" type="hidden" name="id" value="<?php echo $device['id']; ?>">
 		<input id="name" type="text" name="name" class="input-large" value="<?php echo $device['name']; ?>">
