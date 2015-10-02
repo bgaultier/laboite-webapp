@@ -6,10 +6,6 @@
 			$(this).remove();
 		});
 
-		$("#refresh-btn").click(function() {
-			location.reload();
-		});
-
 		function set_station_input(element, stop) {
 			$(element).buttonMarkup({theme: 'b'});
 			$('#stop').val(stop);
@@ -167,8 +163,8 @@
 		  <option value="VU" <?php if($parking == "VU") echo " selected=\"selected\""; ?>>Villejean-Université</option>
 		</select>
 		<h2><?php echo _('Arrêt de Bus'); ?></h2>
-		<?php if($update_message) { ?>
-			<button id="refresh-btn" type="button" class="ui-btn ui-icon-recycle ui-btn-icon-left"><?php echo _('Arrêt') . " " . $stop_name; ?></button>
+		<?php if($stop_is_set) { ?>
+			<a id="reset-btn" href="/boites/<?php echo $device['apikey']; ?>?reset=true" class="ui-btn ui-icon-recycle ui-btn-icon-left"><?php echo _('Arrêt') . " " . $stop_name; ?></a>
 		<?php } else { ?>
 		<div id="stations-search" class="ui-filterable">
 			<input id="inset-autocomplete-input" onclick="show_stations()" name="stop" data-type="search" placeholder="<?php echo _("Nom de l'arrêt"); ?>">

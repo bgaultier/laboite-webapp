@@ -102,7 +102,7 @@
 							<li><a href="http://store.arduino.cc/product/A000066"><?php echo _("Un Arduino UNO"); ?></a></li>
 							<li><a href="http://store.arduino.cc/product/A000072"><?php echo _("Un module Ethernet"); ?></a><?php echo _(" ou <i>shield</i> en anglais"); ?></li>
 							<li><a href="http://store.arduino.cc/product/E000013"><?php echo _("Un écran de 32×16 leds"); ?></a></li>
-							<li><a href="http://store.arduino.cc/product/M000006"><?php echo _("Un câble USB type A/B"); ?></a></li>
+							<li><a href="http://store.arduino.cc/product/M000006"><?php echo _("Un câble USB type B"); ?></a></li>
 							<li><a href="http://snootlab.fr/cables/23-kit-10-cordons-6-m-f.html"><?php echo _("Des fils de prototypage male/femelle ×6"); ?></a></li>
 							<li><a href="#"><?php echo _("Un boîtier imprimé en 3D"); ?></a></li>
 						</ul>
@@ -173,7 +173,7 @@
 						</div>
 						<div><?php echo _("Si vous avez une imprimante 3D (ou un FabLab) à proximité, téléchargez nos fichiers .stl : "); ?></div>
 						<a class="btn btn-mini btn-primary" href="laboite_stl.zip"><i class=" icon-download icon-white"></i> <?php echo _("boitiers.stl v1"); ?></a>
-						<a class="btn btn-mini btn-primary" href="laboite_stl2.zip"><i class=" icon-download icon-white"></i> <?php echo _("boitiers.stl v2"); ?></a>
+						<a class="btn btn-mini btn-primary" href="laboite_stl4.zip"><i class=" icon-download icon-white"></i> <?php echo _("boitiers.stl v4"); ?></a>
 						<div class="row" style="margin-top:16px; margin-bottom:16px;">
 							<iframe class="img-polaroid" width="288px" height="216px" src="https://sketchfab.com/models/4525f2a0ef7e4c66b6b2976e14d911ff/embed" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" onmousewheel=""></iframe>
 						</div>
@@ -185,7 +185,7 @@
 						</div>
 					</li>
 					<li>
-						<div style="margin-bottom:8px;"><?php echo _("Raccordez le câble USB à votre ordinateur (après avoir installer l'"); ?><a href="http://arduino.cc/en/Main/Software"><?php echo _("IDE Arduino)"); ?></a></div>
+						<div style="margin-bottom:8px;"><?php echo _("Raccordez le câble USB à votre ordinateur (après avoir installer l'"); ?><a href="https://www.arduino.cc/en/Main/OldSoftwareReleases#previous"><?php echo _("IDE Arduino"); ?></a> <?php echo _("(la version <strong>1.0.5</strong> est recommandée pour avoir une compatibilité avec la librairie ht1632)"); ?></div>
 						<span class="label label-warning"><?php echo _("Attention"); ?></span> <?php echo _("Si le téléversement échoue, veuillez installer ces pilotes"); ?> <a href="ch341ser_mac.zip">Mac</a> <?php echo _("ou"); ?> <a href="CH341SER.EXE">Windows</a>
 					</li>
 					<li style="margin-top:8px;">

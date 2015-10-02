@@ -11,7 +11,7 @@ DirectoryIndex index.php
 
 # Various rewrite rules.
 <IfModule mod_rewrite.c>
-  RewriteRule ^boites/([a-zA-Z0-9_-]+)$ index.php?apikey=$1 [L]
+  RewriteRule ^boites/([a-zA-Z0-9_-]+)$ index.php?apikey=$1 [QSA,L]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule ^(.*)$ index.php [L,QSA]

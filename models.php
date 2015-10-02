@@ -384,6 +384,19 @@
     return $result;
   }
 
+  function reset_sbm_stop($userid)
+  {
+    $link = open_database_connection();
+
+    $userid = intval($userid);
+    $query = "UPDATE user_apps SET stop = NULL WHERE appid = 14 AND userid=$userid LIMIT 1";
+    $result = mysql_query($query);
+
+    close_database_connection($link);
+
+    return $result;
+  }
+
 
   /* Message Model */
   function device_message_exists($deviceid)

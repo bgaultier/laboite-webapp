@@ -59,6 +59,8 @@
     account_action($_SESSION['email']);
   elseif ('/help' == $uri)
     help_action();
+  elseif ('/guide' == $uri)
+    guide_action();
   elseif ('/thanks' == $uri)
     thanks_action();
   elseif ('/about' == $uri)
