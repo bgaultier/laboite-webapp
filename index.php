@@ -89,6 +89,9 @@
     header('Content-type: application/json; charset=utf-8');
     get_user_app_action($_SESSION['id'], $_GET['id']);
   }
+  elseif ('/reset' == substr($uri, 0, 6) && isset($_GET['apikey'])) {
+      reset_sbm_action($_GET['apikey']);
+  }
   elseif ('/boites' == substr($uri, 0, 7) && isset($_GET['apikey'])) {
      sbm_action($_GET['apikey']);
   }

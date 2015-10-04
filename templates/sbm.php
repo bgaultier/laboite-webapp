@@ -35,7 +35,7 @@
 	<?php if($update_message) { ?>
 		<button id="update-btn" type="button" class="ui-btn ui-icon-delete ui-btn-icon-right"><?php echo _('Vos mises à jour ont bien été prises en compte et seront effectives dans quelques instants.'); ?></button>
 	<?php } ?>
-	<form method="post" accept-charset="utf-8" action="/boites/<?php echo $device['apikey']; ?>">
+	<form method="post" accept-charset="utf-8" data-ajax="false">
 		<h2><?php echo _('Nom de la boîte'); ?></h2>
 		<input id="id" type="hidden" name="id" value="<?php echo $device['id']; ?>">
 		<input id="name" type="text" name="name" class="input-large" value="<?php echo $device['name']; ?>">
@@ -164,7 +164,7 @@
 		</select>
 		<h2><?php echo _('Arrêt de Bus'); ?></h2>
 		<?php if($stop_is_set) { ?>
-			<a id="reset-btn" href="/boites/<?php echo $device['apikey']; ?>?reset=true" class="ui-btn ui-icon-recycle ui-btn-icon-left"><?php echo _('Arrêt') . " " . $stop_name; ?></a>
+			<a id="reset-btn" href="/reset?apikey=<?php echo $device['apikey']; ?>" class="ui-btn ui-icon-recycle ui-btn-icon-left"><?php echo _('Arrêt') . " " . $stop_name; ?></a>
 		<?php } else { ?>
 		<div id="stations-search" class="ui-filterable">
 			<input id="inset-autocomplete-input" onclick="show_stations()" name="stop" data-type="search" placeholder="<?php echo _("Nom de l'arrêt"); ?>">

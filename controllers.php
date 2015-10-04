@@ -140,14 +140,18 @@
     require 'templates/app.json.php';
   }
 
+  function reset_sbm_action($apikey) {
+    $device = get_device_by_apikey($apikey);
+    reset_sbm_stop($device['creator']);
+
+    // Redirect browser
+    header("Location: https://www." . $_SERVER['SERVER_NAME'] . "/boites/" . $apikey);
+    exit();
+  }
+
+
   function sbm_action($apikey) {
     $device = get_device_by_apikey($apikey);
-
-    if($device && isset($_GET['reset'])) {
-        reset_sbm_stop($device['creator']);
-        // we do not want to update sbm apps
-        unset($_POST['name']);
-    }
 
     if($device && isset($_POST['name'])) {
       $update_message = true;

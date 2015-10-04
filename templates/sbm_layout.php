@@ -16,7 +16,7 @@
 		<link rel="apple-touch-icon-precomposed" href="../templates/images/apple-touch-icon-57-precomposed.png">
 	</head>
 	<body>
-	<style>
+	<style scoped>
 		.ui-page {
 			background:#fff;
 		}
