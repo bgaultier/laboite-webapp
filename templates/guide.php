@@ -108,7 +108,7 @@
 						</div>
 					</li>
 					<li>
-						<?php echo _("Yes ! Votre boîte est fonctionnelle et commence à afficher des informations ! Pour la configurer, veuillez télécharger l'application StarBusMétro sur"); ?> <a href="https://play.google.com/store/apps/details?id=com.bookbeo.starbusmetro">Google Play</a>, <a href="https://itunes.apple.com/fr/app/starbusmetro/id899970416?mt=8">App Store</a> ou <a href="http://www.windowsphone.com/fr-fr/store/app/starbusm%C3%A9tro/f0e07748-4975-4ec4-935a-77868aff865b">Windows Phone</a>
+						<?php echo _("Yes ! Votre boîte est fonctionnelle et commence à afficher des informations ! Pour la configurer, veuillez télécharger l'application StarBusMétro sur"); ?> <a href="https://play.google.com/store/apps/details?id=com.bookbeo.starbusmetro">Google Play</a> <?php echo _("ou"); ?> <a href="https://itunes.apple.com/fr/app/starbusmetro/id899970416?mt=8">App Store</a>
 						<div class="row">
 							<img class="img-polaroid" style="width: 288px;" src="templates/images/step8.gif">
 						</div>
