@@ -88,6 +88,9 @@
 					<h1><?php echo _("Introduction"); ?></h1>
 				</div>
 				<p class="lead"><?php echo _("Les boîtes STAR sont des petites horloges connectées qui affichent des informations de mobilité provenant d'Internet."); ?></p>
+				<div class="row">
+					<img class="img-polaroid" style="width: 388px;" src="templates/images/packshot.JPG">
+				</div>
 			</section>
 			<section id="userguide">
 				<div class="page-header">
