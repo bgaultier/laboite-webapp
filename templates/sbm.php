@@ -6,11 +6,6 @@
 			$(this).remove();
 		});
 
-		function set_station_input(element, stop) {
-			$(element).buttonMarkup({theme: 'b'});
-			$('#stop').val(stop);
-		}
-
 		function find_station_action(name) {
 			$.mobile.loading('show');
 
@@ -21,9 +16,12 @@
 				$.mobile.loading('hide');
 				$('#stations').hide();
 				departures = $('#departures');
+				departures.append("<legend id=\"stop-legend\"><?php echo _("Veuillez sélectionner une direction pour cet arrêt :"); ?></legend>");
 				$.each(data, function( key, value ) {
-					departures.append('<a href="#" class="ui-btn ui-icon-check ui-btn-icon-left" onclick="set_station_input(this,' + value['stop'] + ')">' + value['nomcourtligne'] + ' - ' + key + '</a>');
+					var id = '"radio-' + value['stop'] + value['nomcourtligne'] +'"';
+					departures.append('<input type="radio" name="stop" id=' + id + ' value="' + value['stop'] + '"><label for=' + id +'>' + value['nomcourtligne'] + ' - ' + key + '</label>');
 				});
+				departures.trigger("create");
 			});
 		}
 
@@ -35,7 +33,7 @@
 	<?php if($update_message) { ?>
 		<button id="update-btn" type="button" class="ui-btn ui-icon-delete ui-btn-icon-right"><?php echo _('Vos mises à jour ont bien été prises en compte et seront effectives dans quelques instants.'); ?></button>
 	<?php } ?>
-	<form method="post" accept-charset="utf-8" data-ajax="false">
+	<form method="post" action="/boites/<?php echo $device['apikey']; ?>" accept-charset="utf-8" data-ajax="false">
 		<h2><?php echo _('Nom de la boîte'); ?></h2>
 		<input id="id" type="hidden" name="id" value="<?php echo $device['id']; ?>">
 		<input id="name" type="text" name="name" class="input-large" value="<?php echo $device['name']; ?>">
@@ -163,11 +161,8 @@
 		  <option value="VU" <?php if($parking == "VU") echo " selected=\"selected\""; ?>>Villejean-Université</option>
 		</select>
 		<h2><?php echo _('Arrêt de Bus'); ?></h2>
-		<?php if($stop_is_set) { ?>
-			<a id="reset-btn" href="/reset?apikey=<?php echo $device['apikey']; ?>" class="ui-btn ui-icon-recycle ui-btn-icon-left"><?php echo _('Arrêt') . " " . $stop_name; ?></a>
-		<?php } else { ?>
 		<div id="stations-search" class="ui-filterable">
-			<input id="inset-autocomplete-input" onclick="show_stations()" name="stop" data-type="search" placeholder="<?php echo _("Nom de l'arrêt"); ?>">
+			<input id="inset-autocomplete-input" onclick="show_stations()" data-type="search" placeholder="<?php echo _("Nom de l'arrêt"); ?>">
 		</div>
 		<ul id="stations" data-role="listview" data-inset="true" data-filter="true" data-filter-reveal="true" data-input="#inset-autocomplete-input">
 		    <li><a onclick="find_station_action(this.innerHTML)" href="#">25 Fusillés</a></li>
@@ -871,10 +866,11 @@
 		    <li><a onclick="find_station_action(this.innerHTML)" href="#">ZA Saint-Sulpice</a></li>
 		    <li><a onclick="find_station_action(this.innerHTML)" href="#">ZI Ouest</a></li>
 		</ul>
-		<div id="departures">
-		</div>
-		<?php } ?>
-		<input id="stop" type="hidden" name="stop" value="<?php echo $stop; ?>">
+		<fieldset  id="departures" data-role="controlgroup">
+			<?php if($stop_is_set) { ?>
+				<input type="radio" name="stop" id="radio-<?php echo $stop; ?>"; value="<?php echo $stop; ?>" checked="checked"><label for="radio-<?php echo $stop; ?>"><?php echo _('Arrêt') . " " . $stop_name; ?></label>
+			<?php } ?>
+	   </fieldset>
 		<br>
 		<input data-theme="b" data-icon="check" type="submit" value="<?php echo _('Enregistrer'); ?>">
 	</form>

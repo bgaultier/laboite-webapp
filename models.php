@@ -196,6 +196,17 @@
     return $result;
   }
 
+  function delete_device_app($deviceid, $appid)
+  {
+    $link = open_database_connection();
+    $query = "DELETE FROM device_apps WHERE deviceid = $deviceid AND appid = $appid LIMIT 1";
+    $result = mysql_query($query, $link);
+
+    close_database_connection($link);
+
+    return $result;
+  }
+
   function add_device($creator, $name, $location)
   {
     $link = open_database_connection();
@@ -377,19 +388,6 @@
     $query = "UPDATE user_apps SET stop ='" . mysql_real_escape_string($stop) .
                                "', station ='" . mysql_real_escape_string($station) .
                                "', parking ='" . mysql_real_escape_string($parking) . "' WHERE userid=$userid";
-    $result = mysql_query($query);
-
-    close_database_connection($link);
-
-    return $result;
-  }
-
-  function reset_sbm_stop($userid)
-  {
-    $link = open_database_connection();
-
-    $userid = intval($userid);
-    $query = "UPDATE user_apps SET stop = NULL WHERE appid = 14 AND userid=$userid LIMIT 1";
     $result = mysql_query($query);
 
     close_database_connection($link);
