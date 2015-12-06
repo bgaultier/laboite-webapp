@@ -19,6 +19,7 @@
 		$tweet = strstr($tweet, "Ligne");
 		$tweet = str_replace("starbusmetro (@starbusmetro) ", "", $tweet);
 		$tweet = str_replace(',', "", $tweet);
+		$tweet = str_replace('#Rennes', "", $tweet);
 		return $tweet;
 	}
 ?>

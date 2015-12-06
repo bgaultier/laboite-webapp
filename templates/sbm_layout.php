@@ -22,7 +22,7 @@
 		}
 	</style>
 
-	<div data-role="page">
+	<div>
 		<div role="main" class="ui-content">
 			<?php echo $content; ?>
 		</div><!-- /content -->

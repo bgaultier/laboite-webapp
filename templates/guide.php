@@ -228,11 +228,11 @@
 						<span class="label label-warning"><?php echo _("Attention"); ?></span> <?php echo _("Si le téléversement échoue, veuillez installer ces pilotes"); ?> <a href="ch341ser_mac.zip">Mac</a> <?php echo _("ou"); ?> <a href="CH341SER.EXE">Windows</a>
 					</li>
 					<li style="margin-top:8px;">
-						<div><?php echo _("Téléchargez la librairie ht1632c puis décompresser le contenu de l'archive dans votre répertoire Arduino"); ?> <code>/libraries</code></div>
+						<div><?php echo _("Téléchargez la librairie ht1632c puis décompressez le contenu de l'archive dans votre répertoire Arduino"); ?> <code>/libraries</code></div>
 						<a class="btn btn-mini btn-primary" href="ht1632c.zip"><i class=" icon-download icon-white"></i> <?php echo _("ht1632c.zip"); ?></a>
 					</li>
 					<li>
-						<div><?php echo _("Téléchargez le croquis Arduino puis décompresser le contenu de l'archive dans votre répertoire Arduino (le répertoire laboite-master devra être renommé en laboite)"); ?></div>
+						<div><?php echo _("Téléchargez le croquis Arduino puis décompressez le contenu de l'archive dans votre répertoire Arduino (le répertoire laboite-master devra être renommé en laboite)"); ?></div>
 						<a class="btn btn-mini btn-primary" href="https://github.com/bgaultier/laboite/archive/master.zip"><i class=" icon-download icon-white"></i> <?php echo _("laboite.ino"); ?></a>
 						<div><?php echo _("Votre répertoire Arduino devrait ressembler à quelque chose comme cela :"); ?></div>
 						<div class="row">

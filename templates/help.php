@@ -189,11 +189,11 @@
 						<span class="label label-warning"><?php echo _("Attention"); ?></span> <?php echo _("Si le téléversement échoue, veuillez installer ces pilotes"); ?> <a href="ch341ser_mac.zip">Mac</a> <?php echo _("ou"); ?> <a href="CH341SER.EXE">Windows</a>
 					</li>
 					<li style="margin-top:8px;">
-						<div><?php echo _("Téléchargez la librairie ht1632c puis décompresser le contenu de l'archive dans votre répertoire Arduino"); ?> <code>/libraries</code></div>
+						<div><?php echo _("Téléchargez la librairie ht1632c puis décompressez le contenu de l'archive dans votre répertoire Arduino"); ?> <code>/libraries</code></div>
 						<a class="btn btn-mini btn-primary" href="ht1632c.zip"><i class=" icon-download icon-white"></i> <?php echo _("ht1632c.zip"); ?></a>
 					</li>
 					<li>
-						<div><?php echo _("Téléchargez le croquis Arduino puis décompresser le contenu de l'archive dans votre répertoire Arduino (le répertoire laboite-master devra être renommé en laboite)"); ?></div>
+						<div><?php echo _("Téléchargez le croquis Arduino puis décompressez le contenu de l'archive dans votre répertoire Arduino (le répertoire laboite-master devra être renommé en laboite)"); ?></div>
 						<a class="btn btn-mini btn-primary" href="https://github.com/bgaultier/laboite/archive/master.zip"><i class=" icon-download icon-white"></i> <?php echo _("laboite.ino"); ?></a>
 						<div><?php echo _("Votre répertoire Arduino devrait ressembler à quelque chose comme cela :"); ?></div>
 						<div class="row">
@@ -248,15 +248,21 @@
 					</li>
 					<li class="thumbnail" style="width : 92px; text-align:center;">
 						<div style="height : 40px;">
-							<img style="display: block; margin-left: auto; margin-right: auto;" src="templates/images/apps/icon-buses.svg" >
+							<img style="display: block; margin-left: auto; margin-right: auto;" src="templates/images/apps/icon-metro.svg" >
 						</div>
-						<small><?php echo _("<strong>Bus</strong><br> affiche les minutes avant le passage d'un bus"); ?></small>
+						<small><?php echo _("<strong>Métro</strong><br> affiche l'état du réseau métro STAR"); ?></small>
 					</li>
 					<li class="thumbnail" style="width : 92px; text-align:center;">
 						<div style="height : 40px;">
 							<img style="display: block; margin-left: auto; margin-right: auto;" src="templates/images/apps/icon-waves.svg" >
 						</div>
 						<small><?php echo _("<strong>Vagues</strong><br> affiche les conditions d'un spot"); ?></small>
+					</li>
+					<li class="thumbnail" style="width : 92px; text-align:center;">
+						<div style="height : 40px;">
+							<img style="display: block; margin-left: auto; margin-right: auto;" src="templates/images/apps/icon-calendar.svg" >
+						</div>
+						<small><?php echo _("<strong>Calendrier</strong><br> affiche votre prochain rendez-vous"); ?></small>
 					</li>
 				</ul>
 				<div id="apps-accordion">
@@ -303,7 +309,7 @@
 									<p><strong><?php echo _("Paramètres : "); ?></strong><?php echo _('N° arrêt de bus (Timeo)'); ?>, <?php echo _('N° ligne de bus'); ?>, <?php echo _('Direction'); ?></p>
 									<p><strong><?php echo _("Valeur : "); ?></strong> <?php echo _('permet de spécifier votre arrêt de bus. Nous vous invitons à consulter le site <a href="http://m.starbusmetro.fr/">m.starbusmetro.fr</a> puis indiquez le nom de votre arrêt. Choississez ensuite votre direction et votre ligne. Enfin reprenez les éléments indiqués dans l\'url du site dans les paramètres comme indiqué ci-dessous :'); ?></p>
 									<code style="font-size: 14px;" class="muted">http://m.starbusmetro.fr/arret/<span class="text-warning">1176</span>/<span class="text-error">4</span>/<span class="text-info">0</span></code>
-									<p style="margin-top : 16px; " class="text-warning"><?php echo _('N° arrêt de bus (Timeo)'); ?>, <?php echo _('N° ligne de bus'); ?>, <?php echo _('Direction'); ?></p>
+									<p style="margin-top : 16px; " class="text-warning"><?php echo _('N° arrêt de bus (Timeo)'); ?></p>
 									<p class="text-error"><?php echo _('N° ligne de bus'); ?></p>
 									<p class="text-info"><?php echo _('Direction'); ?></p>
 									<p><strong><?php echo _("Exemple : "); ?></strong><?php echo _('Pour l\'arrêt Beaulieu Insa de la ligne 4, les paramètres seront les suivants : <span class="text-warning">1176 (N° arrêt de bus)</span>, <span class="text-error">4 (N° ligne de bus)</span>, <span class="text-info">0 (Direction)</span>.'); ?></p>
@@ -379,7 +385,7 @@
 							<div style="height: 0px;" id="<?php echo strtolower($apps[7]["name_en_US"]); ?>" class="accordion-body collapse">
 								<div class="accordion-inner">
 									<p><strong><?php echo _("Description : "); ?></strong> <?php echo $apps[7]['description_' . getenv('LANG')]; ?></p>
-									<p><strong><?php echo _("Paramètres : "); ?></strong> <?php echo _('Identifiant'); ?></p>
+									<p><strong><?php echo _("Paramètre : "); ?></strong> <?php echo _('Identifiant'); ?></p>
 									<p><strong><?php echo _("Valeur : "); ?></strong> <?php echo _('permet de spécifier votre identifiant utilisateur sur <a href="http://laclef.cc/kfet#api">api.laclef.cc</a>.'); ?></p>
 								</div>
 							</div>
@@ -420,8 +426,68 @@
 							<div style="height: 0px;" id="<?php echo strtolower($apps[10]["name_en_US"]); ?>" class="accordion-body collapse">
 								<div class="accordion-inner">
 									<p><strong><?php echo _("Description : "); ?></strong> <?php echo $apps[10]['description_' . getenv('LANG')]; ?></p>
-									<p><strong><?php echo _("Paramètres : "); ?></strong> <?php echo _('Adresse URL de votre agenda privé'); ?></p>
+									<p><strong><?php echo _("Paramètre : "); ?></strong> <?php echo _('Adresse URL de votre agenda privé'); ?></p>
 									<p><strong><?php echo _("Valeur : "); ?></strong> <?php echo _("permet de spécifier l'adresse de votre agenda privé (iCal uniquement). Pour savoir comment trouver cette URL, nous vous invitons à consulter l'aide de <a href=\"https://support.google.com/calendar/answer/2465776?hl=fr\" >Google agenda</a> ou celle de <a href=\"https://fr.aide.yahoo.com/kb/SLN15901.html\">Yahoo agenda</a>. Sachez que l'app <strong>Agenda</strong> est comptatible avec tous les agendas au format <code>.ics</code>."); ?></p>
+								</div>
+							</div>
+						</div>
+						<div class="accordion-group">
+							<div class="accordion-heading">
+								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#<?php echo strtolower($apps[11]["name_en_US"]); ?>">
+									<?php echo $apps[11]["name_fr_FR"]; ?>
+								</a>
+							</div>
+							<div style="height: 0px;" id="<?php echo strtolower($apps[11]["name_en_US"]); ?>" class="accordion-body collapse">
+								<div class="accordion-inner">
+									<p><strong><?php echo _("Description : "); ?></strong> <?php echo $apps[11]['description_' . getenv('LANG')]; ?></p>
+									<p><strong><?php echo _("Paramètre : "); ?></strong><?php echo _("Nom du parc relais"); ?></p>
+									<p><strong><?php echo _("Valeur : "); ?></strong> <?php echo _("permet de sélectionner l'un des parcs relais STAR"); ?></p>
+									<p><strong><?php echo _("Défaut : "); ?></strong><?php echo _("Henri Fréville"); ?></p>
+								</div>
+							</div>
+						</div>
+						<div class="accordion-group">
+							<div class="accordion-heading">
+								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#<?php echo strtolower($apps[12]["name_en_US"]); ?>">
+									<?php echo $apps[12]["name_fr_FR"]; ?>
+								</a>
+							</div>
+							<div style="height: 0px;" id="<?php echo strtolower($apps[12]["name_en_US"]); ?>" class="accordion-body collapse">
+								<div class="accordion-inner">
+									<p><strong><?php echo _("Description : "); ?></strong> <?php echo $apps[12]['description_' . getenv('LANG')]; ?></p>
+									<p><strong><?php echo _("Paramètre : "); ?></strong><?php echo _("Aucun (Toutes les anomalies du réseau de métro sont remontées)"); ?></p>
+								</div>
+							</div>
+						</div>
+						<div class="accordion-group">
+							<div class="accordion-heading">
+								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#stop">
+									<?php echo $apps[13]['name_' . getenv('LANG')]; ?>
+								</a>
+							</div>
+							<div style="height: 0px;" id="stop" class="accordion-body collapse">
+								<div class="accordion-inner">
+									<p><strong><?php echo _("Description : "); ?></strong> <?php echo $apps[13]['description_' . getenv('LANG')]; ?></p>
+									<p><strong><?php echo _("Paramètre : "); ?></strong><?php echo _('N° arrêt de bus (Timeo)'); ?></p>
+									<p><strong><?php echo _("Valeur : "); ?></strong> <?php echo _('permet de spécifier votre arrêt de bus. Nous vous invitons à consulter le site <a href="http://m.starbusmetro.fr/">m.starbusmetro.fr</a> puis indiquez le nom de votre arrêt. Choississez ensuite votre direction et votre ligne. Enfin reprenez le numéro de l\'arrêt indiqués dans l\'url du site :'); ?></p>
+									<code style="font-size: 14px;" class="muted">http://m.starbusmetro.fr/arret/<span class="text-warning">1176</span>/<span class="text-error">4</span>/<span class="text-info">0</span></code>
+									<p style="margin-top : 16px; " class="text-warning"><?php echo _('N° arrêt de bus (Timeo)'); ?>, <?php echo _('N° ligne de bus'); ?>, <?php echo _('Direction'); ?></p>
+									<p class="text-error"><?php echo _('N° ligne de bus'); ?></p>
+									<p class="text-info"><?php echo _('Direction'); ?></p>
+									<p><strong><?php echo _("Exemple : "); ?></strong><?php echo _('Pour l\'arrêt Beaulieu Insa de la ligne 4, le numéro de l\'arrêt sera le suivant : <span class="text-warning">1176 (N° arrêt de bus)</span>.'); ?></p>
+								</div>
+							</div>
+						</div>
+						<div class="accordion-group">
+							<div class="accordion-heading">
+								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#tweets">
+									<?php echo $apps[14]['name_' . getenv('LANG')]; ?>
+								</a>
+							</div>
+							<div style="height: 0px;" id="tweets" class="accordion-body collapse">
+								<div class="accordion-inner">
+									<p><strong><?php echo _("Description : "); ?></strong> <?php echo $apps[14]['description_' . getenv('LANG')]; ?></p>
+									<p><strong><?php echo _("Paramètre : "); ?></strong><?php echo _("Aucun (Tous les tweets du réseau de métro sont remontées)"); ?></p>
 								</div>
 							</div>
 						</div>
