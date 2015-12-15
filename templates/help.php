@@ -76,6 +76,7 @@
 				<li><a href="#guide"><i class="icon-chevron-right"></i> <?php echo _("Guide de montage"); ?></a></li>
 				<li><a href="#apps"><i class="icon-chevron-right"></i> <?php echo _("Apps"); ?></a></li>
 				<li><a href="#api"><i class="icon-chevron-right"></i> <?php echo _("API"); ?></a></li>
+				<li><a href="#appcreator"><i class="icon-chevron-right"></i> <?php echo _("Création d'une app"); ?></a></li>
 				<li><a href="#mailinglist"><i class="icon-chevron-right"></i> <?php echo _("Liste de discussion"); ?></a></li>
 			</ul>
 		</div>
@@ -524,22 +525,85 @@
         <pre>{
   <span class="text-error">"version"</span>: <span class="text-error">"0.1"</span>,
   <span class="text-error">"time"</span>: <span class="text-error">"19:10"</span>,
-  <span class="text-error">"nextbus"</span>: <span class="text-error">"1"</span>,
+  <span class="text-error">"nextbus"</span>: <span class="text-info">1</span>,
   <span class="text-error">"weather"</span>: {
     <span class="text-error">"today"</span>: {
-      <span class="text-error">"icon"</span>: <span class="text-error">0</span>,
-      <span class="text-error">"temperature"</span>: <span class="text-error">25</span>
+      <span class="text-error">"icon"</span>: <span class="text-info">0</span>,
+      <span class="text-error">"temperature"</span>: <span class="text-info">25</span>
     },
     <span class="text-error">"tomorrow"</span>: {
-      <span class="text-error">"icon"</span>: <span class="text-error">1</span>,
-      <span class="text-error">"low"</span>: <span class="text-error">"15"</span>,
-      <span class="text-error">"high"</span>: <span class="text-error">"28"</span>
+      <span class="text-error">"icon"</span>: <span class="text-info">1</span>,
+      <span class="text-error">"low"</span>: <span class="text-info">15</span>,
+      <span class="text-error">"high"</span>: <span class="text-info">28</span>
     }
   }
 }</pre>
 				<p>
 					<?php echo _("Ces fichiers peuvent être récupérés en utilisant l'url suivante : "); ?><code><a href="http://api.<?php echo $_SERVER['SERVER_NAME'] . '/964de680.xml' ?>">http://api.<?php echo $_SERVER['SERVER_NAME'] . '/' . htmlentities('<apikey>.<xml|json>');; ?></a></code>
 				</p>
+			</section>
+			<section id="appcreator">
+			    <div class="page-header">
+			        <h1><?php echo _("Création d'une app personnalisée"); ?></h1>
+			    </div>
+			    <p><?php echo _("Le nombre d'apps affichées par votre boîte est quasi infinie. Le guide ci-dessous vous guidera dans la création d'une nouvelle app laboîte personnalisée !"); ?></p>
+			    <span class="label label-warning"><?php echo _("Attention"); ?></span> <strong><?php echo _("La section ci-dessous nécessite une bonne connaissance en développement web PHP et en développement embarqué C."); ?></strong>
+				<h2><?php echo _("Introduction et architecture"); ?></h2>
+		        <p><?php echo _("Votre boîte fonctionne de la manière suivante :"); ?></p>
+		        <ol>
+		            <li><?php echo _("Toutes les boîtes disposent d'un identifiant unique appelée clé d'API. Lorsque vous connectez votre boîte sur internet, celle-ci va alors interroger le serveur avec une requête de ce type"); ?> <span class="label label-info">GET</span> <code><a href="http://api.<?php echo $_SERVER['SERVER_NAME'] . '/964de680.json'; ?>">http://api.laboite.cc/&lt;<?php echo _("votre_clé_api&gt;"); ?>.json</a></code></li>
+		            <li><?php echo _("Si vous avez correctement configuré vos apps sur"); ?> <a href="https://www.<?php echo $_SERVER['SERVER_NAME'] . '/apps'; ?>">https://<?php echo $_SERVER['SERVER_NAME']; ?>/apps</a><?php echo _(", votre boîte devrait recevoir un fichier json de ce type :"); ?></li>
+		            <li><?php echo _("Ce fichier contient toutes les informations (au format json) qui vont être analysées puis affichées par votre boîte"); ?></li>
+		            <li><?php echo _("Dans les sections ci-dessous, nous verrons comment créer une app web (en PHP) puis nous détaillerons le développement nécessaire à la partie Arduino (en langage C)"); ?></li>
+		        </ol>
+			    <h2><?php echo _("Création d'un app (partie web en PHP)"); ?></h2>
+		        <p><?php echo _("Voici les étapes de création d'une app en PHP : "); ?></p>
+		        <ol>
+		            <li><?php echo _("Commencez par isoler la donnée que vous souhaiteriez afficher, cela peut être une donnée provenant d'une page web ou d'une API"); ?></li>
+		            <li><?php echo _("Nous prendrons pour exemple les données ouvertes du réseau STAR, plus particulièrement nous chercherons à afficher sur notre boîte le nombre de vélos disponibles à la station Place de Bretagne"); ?></li>
+		            <li><?php echo _("La documentation présente sur le site"); ?> <a href="https://data.explore.star.fr/explore/dataset/vls-stations-etat-tr/">https://data.explore.star.fr/</a> <?php echo _("nous indique que l'url permettant de récupérer les données liées à la station Place de Bretagne est la suivante "); ?> <span class="label label-info">GET</span> <code><a href="https://data.explore.star.fr/explore/dataset/vls-stations-etat-tr/api/?refine.nom=Place+de+Bretagne">https://data.explore.star.fr/explore/dataset/vls-stations-etat-tr/api/?refine.nom=Place+de+Bretagne</a></code></li>
+					<li><?php echo _("Si vous tapez cette url dans votre navigateur, vous devriez obtenir un fichier qui ressemble à cela :"); ?><pre>{
+<span class="text-error">"records"</span>: [
+    {
+      <span class="text-error">"datasetid"</span>: <span class="text-error">"vls-stations-etat-tr"</span>,
+      <span class="text-error">"fields"</span>: {
+        <span class="text-error">"coordonnees"</span>: [
+          <span class="text-info">48.1096206</span>,
+          <span class="text-info">-1.684018814</span>
+        ],
+        <span class="text-error">"etat"</span>: <span class="text-error">"En fonctionnement"</span>,
+        <span class="text-error">"idstation"</span>: <span class="text-info">24</span>,
+        <span class="text-error">"lastupdate"</span>: <span class="text-error">"2015-12-14T11:20:04+00:00"</span>,
+        <span class="text-error">"nom"</span>: <span class="text-error">"Place de Bretagne"</span>,
+        <span class="text-error">"nombreemplacementsactuels"</span>: <span class="text-info">20</span>,
+        <span class="text-error">"nombreemplacementsdisponibles"</span>: <span class="text-info">3</span>,
+        <span class="label label-warning" style="color : black; text-shadow: none;"><span class="text-error">"nombrevelosdisponibles"</span>: <span class="text-info">17</span></span>
+      },
+      <span class="text-error">"geometry"</span>: {
+        <span class="text-error">"coordinates"</span>: [
+          <span class="text-info">-1.684018814</span>,
+          <span class="text-info">48.1096206</span>
+        ],
+        <span class="text-error">"type"</span>: <span class="text-error">"Point"</span>
+      },
+      <span class="text-error">"record_timestamp"</span>: <span class="text-error">"2015-12-14T11:20:00+00:00"</span>,
+      <span class="text-error">"recordid"</span>: <span class="text-error">"03bd9f7320deca7e70c171d1a1a14224c446698b"</span>
+    }
+  ]
+}</pre></li>
+					<li><?php echo _("Nous avons surligner ci-dessus l'information pertinente que nous souhaiterions envoyer à laboîte. Il ne nous reste plus maintenant qu'à récupérer cette valeur en PHP puis à déployer cette app sur notre serveur. Pour ce faire, télécharger le fichier"); ?> <a href="https://github.com/bgaultier/laboite-webapp/blob/master/api/app16.php">suivant</a> :<script src="https://gist.github.com/bgaultier/1a4dc1e9f6db5ca49d49.js"></script></li>
+					<li><?php echo _("Si vous souhaitez tester cette app, nous vous invitons à installer PHP sur votre ordinateur en suivant ce"); ?> <a href="http://php.net/manual/fr/install.php">guide</a></li>
+					<li><?php echo _("Une fois la partie web créée, la donnée va pouvoir être analysée et affichée par laboîte (ceci est décrit dans la section suivante)"); ?></li>
+				</ol>
+				<h2><?php echo _("Création d'un app (partie Arduino en C)"); ?></h2>
+		        <p><?php echo _("Une fois la donnée envoyée par le code PHP décrit ci-dessus, nos prochaines étapes vont porter sur le traitement et l'affichage de cette donnée par laboîte :"); ?></p>
+				<ol>
+					<li><?php echo _("Tout d'abord, reprenez les étapes 6 à 14 du"); ?> <a href="#guide"><?php echo _("guide de montage"); ?></a></li>
+					<li><?php echo _("Une fois votre boîte fonctionnelle, ouvrez le fichier laboiteLib.ino et ajoutez le code suivant dans la fonction <code>parseJSON()</code>"); ?><script src="https://gist.github.com/bgaultier/721b1246f02badd530a2.js"></script></li>
+					<li><?php echo _("Ce code permet de récupérer la valeur envoyée par le serveur et de la stocker dans une variable appelée <code>bikes</code>"); ?></li>
+					<li><?php echo _("Reste maintenant à afficher cette variable sur notre matrice de LED laboîte. Pour ce faire, nous vous invitons à ajouter le code suivant dans le fichier laboiteLib.ino :"); ?><script src="https://gist.github.com/bgaultier/e63d3192f07e95c9e420.js"></script></li>
+					<li><?php echo _("Une fois cette modification effectuée, vous pouvez téléverser votre nouveau programme dans votre boîte et voir le résultat"); ?></li>
+					<li><?php echo _("N'hésitez pas à nous envoyer vos contributions en utilisant l'"); ?><a href="https://github.com/bgaultier/laboite-webapp/pulls"><?php echo _("outil"); ?></a> <?php echo _("prévu à cet effet, si votre application est approuvée alors celle-ci sera déployée sur notre serveur officiel"); ?> <a href="https://www.<?php echo $_SERVER['SERVER_NAME']; ?>"><?php echo $_SERVER['SERVER_NAME']; ?></a></li>
 			</section>
 			<section id="mailinglist">
 				<div class="page-header">
