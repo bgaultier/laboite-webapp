@@ -18,8 +18,8 @@
 				departures = $('#departures');
 				departures.append("<legend id=\"stop-legend\"><?php echo _("Veuillez sélectionner une direction pour cet arrêt :"); ?></legend>");
 				$.each(data, function( key, value ) {
-					var id = '"radio-' + value['stop'] + value['nomcourtligne'] +'"';
-					departures.append('<input type="radio" name="stop" id=' + id + ' value="' + value['stop'] + '"><label for=' + id +'>' + value['nomcourtligne'] + ' - ' + key + '</label>');
+					var id = '"radio-' + value['stop'] + value['nomcourtligne'] + key.charAt(0) +'"';
+					departures.append('<input type="checkbox" name="stop" id=' + id + ' value="' + value['stop'] + '"><label for=' + id +'>' + value['nomcourtligne'] + ' - ' + key + '</label>');
 				});
 				departures.trigger("create");
 			});
