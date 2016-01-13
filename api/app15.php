@@ -1,25 +1,38 @@
 <?php
-	$filename = "twitter.html";
-	if (!file_exists($filename) || ($now - filemtime($filename)) > 5*60 )
-		copy("http://m.starbusmetro.fr/tweets/lignes", $filename);
+	$filename = "twitter.json";
+	if (!file_exists($filename) || ($now - filemtime($filename)) > 5*60 ) {
+		include_once('TwitterAPIExchange.php');
 
-	$doc = new DOMDocument();
-	@$doc->loadHTMLFile($filename);
+	   $settings = array(
+	                  'oauth_access_token' => "",
+	                  'oauth_access_token_secret' => "",
+	                  'consumer_key' => "",
+	                  'consumer_secret' => ""
+	   );
 
-	$tweets = $doc->getElementById('tweets')->childNodes;
-	foreach ($tweets as $tweet) {
-		setlocale(LC_ALL, 'en_US');
-		$data["messages"] = clean_tweet($tweet->nodeValue);
-		break;
+	   $url = "https://api.twitter.com/1.1/search/tweets.json";
+	   $requestMethod = 'GET';
+
+	   $twitter = new TwitterAPIExchange($settings);
+	   $getfield = '?q=%23InfoTrafic %23Rennes&count=1&result_type=recent';
+		file_put_contents($filename, $twitter->setGetfield($getfield)->buildOauth($url, $requestMethod)->performRequest());
 	}
+	$json_string = file_get_contents($filename);
 
-	function clean_tweet($tweet) {
+	$parsed_json = json_decode($json_string);
+   $status = $parsed_json->{'statuses'}[0]->{'text'};
+
+	if(isset($status))
+      $data["messages"] = clean_tweet($status);
+
+   function clean_tweet($tweet) {
 		setlocale(LC_ALL, 'en_US');
 		$tweet = iconv('UTF-8', 'ASCII//TRANSLIT', $tweet);
-		$tweet = strstr($tweet, "Ligne");
-		$tweet = str_replace("starbusmetro (@starbusmetro) ", "", $tweet);
 		$tweet = str_replace(',', "", $tweet);
 		$tweet = str_replace('#Rennes', "", $tweet);
+      $tweet = str_replace('#infotrafic', "", $tweet);
+      $tweet = str_replace('#Infotrafic', "", $tweet);
+      $tweet = preg_replace("@(https?://([-\w\.]+[-\w])+(:\d+)?(/([\w/_\.#-]*(\?\S+)?[^\.\s])?).*$)@", '', $tweet);
 		return $tweet;
 	}
 ?>

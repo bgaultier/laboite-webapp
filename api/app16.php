@@ -18,7 +18,7 @@
 	$bikes_available = $records->{'nombrevelosdisponibles'};
 
 	if(isset($bikes_available))
-		$data["$bikes_available"] = (int)$bikes_available;
+		$data["bikes"] = (int)$bikes_available;
 
 	// echo the info
 	echo "Rides available at Place de Bretagne station : $bikes_available\n";
