@@ -1,6 +1,7 @@
 <?php $title = _("Guide - laboîtestar.fr"); ?>
 
 <?php ob_start() ?>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<style>
 		/* Sidenav */
 		.bs-docs-sidenav {
@@ -97,9 +98,10 @@
 					<h1><?php echo _("Guide d'utilisation"); ?></h1>
 				</div>
 				<p><?php echo _("Votre boîte est un équipement autonome qui a besoin d'être alimenté et raccordé à Internet. Pour utiliser votre boîte, veuillez suivre les instructions suivantes :"); ?></p>
+				<h2><?php echo _("Instructions pour la version Ethernet"); ?></h2>
 				<ol>
 					<li>
-						<?php echo _("Raccordez votre boîte à Internet. Pour cela, branchez un câble réseau entre votre box internet et votre boîte (le port Ethernet est situé sur le côté droit)."); ?>
+						<?php echo _("Raccordez votre boîte à Internet. Pour cela, branchez un câble réseau entre votre box internet et votre boîte (le port Ethernet est situé sur le côté droit)"); ?>
 						<div class="row">
 							<img class="img-polaroid" style="width: 288px;" src="templates/images/step6.gif">
 						</div>
@@ -117,7 +119,53 @@
 						</div>
 					</li>
 					<li>
-						<?php echo _("Lancez l'app <strong>StarBusMétro</strong> puis, dans le menu latéral, sélectionnez <strong>Scannez un QR code</strong>. Un message <strong>Appairage réussi</strong> apparaît."); ?>
+						<?php echo _("Lancez l'app <strong>StarBusMétro</strong> puis, dans le menu latéral, sélectionnez <strong>Scannez un QR code</strong>. Un message <strong>Appairage réussi</strong> apparaît !"); ?>
+						<div class="row">
+							<img class="img-polaroid" style="height: 280px;" src="templates/images/step4a.png">
+							<img class="img-polaroid" style="height: 280px;" src="templates/images/step4b.png">
+						</div>
+					</li>
+					<li>
+						<?php echo _("Vous pouvez alors configurer à volonté votre boîte. Cliquez sur <strong>Enregister</strong> et votre boîte se met à jour au bout de quelques instants"); ?>
+					</li>
+				</ol>
+				<h2><?php echo _("Instructions pour la version Wifi"); ?></h2>
+				<p><?php echo _("Pour connecter votre boîte à Internet, vous aurez besoin d'un téléphone iOS ou Android, de votre boîte Wifi et d'un câble USB"); ?></p>
+				<ol>
+					<li>
+						<?php echo _("Pour que votre boîte se connecte au Wifi, il faut lui indiquer le nom et le mot de passe de votre réseau. Pour cela, vous aurez d'installer l'app Apiara disponible ci-dessous :"); ?><br>
+						<a class="btn" href="https://itunes.apple.com/us/app/apiara-blinkup/id928892745?mt=8"><i class="fa fa-apple"></i> App store</a>
+						<a class="btn" href="https://play.google.com/store/apps/details?id=com.electricimp.electricimp&hl=fr"><i class="fa fa-android"></i> Google Play</a>
+					</li>
+					<li>
+						<?php echo _("Une fois installée, lancez l'app et indiquez le nom de votre réseau ainsi que la clé Wifi (ces informations sont souvent indiqués derrière votre box internet) et passez à l'étape suivante (sans appuyez sur <em>Send Blinkup</em>)"); ?>
+						<div class="row">
+							<img class="img-polaroid" style="width: 288px;" src="templates/images/step1w.png">
+						</div>
+					</li>
+					<li>
+						<?php echo _("Branchez électriquement votre boîte en utilisant le câble USB. Une fois alimentée, une lumière rouge clignotante peut être observée par la fente située à l'arrière de votre boîte"); ?>
+					</li>
+					<li>
+						<?php echo _("Introduisez alors le haut de votre téléphone dans la fente arrière de la boîte (avec l'écran du téléphone dirigé vers la prise USB) et appuyez sur <em>Send Blinkup</em>"); ?>
+					</li>
+					<li>
+						<?php echo _("Après un décompte de 3 secondes, l'écran de votre téléphone va émettre une suite de flashs blancs à destination du module wifi qui devrait émettre une lumière verte au bout de quelques instants"); ?>
+						<div class="row">
+							<img class="img-polaroid" style="width: 288px;" src="templates/images/step2w.png">
+						</div>
+					</li>
+					<li>
+						<?php echo _("Une fois ces étapes effectuées, votre boîte se connectera au réseau wifi que vous lui avez indiquer. Si vous souhaitez changer ce réseau, nous vous invitons à débrancher votre boîte et à reprendre à l'étape 1 ci-dessus"); ?>
+					</li>
+					<li>
+						<?php echo _("Yes ! Votre boîte est fonctionnelle et commence à afficher des informations ! Pour la configurer, veuillez télécharger l'application StarBusMétro sur"); ?> <a href="https://play.google.com/store/apps/details?id=com.bookbeo.starbusmetro">Google Play</a> <?php echo _("ou"); ?> <a href="https://itunes.apple.com/fr/app/starbusmetro/id899970416?mt=8">App Store</a>
+						<div class="row">
+							<img class="img-polaroid" style="width: 288px;" src="templates/images/step8.gif">
+						</div>
+					</li>
+					<li>
+						<?php echo _("Lancez l'app <strong>StarBusMétro</strong> puis, dans le menu latéral, sélectionnez <strong>Scannez un QR code</strong>. Un message <strong>Appairage réussi</strong> apparaît !"); ?>
 						<div class="row">
 							<img class="img-polaroid" style="height: 280px;" src="templates/images/step4a.png">
 							<img class="img-polaroid" style="height: 280px;" src="templates/images/step4b.png">
